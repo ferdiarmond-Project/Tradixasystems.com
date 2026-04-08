@@ -31,8 +31,8 @@ export default function Showcase() {
         <div className="relative w-full mt-4 lg:mt-8 overflow-hidden lg:overflow-visible">
 
           {/* Responsive Layout — locked horizontally, perfectly positioned */}
-          <div className="w-full flex justify-center items-center py-6 px-4 md:px-8">
-            <div className="relative z-30 w-full max-w-[1200px] xl:scale-105 mx-auto animate-float-slow lg:-translate-x-12 xl:-translate-x-16">
+          <div className="w-full flex justify-center items-center py-6">
+            <div className="relative z-30 w-[180%] md:w-full max-w-none md:max-w-[1200px] ml-[-40%] md:ml-0 lg:scale-100 xl:scale-105 animate-float-slow lg:-translate-x-12 xl:-translate-x-16">
               <Image
                 src="/mockup_iphone_ipad_mac_PHAL.png"
                 alt="Tradixa Complete System Mockup"

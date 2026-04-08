@@ -2,7 +2,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
-import { ChevronDown, Menu, X } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { ChevronDown, Menu, X, User, LogOut } from "lucide-react";
+import { supabase } from "@/lib/supabase";
+import { User as SupabaseUser } from "@supabase/supabase-js";
 
 const readySolutionsItems = [
   { label: "ERP Mining System", href: "/ready-solutions/erp-mining" },
@@ -12,8 +15,12 @@ const readySolutionsItems = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [profileDropdownOpen, setProfileDropdownOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [user, setUser] = useState<SupabaseUser | null>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const profileDropdownRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 20);
@@ -21,20 +28,45 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handler);
   }, []);
 
-  // Close dropdown on outside click
+  // Close dropdowns on outside click
   useEffect(() => {
     const handleClick = (e: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
         setDropdownOpen(false);
+      }
+      if (profileDropdownRef.current && !profileDropdownRef.current.contains(e.target as Node)) {
+        setProfileDropdownOpen(false);
       }
     };
     document.addEventListener("mousedown", handleClick);
     return () => document.removeEventListener("mousedown", handleClick);
   }, []);
 
+  useEffect(() => {
+    // Check initial session
+    const checkUser = async () => {
+      const { data: { session } } = await supabase.auth.getSession();
+      setUser(session?.user ?? null);
+    };
+    checkUser();
+
+    // Listen for auth changes
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUser(session?.user ?? null);
+    });
+
+    return () => subscription.unsubscribe();
+  }, []);
+
+  const handleLogout = async () => {
+    await supabase.auth.signOut();
+    setProfileDropdownOpen(false);
+    window.location.reload();
+  };
+
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isMobileMenuOpen ? "bottom-0 bg-[#071A2E] overflow-y-auto" : scrolled
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-white/5 ${isMobileMenuOpen ? "bottom-0 bg-[#071A2E] overflow-y-auto" : scrolled
           ? "h-24 bg-gradient-to-r from-[#071A2E] via-[#0a2a4a] to-[#123456] backdrop-blur-xl shadow-lg shadow-black/20"
           : "h-24 bg-gradient-to-r from-[#071A2E] via-[#0a2a4a] to-[#123456]"
         }`}
@@ -54,7 +86,7 @@ export default function Navbar() {
         </Link>
 
         {/* Nav Links */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden lg:flex items-center gap-6 xl:gap-8">
 
           {/* About Us — FIRST */}
           <Link href="/about" className="text-sm font-medium text-white hover:text-yellow-400 transition-colors duration-200">
@@ -128,16 +160,61 @@ export default function Navbar() {
 
         </div>
 
-        {/* CTA (Desktop only) */}
-        <div className="hidden md:block">
-          <a href="/consultation" className="bg-yellow-400 hover:bg-yellow-300 text-black text-sm font-bold px-5 py-2.5 rounded-lg transition-all duration-200 hover:shadow-lg hover:shadow-yellow-400/20 inline-block">
-            Free Consultation
-          </a>
+        {/* CTA / Auth (Desktop only) */}
+        <div className="hidden lg:flex items-center gap-4">
+          {user ? (
+            <div className="relative" ref={profileDropdownRef}>
+              <button 
+                onClick={() => setProfileDropdownOpen(!profileDropdownOpen)}
+                className="w-10 h-10 rounded-full border border-white/20 overflow-hidden hover:border-yellow-400/50 transition-all focus:outline-none"
+              >
+                {user.user_metadata?.avatar_url ? (
+                  <Image 
+                    src={user.user_metadata.avatar_url} 
+                    alt="Profile" 
+                    width={40} 
+                    height={40} 
+                    className="object-cover"
+                  />
+                ) : (
+                  <div className="w-full h-full bg-blue-600 flex items-center justify-center text-white">
+                    <User size={20} />
+                  </div>
+                )}
+              </button>
+
+              {/* Profile Dropdown */}
+              {profileDropdownOpen && (
+                <div className="absolute top-full right-0 mt-4 w-48 rounded-xl overflow-hidden shadow-2xl border border-white/10 backdrop-blur-xl bg-[#071A2E]/90 animate-fade-up">
+                  <div className="px-4 py-3 border-b border-white/5">
+                    <p className="text-xs text-gray-400 truncate">{user.email}</p>
+                  </div>
+                  <Link 
+                    href="/profile" 
+                    className="flex items-center gap-2 px-4 py-3 text-sm text-white hover:bg-white/5 transition-colors"
+                    onClick={() => setProfileDropdownOpen(false)}
+                  >
+                    <User size={16} /> Profill Saya
+                  </Link>
+                  <button 
+                    onClick={handleLogout}
+                    className="w-full flex items-center gap-2 px-4 py-3 text-sm text-red-400 hover:bg-white/5 transition-colors text-left"
+                  >
+                    <LogOut size={16} /> Keluar
+                  </button>
+                </div>
+              )}
+            </div>
+          ) : (
+            <Link href="/login" className="bg-yellow-400 hover:bg-yellow-300 text-black text-sm font-bold px-6 py-2.5 rounded-lg transition-all duration-200 hover:shadow-lg hover:shadow-yellow-400/20 inline-block active:scale-95">
+              Login
+            </Link>
+          )}
         </div>
 
         {/* Hamburger Menu Toggle (Mobile only) */}
         <button
-          className="md:hidden text-white p-2 hover:bg-white/10 rounded-lg transition-colors relative z-50"
+          className="lg:hidden text-white p-2 hover:bg-white/10 rounded-lg transition-colors relative z-50"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           {isMobileMenuOpen ? <X size={28} className="w-7 h-7" /> : <Menu size={28} className="w-7 h-7" />}
@@ -145,7 +222,7 @@ export default function Navbar() {
       </div>
       {/* Mobile Menu Content (Expands inside the Nav) */}
       {isMobileMenuOpen && (
-        <div className="md:hidden flex flex-col px-6 pb-12 animate-fade-up">
+        <div className="lg:hidden flex flex-col px-6 pb-12 animate-fade-up">
           <div className="flex flex-col gap-6 pt-4">
             <Link href="/about" className="text-xl font-medium text-white hover:text-yellow-400 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
               About Us
@@ -176,10 +253,34 @@ export default function Navbar() {
             </Link>
           </div>
 
-          <div className="mt-10">
-            <a href="/consultation" className="w-full text-center bg-yellow-400 hover:bg-yellow-300 text-black text-lg font-bold px-5 py-4 rounded-xl transition-all duration-200 block shadow-xl shadow-yellow-400/20" onClick={() => setIsMobileMenuOpen(false)}>
-              Free Consultation
-            </a>
+          <div className="mt-10 border-t border-white/5 pt-6">
+            {user ? (
+              <div className="flex flex-col gap-4">
+                <div className="flex items-center gap-3 px-2">
+                  <div className="w-12 h-12 rounded-full border border-white/20 overflow-hidden">
+                    {user.user_metadata?.avatar_url ? (
+                      <Image src={user.user_metadata.avatar_url} alt="Profile" width={48} height={48} />
+                    ) : (
+                      <div className="w-full h-full bg-blue-600 flex items-center justify-center text-white"><User size={24} /></div>
+                    )}
+                  </div>
+                  <div>
+                    <p className="text-white font-medium">{user.email?.split('@')[0]}</p>
+                    <p className="text-xs text-gray-400">{user.email}</p>
+                  </div>
+                </div>
+                <Link href="/profile" className="w-full text-center bg-white/5 text-white py-4 rounded-xl border border-white/10" onClick={() => setIsMobileMenuOpen(false)}>
+                  Profil Saya
+                </Link>
+                <button onClick={handleLogout} className="w-full text-center bg-red-500/10 text-red-400 py-4 rounded-xl border border-red-500/20">
+                  Keluar
+                </button>
+              </div>
+            ) : (
+              <Link href="/login" className="w-full text-center bg-yellow-400 hover:bg-yellow-300 text-black text-lg font-bold px-5 py-4 rounded-xl transition-all duration-200 block shadow-xl shadow-yellow-400/20" onClick={() => setIsMobileMenuOpen(false)}>
+                Login
+              </Link>
+            )}
           </div>
         </div>
       )}

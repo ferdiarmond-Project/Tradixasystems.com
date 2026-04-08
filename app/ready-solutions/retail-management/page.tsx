@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import Benefits from "@/components/Benefits";
 import BackgroundGradient from "@/components/BackgroundGradient";
 import { 
   PackageSearch, 
@@ -8,7 +9,8 @@ import {
   Calculator, 
   Users, 
   UserSquare2, 
-  CheckCircle2 
+  CheckCircle2,
+  LineChart
 } from "lucide-react";
 
 const retailModules = [
@@ -147,21 +149,55 @@ export default function RetailManagement() {
               </div>
             ))}
             
-            {/* Custom CTA Card */}
-            <div className="bg-gradient-to-br from-[#0B2545] to-[#13315C] rounded-2xl p-6 shadow-xl flex flex-col h-full justify-center text-center md:col-span-2 lg:col-span-2">
-               <h3 className="text-2xl font-bold text-white mb-4">Integrasikan Hardware Anda!</h3>
-               <p className="text-blue-100 text-sm leading-relaxed mb-6 max-w-md mx-auto">
-                 Punya sistem barcode, printer termal, atau perangkat IoT cabang yang ingin disambungkan langsung? Kami bisa mengkoneksikannya.
-               </p>
-               <a href="https://wa.me/6281383882120" target="_blank" rel="noopener noreferrer" className="bg-yellow-400 hover:bg-yellow-300 text-[#0B2545] font-bold py-3 px-6 rounded-xl transition-colors shadow-lg shadow-yellow-400/20 inline-block w-max mx-auto">
-                 Konsultasikan Solusi Retail
-               </a>
+            {/* Manfaat Card */}
+            <div className="bg-gradient-to-br from-[#0B2545] to-[#13315C] rounded-2xl p-6 shadow-xl flex flex-col h-full border border-white/5">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-10 h-10 rounded-lg bg-yellow-400/10 flex items-center justify-center text-yellow-400">
+                    <LineChart size={22} />
+                  </div>
+                  <h3 className="text-xl font-bold text-white leading-tight">Manfaat untuk Bisnis</h3>
+                </div>
+                
+                <ul className="space-y-4 mb-8 flex-1">
+                  {[
+                    "Operasional lebih terstruktur dan efisien",
+                    "Data terpusat dan mudah diakses",
+                    "Pengambilan keputusan lebih cepat",
+                    "Skalabilitas bisnis lebih siap berkembang"
+                  ].map((item, idx) => (
+                    <li key={idx} className="flex items-start gap-3 text-sm text-blue-100 font-medium leading-snug">
+                      <div className="w-1.5 h-1.5 rounded-full bg-yellow-400 mt-1.5 flex-shrink-0" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
             </div>
             
+          </div>
+
+          {/* New Positioned CTA Button */}
+          <div className="mt-8 flex justify-center md:justify-end lg:pr-0">
+             <a 
+              href="https://wa.me/6281383882120" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="w-full md:w-auto min-w-[280px] bg-[#0B2545] border border-blue-400/20 hover:bg-[#13315C] text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 shadow-xl flex items-center justify-center gap-3 group"
+             >
+               <span>Konsultasikan Sistem Ini Gratis</span>
+               <svg
+                className="w-5 h-5 group-hover:translate-x-1 transition-transform"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+             </a>
           </div>
         </div>
       </section>
 
+      <Benefits />
       <Footer />
     </>
   );

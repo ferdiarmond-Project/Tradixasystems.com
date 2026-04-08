@@ -98,10 +98,10 @@ export default function SystemTypes() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
 
           {/* LEFT — Two phones, upright, left-anchored */}
-          <div className="relative w-full h-[550px] lg:h-[780px] overflow-visible">
+          <div className="relative w-full h-[600px] lg:h-[780px] flex justify-center items-center overflow-visible">
 
-            {/* Phone 1 — back, anchored to far left edge */}
-            <div className="absolute top-1/2 -translate-y-1/2 z-10 w-[800px] lg:w-[800px] h-[520px] lg:h-[760px] left-[-180px] lg:left-[-180px]">
+            {/* Phone 1 — back */}
+            <div className="absolute top-1/2 -translate-y-1/2 z-10 w-[120%] lg:w-[800px] h-[550px] lg:h-[760px] -translate-x-[20%] lg:translate-x-0 lg:left-[-180px]">
               <Image
                 src="/mockup-system-18.png"
                 alt="Mobile App Preview"
@@ -112,8 +112,8 @@ export default function SystemTypes() {
               />
             </div>
 
-            {/* Phone 2 — front, slightly overlaps Phone 1 */}
-            <div className="absolute top-1/2 -translate-y-1/2 z-20 w-[800px] lg:w-[800px] h-[520px] lg:h-[760px] left-[-20px] lg:left-[-20px]">
+            {/* Phone 2 — front */}
+            <div className="absolute top-1/2 -translate-y-1/2 z-20 w-[120%] lg:w-[800px] h-[550px] lg:h-[760px] translate-x-[20%] lg:translate-x-0 lg:left-[-20px]">
               <Image
                 src="/mockup-system.png"
                 alt="Mobile App Preview 2"
