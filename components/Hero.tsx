@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import BackgroundGradient from "./BackgroundGradient";
 import SectionLabel from "./SectionLabel";
 import TypingHeading from "./TypingHeading";
@@ -34,7 +35,7 @@ export default function Hero() {
             </p>
 
             <div className="flex flex-wrap gap-4 mt-10">
-              <a href="https://wa.me/6281383882120" target="_blank" rel="noopener noreferrer" className="relative overflow-hidden inline-flex group items-center gap-2 bg-yellow-400 hover:bg-yellow-300 text-black font-bold px-7 py-3.5 rounded-xl transition-all duration-200 hover:shadow-xl hover:shadow-yellow-400/20 hover:-translate-y-0.5">
+              <Link href="/register" className="relative overflow-hidden inline-flex group items-center gap-2 bg-yellow-400 hover:bg-yellow-300 text-black font-bold px-7 py-3.5 rounded-xl transition-all duration-200 hover:shadow-xl hover:shadow-yellow-400/20 hover:-translate-y-0.5">
                 <span className="absolute inset-0 w-full h-full bg-white/30 -translate-x-full skew-x-[-20deg] group-hover:animate-[shimmer-sweep_1.5s_infinite]" />
                 <span className="relative flex items-center gap-2">
                   Mulai Transformasi
@@ -42,7 +43,7 @@ export default function Hero() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                   </svg>
                 </span>
-              </a>
+              </Link>
 
               <button className="border border-white/20 hover:border-white/40 text-white px-7 py-3.5 rounded-xl hover:bg-white/5 transition-all duration-200 font-medium">
                 Lihat Portfolio

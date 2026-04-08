@@ -206,8 +206,8 @@ export default function Navbar() {
               )}
             </div>
           ) : (
-            <Link href="/login" className="bg-yellow-400 hover:bg-yellow-300 text-black text-sm font-bold px-6 py-2.5 rounded-lg transition-all duration-200 hover:shadow-lg hover:shadow-yellow-400/20 inline-block active:scale-95">
-              Login
+            <Link href="/consultation" className="bg-yellow-400 hover:bg-yellow-300 text-black text-sm font-bold px-6 py-2.5 rounded-lg transition-all duration-200 hover:shadow-lg hover:shadow-yellow-400/20 inline-block active:scale-95">
+              Free Consultation
             </Link>
           )}
         </div>
@@ -277,8 +277,8 @@ export default function Navbar() {
                 </button>
               </div>
             ) : (
-              <Link href="/login" className="w-full text-center bg-yellow-400 hover:bg-yellow-300 text-black text-lg font-bold px-5 py-4 rounded-xl transition-all duration-200 block shadow-xl shadow-yellow-400/20" onClick={() => setIsMobileMenuOpen(false)}>
-                Login
+              <Link href="/consultation" className="w-full text-center bg-yellow-400 hover:bg-yellow-300 text-black text-lg font-bold px-5 py-4 rounded-xl transition-all duration-200 block shadow-xl shadow-yellow-400/20" onClick={() => setIsMobileMenuOpen(false)}>
+                Free Consultation
               </Link>
             )}
           </div>

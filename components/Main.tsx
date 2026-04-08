@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Main() {
   return (
@@ -22,9 +23,9 @@ export default function Main() {
           </p>
 
           <div className="flex gap-4">
-            <button className="bg-yellow-400 text-black px-6 py-3 rounded-lg font-semibold">
+            <Link href="/register" className="bg-yellow-400 text-black px-6 py-3 rounded-lg font-semibold">
               Mulai Transformasi
-            </button>
+            </Link>
             <button className="border border-white px-6 py-3 rounded-lg">
               Lihat Portfolio
             </button>
