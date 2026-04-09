@@ -5,7 +5,7 @@ import FadeInSection from "./FadeInSection";
 
 export default function Showcase() {
   return (
-    <section className="relative py-16 lg:py-20 px-6 overflow-hidden bg-[#040E1A] border-t border-white/5">
+    <section className="relative py-12 px-6 overflow-hidden bg-[#040E1A] border-t border-white/5">
       {/* Background glows */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-blue-600 rounded-full blur-3xl opacity-[0.10] animate-float-slow" />

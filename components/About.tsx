@@ -3,7 +3,7 @@ import FadeInSection from "./FadeInSection";
 
 export default function About() {
   return (
-    <section className="relative py-32 px-6 overflow-hidden bg-[#040E1A]">
+    <section className="relative py-12 px-6 overflow-hidden bg-[#040E1A]">
       {/* Full animated colorful gradient background layer */}
       <div className="absolute inset-0 z-0 bg-gradient-to-br from-[#0B2545] via-[#241b3e] to-[#040E1A] bg-[length:400%_400%] animate-[aurora-shift_12s_ease-in-out_infinite]" />
       <div className="absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-yellow-500/10 via-transparent to-transparent opacity-80 mix-blend-screen" />

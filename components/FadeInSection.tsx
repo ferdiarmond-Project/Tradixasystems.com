@@ -21,7 +21,7 @@ export default function FadeInSection({
           }
         });
       },
-      { threshold: 0.1 }
+      { threshold: 0.01 }
     );
 
     const currentRef = domRef.current;
@@ -37,8 +37,8 @@ export default function FadeInSection({
   return (
     <div
       ref={domRef}
-      className={`transition-all duration-700 ease-out ${
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-[40px]"
+      className={`transition-all duration-300 ease-out ${
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-[10px]"
       } ${className}`}
     >
       {children}

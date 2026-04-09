@@ -33,7 +33,7 @@ const reasons = [
 
 export default function WhyTradixa() {
   return (
-    <section className="py-24 bg-white relative overflow-hidden px-6">
+    <section className="py-12 bg-white relative overflow-hidden px-6">
       <div className="max-w-7xl mx-auto relative z-10">
         
         <div className="text-center mb-16 max-w-2xl mx-auto animate-fade-up">

@@ -26,7 +26,7 @@ export default function CTA() {
   };
 
   return (
-    <section className="bg-[#031020] relative py-32 px-6 overflow-hidden">
+    <section className="bg-[#031020] relative py-16 px-6 overflow-hidden">
       {/* Background with 3D lighting effect */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#071A2E] via-[#0B2A4A] to-[#081F38]" />
       
@@ -56,7 +56,7 @@ export default function CTA() {
           <div className="absolute inset-0 rounded-3xl border border-white/15 shadow-2xl shadow-blue-500/10" />
 
           {/* Content */}
-          <div className="relative text-center py-24 px-8">
+          <div className="relative text-center py-12 px-8">
             <TypingHeading 
               className="heading-aurora text-4xl lg:text-5xl font-extrabold text-white mb-6 leading-tight"
               text={"Siap Melangkah ke Level\nSelanjutnya?"}

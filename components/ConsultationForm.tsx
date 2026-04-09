@@ -65,7 +65,7 @@ ${formData.consultationDate || "-"} - ${formData.consultationTime || "-"}`;
   };
 
   return (
-    <section className="bg-gradient-to-br from-[#071A2E] via-[#0A2B4C] to-[#081F38] py-32 px-6">
+    <section className="bg-gradient-to-br from-[#071A2E] via-[#0A2B4C] to-[#081F38] py-16 px-6">
       <div className="max-w-3xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">

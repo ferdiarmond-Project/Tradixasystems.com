@@ -26,7 +26,7 @@ export default function Problem() {
   ];
 
   return (
-    <section className="bg-[#060D18] relative px-6 py-24 overflow-hidden">
+    <section className="bg-[#060D18] relative px-6 py-12 overflow-hidden">
       <div className="absolute inset-0 -z-10">
         <BackgroundGradient />
       </div>
