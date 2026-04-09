@@ -28,11 +28,11 @@ export default function Showcase() {
         </div>
 
         {/* ── Professional SaaS Device Mockup ── */}
-        <div className="relative w-full mt-4 lg:mt-8 overflow-hidden lg:overflow-visible">
-
-          {/* Responsive Layout — locked horizontally, perfectly positioned */}
-          <div className="w-full flex justify-center items-center py-6">
-            <div className="relative z-30 w-[180%] md:w-full max-w-none md:max-w-[1200px] ml-[-40%] md:ml-0 lg:scale-100 xl:scale-105 animate-float-slow lg:-translate-x-12 xl:-translate-x-16">
+        <div className="relative w-full mt-4 lg:mt-8 overflow-x-auto overflow-y-hidden lg:overflow-visible scrollbar-hide py-4 px-4 -mx-4 lg:mx-0 lg:px-0">
+          
+          {/* Wrapper to ensure horizontal content for scrolling, while maintaining desktop centering */}
+          <div className="flex justify-start lg:justify-center items-center h-full min-w-[760px] md:min-w-0">
+            <div className="relative z-30 w-full max-w-[1200px] lg:scale-100 xl:scale-105 animate-float-slow lg:-translate-x-12 xl:-translate-x-16 mx-auto">
               <Image
                 src="/mockup_iphone_ipad_mac_PHAL.png"
                 alt="Tradixa Complete System Mockup"
