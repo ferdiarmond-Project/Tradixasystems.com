@@ -1,7 +1,8 @@
 import Image from "next/image";
+import Link from "next/link";
 import SectionLabel from "./SectionLabel";
 import TypingHeading from "./TypingHeading";
-import FadeInSection from "./FadeInSection";
+import FadeInSection from "@/components/FadeInSection";
 
 export default function Showcase() {
   return (
@@ -29,8 +30,6 @@ export default function Showcase() {
 
         {/* ── Professional SaaS Device Mockup ── */}
         <div className="relative w-full mt-4 lg:mt-8 overflow-x-auto overflow-y-hidden lg:overflow-visible scrollbar-hide py-4 px-4 -mx-4 lg:mx-0 lg:px-0">
-          
-          {/* Wrapper to ensure horizontal content for scrolling, while maintaining desktop centering */}
           <div className="flex justify-start lg:justify-center items-center h-full min-w-[760px] md:min-w-0">
             <div className="relative z-30 w-full max-w-[1200px] lg:scale-100 xl:scale-105 animate-float-slow lg:-translate-x-12 xl:-translate-x-16 mx-auto">
               <Image
@@ -43,7 +42,15 @@ export default function Showcase() {
               />
             </div>
           </div>
+        </div>
 
+        <div className="mt-16 text-center">
+          <Link 
+            href="/case-studies" 
+            className="inline-flex items-center gap-2 bg-white/5 hover:bg-white/10 text-white px-8 py-4 rounded-xl border border-white/10 transition-all hover:scale-105"
+          >
+            Lihat Studi Kasus Selengkapnya →
+          </Link>
         </div>
 
       </FadeInSection>

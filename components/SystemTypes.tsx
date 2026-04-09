@@ -80,28 +80,28 @@ export default function SystemTypes() {
       <FadeInSection className="relative z-10 max-w-7xl mx-auto">
 
         {/* Header */}
-        <div className="text-center mb-8 lg:mb-10">
-          <div className="flex justify-center mb-6">
+        <div className="text-center mb-0">
+          <div className="flex justify-center mb-4">
             <SectionLabel text="Solusi Kami" />
           </div>
           <TypingHeading
             className="heading-aurora text-4xl lg:text-5xl font-extrabold tracking-tight text-white max-w-3xl mx-auto leading-tight"
             text="Jenis Sistem yang Dapat Dikembangkan"
           />
-          <p className="text-gray-300 mt-6 max-w-2xl mx-auto text-lg leading-relaxed">
+          <p className="text-gray-300 mt-4 max-w-2xl mx-auto text-lg leading-relaxed">
             Kami membangun berbagai solusi digital yang disesuaikan dengan
             infrastruktur bisnis Anda.
           </p>
         </div>
 
         {/* Content: phones left, cards right */}
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-0 items-center">
 
           {/* LEFT — Two phones, upright, centered and overlapping */}
-          <div className="relative w-full h-[600px] lg:h-[780px] flex justify-center items-center overflow-visible">
+          <div className="relative w-full h-[400px] lg:h-[600px] flex justify-center items-center overflow-visible scale-75 lg:scale-100">
 
             {/* Phone 1 — back */}
-            <div className="absolute top-1/2 -translate-y-1/2 z-10 w-[100%] lg:w-[800px] h-[500px] lg:h-[760px] -translate-x-[12%] lg:translate-x-0 lg:left-[-180px]">
+            <div className="absolute top-1/2 -translate-y-1/2 z-10 w-[100%] lg:w-[800px] h-[400px] lg:h-[650px] -translate-x-[12%] lg:translate-x-0 lg:left-[-180px]">
               <Image
                 src="/mockup-system-18.png"
                 alt="Mobile App Preview"
@@ -113,7 +113,7 @@ export default function SystemTypes() {
             </div>
 
             {/* Phone 2 — front */}
-            <div className="absolute top-1/2 -translate-y-1/2 z-20 w-[100%] lg:w-[800px] h-[500px] lg:h-[760px] translate-x-[12%] lg:translate-x-0 lg:left-[-20px]">
+            <div className="absolute top-1/2 -translate-y-1/2 z-20 w-[100%] lg:w-[800px] h-[400px] lg:h-[650px] translate-x-[12%] lg:translate-x-0 lg:left-[-20px]">
               <Image
                 src="/mockup-system.png"
                 alt="Mobile App Preview 2"

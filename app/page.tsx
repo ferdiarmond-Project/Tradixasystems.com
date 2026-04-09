@@ -20,7 +20,6 @@ export default function Page() {
         <Problem />
         <SystemTypes />
         <Showcase />
-        <WhyTradixa />
         <Workflow />
         <Benefits />
         <Industries />

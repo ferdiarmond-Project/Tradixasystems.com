@@ -5,72 +5,56 @@ export default function Footer() {
     <footer className="bg-[#050F1C] px-6 pt-16 pb-8 border-t border-white/5">
       <div className="max-w-7xl mx-auto">
         
-        {/* Top — 4 columns */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-12 mb-16">
+        {/* Top — 3 columns */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-16 mb-20">
 
           {/* Brand */}
-          <div className="col-span-2 md:col-span-1">
+          <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
             <div className="flex items-center gap-4 mb-6">
               <Image
                 src="/Logo Tradixa only.png"
                 alt="Tradixa"
-                width={70}
-                height={70}
-                className="w-[70px] h-[70px] object-contain drop-shadow-lg"
+                width={74}
+                height={74}
+                className="w-[74px] h-[74px] object-contain drop-shadow-lg"
               />
-              <span className="text-white font-bold text-[22px] tracking-tight mt-1">Tradixa</span>
+              <span className="text-white font-bold text-[24px] tracking-tight mt-1">Tradixa</span>
             </div>
 
-            <p className="text-gray-500 text-sm leading-relaxed">
+            <p className="text-gray-500 text-sm leading-relaxed max-w-sm">
               Arsitek Digital untuk UMKM masa depan.
               <br />
-              Mengubah kompleksitas menjadi kemudahan operasional.
+              Mengubah kompleksitas menjadi kemudahan operasional dan profitabilitas yang terukur.
             </p>
           </div>
 
-          {/* Services */}
-          <div>
-            <h4 className="text-white font-semibold mb-5">Services</h4>
-            <ul className="space-y-3 text-sm text-gray-500">
-              {["Digital Transformation", "Strategy & Planning", "Tech Integration"].map((s) => (
-                <li key={s}>
-                  <a href="#" className="hover:text-white transition-colors">{s}</a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
           {/* Support */}
-          <div>
-            <h4 className="text-white font-semibold mb-5">Support</h4>
-            <ul className="space-y-3 text-sm text-gray-500">
+          <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
+            <h4 className="text-white font-semibold mb-6 uppercase tracking-widest text-xs">Support</h4>
+            <ul className="space-y-4 text-sm text-gray-500">
               {["Contact Support", "Privacy Policy", "Terms of Service"].map((s) => (
                 <li key={s}>
-                  <a href="#" className="hover:text-white transition-colors">{s}</a>
+                  <a href="#" className="hover:text-yellow-400 transition-colors">{s}</a>
                 </li>
               ))}
             </ul>
           </div>
 
           {/* Newsletter */}
-          <div>
-            <h4 className="text-white font-semibold mb-5">Newsletter</h4>
-            <div className="flex gap-2 mb-4">
+          <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
+            <h4 className="text-white font-semibold mb-6 uppercase tracking-widest text-xs">Newsletter</h4>
+            <div className="flex w-full max-w-sm gap-2 mb-6">
               <input
                 type="email"
                 placeholder="Email Anda"
-                className="flex-1 bg-white/5 border border-white/10 rounded-lg px-3 py-2.5 text-sm text-white placeholder-gray-600 focus:border-yellow-400/50 focus:outline-none transition-colors"
+                className="flex-1 bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-gray-600 focus:border-yellow-400/50 focus:outline-none transition-colors"
               />
-              <button className="bg-yellow-400 hover:bg-yellow-300 text-black text-sm font-bold px-4 py-2.5 rounded-lg transition-colors flex-shrink-0">
+              <button className="bg-yellow-400 hover:bg-yellow-300 text-black text-sm font-bold px-6 py-3 rounded-xl transition-all active:scale-95 flex-shrink-0">
                 Subscribe
               </button>
             </div>
-            <p className="text-xs text-gray-600 leading-relaxed">
+            <p className="text-xs text-gray-600 leading-relaxed italic">
               Gedung Thamrin City LT. 3A Blok B No. 62-63
-              <br />
-              Jl. Thamrin Boulevard, Kebon Melati,
-              <br />
-              Tanah Abang
               <br />
               Jakarta Pusat, DKI Jakarta 10230
             </p>

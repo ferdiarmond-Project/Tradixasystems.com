@@ -38,7 +38,8 @@ const industries = [
 ];
 import SectionLabel from "./SectionLabel";
 import TypingHeading from "./TypingHeading";
-import FadeInSection from "./FadeInSection";
+import FadeInSection from "@/components/FadeInSection";
+import Link from "next/link";
 
 export default function Industries() {
   return (
@@ -58,7 +59,7 @@ export default function Industries() {
         {/* Header */}
         <div className="mb-12">
           <SectionLabel text="Industri" className="justify-start lg:justify-start" />
-          <TypingHeading 
+          <TypingHeading
             className="heading-aurora text-3xl lg:text-4xl font-bold text-white mt-4 max-w-xl"
             text="Cocok untuk Berbagai Jenis Bisnis"
           />
@@ -67,12 +68,12 @@ export default function Industries() {
           </p>
         </div>
 
-        {/* 2x2 grid */}
         <div className="grid md:grid-cols-2 gap-6">
           {industries.map((ind, i) => (
-            <div
+            <Link
               key={i}
-              className="glass-card rounded-2xl p-7 flex gap-5 hover:border-white/20 transition-all duration-300 hover:-translate-y-1 group"
+              href="/case-studies"
+              className="glass-card rounded-2xl p-7 flex gap-5 hover:border-white/20 transition-all duration-300 hover:-translate-y-1 group block"
             >
               <div className="w-12 h-12 rounded-xl bg-yellow-400/10 border border-yellow-400/20 flex items-center justify-center text-yellow-400 flex-shrink-0 group-hover:bg-yellow-400/20 transition-colors">
                 {ind.icon}
@@ -85,7 +86,7 @@ export default function Industries() {
                 />
                 <p className="text-sm text-gray-400 leading-relaxed">{ind.desc}</p>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
 

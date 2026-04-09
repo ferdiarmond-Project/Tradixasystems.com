@@ -37,7 +37,7 @@ export default function Benefits() {
         {/* Header */}
         <div className="text-center mb-16">
           <SectionLabel text="Dampak Nyata" />
-          <TypingHeading 
+          <TypingHeading
             className="heading-aurora text-3xl lg:text-4xl font-bold text-white mt-4"
             text="Dampak & Manfaat bagi Bisnis"
           />

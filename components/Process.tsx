@@ -54,7 +54,7 @@ export default function Process() {
           {/* LEFT — Big heading */}
           <div className="pt-0 lg:pt-10">
             <SectionLabel text="Kerjasama" className="justify-start mb-6" />
-            <TypingHeading 
+            <TypingHeading
               className="heading-aurora text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-tight text-white leading-[1.1]"
               text={"SKEMA\nKERJASAMA"}
             />
@@ -78,10 +78,10 @@ export default function Process() {
                   <div className="w-10 h-10 rounded-xl bg-yellow-400/10 border border-yellow-400/20 flex items-center justify-center text-yellow-400 flex-shrink-0 group-hover:bg-yellow-400/15 transition-colors">
                     {item.icon}
                   </div>
-                  <TypingHeading 
+                  <TypingHeading
                     as="span"
-                    className="text-sm font-semibold text-white block" 
-                    text={item.label} 
+                    className="text-sm font-semibold text-white block"
+                    text={item.label}
                   />
                 </div>
               ))}

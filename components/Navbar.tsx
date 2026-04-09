@@ -7,6 +7,12 @@ import { ChevronDown, Menu, X, User, LogOut } from "lucide-react";
 import { supabase } from "@/lib/supabase";
 import { User as SupabaseUser } from "@supabase/supabase-js";
 
+const servicesItems = [
+  { label: "Digital Transformation", href: "/services/digital-transformation" },
+  { label: "Strategy & Planning", href: "/services/strategy-planning" },
+  { label: "Tech Integration", href: "/services/tech-integration" },
+];
+
 const readySolutionsItems = [
   { label: "ERP Mining System", href: "/ready-solutions/erp-mining" },
   { label: "Retail Management System", href: "/ready-solutions/retail-management" },
@@ -14,10 +20,12 @@ const readySolutionsItems = [
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [profileDropdownOpen, setProfileDropdownOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [user, setUser] = useState<SupabaseUser | null>(null);
+  const servicesDropdownRef = useRef<HTMLDivElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const profileDropdownRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
@@ -31,6 +39,9 @@ export default function Navbar() {
   // Close dropdowns on outside click
   useEffect(() => {
     const handleClick = (e: MouseEvent) => {
+      if (servicesDropdownRef.current && !servicesDropdownRef.current.contains(e.target as Node)) {
+        setServicesDropdownOpen(false);
+      }
       if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
         setDropdownOpen(false);
       }
@@ -93,7 +104,50 @@ export default function Navbar() {
             About Us
           </Link>
 
-          {/* Solutions */}
+          {/* Services — with dropdown (Image 2) */}
+          <div
+            className="relative h-full flex items-center"
+            ref={servicesDropdownRef}
+            onMouseEnter={() => setServicesDropdownOpen(true)}
+            onMouseLeave={() => setServicesDropdownOpen(false)}
+          >
+            <button
+              onClick={() => setServicesDropdownOpen(!servicesDropdownOpen)}
+              className="flex items-center gap-1 text-sm font-medium text-white hover:text-yellow-400 transition-colors duration-200"
+            >
+              Services
+              <ChevronDown
+                size={14}
+                className={`transition-transform duration-200 ${servicesDropdownOpen ? "rotate-180" : ""}`}
+              />
+            </button>
+
+            {/* Dropdown menu */}
+            {servicesDropdownOpen && (
+              <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4">
+                <div
+                  className="w-64 rounded-xl overflow-hidden shadow-2xl animate-fade-up"
+                  style={{
+                    background: 'rgba(7, 26, 46, 0.95)',
+                    border: '1px solid rgba(255,255,255,0.12)',
+                    backdropFilter: 'blur(16px)',
+                  }}
+                >
+                  {servicesItems.map((item) => (
+                    <Link
+                      key={item.label}
+                      href={item.href}
+                      className="block px-6 py-4 text-sm text-white/90 hover:bg-white/5 hover:text-yellow-400 transition-all border-b border-white/5 last:border-0"
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Solutions Page (Grid of System Types) */}
           <Link href="/solutions" className="text-sm font-medium text-white hover:text-yellow-400 transition-colors duration-200">
             Solutions
           </Link>
@@ -143,20 +197,10 @@ export default function Navbar() {
             )}
           </div>
 
-          {/* Consulting */}
-          <a href="#" className="text-sm font-medium text-white hover:text-yellow-400 transition-colors duration-200">
-            Consulting
-          </a>
-
-          {/* UMKM Growth */}
-          <a href="#" className="text-sm font-medium text-white hover:text-yellow-400 transition-colors duration-200">
-            UMKM Growth
-          </a>
-
-          {/* Case Studies */}
-          <a href="#" className="text-sm font-medium text-white hover:text-yellow-400 transition-colors duration-200">
+          {/* Case Studies (Image 3) */}
+          <Link href="/case-studies" className="text-sm font-medium text-white hover:text-yellow-400 transition-colors duration-200">
             Case Studies
-          </a>
+          </Link>
 
         </div>
 
@@ -242,13 +286,7 @@ export default function Navbar() {
               </div>
             </div>
 
-            <Link href="#" className="text-xl font-medium text-white hover:text-yellow-400 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
-              Consulting
-            </Link>
-            <Link href="#" className="text-xl font-medium text-white hover:text-yellow-400 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
-              UMKM Growth
-            </Link>
-            <Link href="#" className="text-xl font-medium text-white hover:text-yellow-400 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
+            <Link href="/case-studies" className="text-xl font-medium text-white hover:text-yellow-400 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
               Case Studies
             </Link>
           </div>
