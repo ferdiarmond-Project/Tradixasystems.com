@@ -7,27 +7,33 @@ export default function StartupLoader() {
   const [isFading, setIsFading] = useState(false);
 
   useEffect(() => {
-    const hasLoaded = sessionStorage.getItem("tradixa_loaded");
+    // Check if we've already shown the loader in this browser session
+    const hasLoaded = sessionStorage.getItem("tradixa_app_primary_load");
     
     if (hasLoaded) {
       setShow(false);
-    } else {
-      setShow(true);
-      const fadeTimer = setTimeout(() => {
-        setIsFading(true);
-      }, 1500);
-      
-      const removeTimer = setTimeout(() => {
-        setShow(false);
-        sessionStorage.setItem("tradixa_loaded", "true");
-      }, 2500);
-      
-      return () => {
-        clearTimeout(fadeTimer);
-        clearTimeout(removeTimer);
-      };
+      return;
     }
+
+    // It's the first load
+    setShow(true);
+    // Mark as loaded IMMEDIATELY so fast clicks don't re-trigger it
+    sessionStorage.setItem("tradixa_app_primary_load", "true");
+
+    const fadeTimer = setTimeout(() => {
+      setIsFading(true);
+    }, 1500);
+    
+    const removeTimer = setTimeout(() => {
+      setShow(false);
+    }, 2500);
+    
+    return () => {
+      clearTimeout(fadeTimer);
+      clearTimeout(removeTimer);
+    };
   }, []);
+
 
   if (show === null || show === false) return null;
 
