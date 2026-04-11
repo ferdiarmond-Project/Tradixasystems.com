@@ -41,7 +41,7 @@ export default function TypingHeading({
         
         observer.disconnect();
       }
-    }, { threshold: 0.1 });
+    }, { threshold: 0.1, rootMargin: '100px 0px' });
     
     if (ref.current) observer.observe(ref.current);
     

@@ -18,6 +18,10 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     letter-spacing: -0.01em;
+    /* Force GPU acceleration for smooth scrolling */
+    -webkit-overflow-scrolling: touch;
+    transform: translate3d(0, 0, 0);
+    will-change: transform;
   }
 
   h1, h2, h3, h4 {
@@ -122,6 +126,14 @@
 @keyframes shimmer-sweep {
   0% { transform: translateX(-150%) skewX(-20deg); }
   100% { transform: translateX(200%) skewX(-20deg); }
+}
+
+@keyframes loading-progress {
+  0% { width: 0%; opacity: 0.5; }
+  20% { width: 15%; }
+  50% { width: 60%; }
+  80% { width: 95%; }
+  100% { width: 100%; opacity: 1; }
 }
 
 /* ===== UTILITY CLASSES ===== */
