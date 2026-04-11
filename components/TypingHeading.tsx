@@ -6,13 +6,15 @@ export default function TypingHeading({
   className = "", 
   as: Tag = "h2",
   style,
-  highlightWords = []
+  highlightWords = [],
+  type = "char"
 }: { 
   text: string; 
   className?: string; 
   as?: React.ElementType;
   style?: React.CSSProperties;
   highlightWords?: string[];
+  type?: "char" | "word";
 }) {
   const [displayCount, setDisplayCount] = useState(0);
   const [isTypingComplete, setIsTypingComplete] = useState(false);
@@ -26,14 +28,16 @@ export default function TypingHeading({
         hasStarted.current = true;
         let count = 0;
         
+        const items = type === "char" ? text.length : text.split(" ").length;
+
         intervalRef.current = setInterval(() => {
           count++;
           setDisplayCount(count);
-          if (count >= text.length) {
+          if (count >= items) {
             if (intervalRef.current) clearInterval(intervalRef.current);
             setIsTypingComplete(true);
           }
-        }, 30);
+        }, type === "char" ? 30 : 150);
         
         observer.disconnect();
       }
@@ -68,19 +72,33 @@ export default function TypingHeading({
       className={`${className} whitespace-pre-line ${!isTypingComplete ? 'typing-cursor' : ''}`} 
       style={style}
     >
-      {chars.slice(0, displayCount).map((char, index) => {
-        if (char === '\n') {
-          return <br key={index} />;
-        }
-        return (
-          <span
-            key={index}
-            className={`${highlightIndices.has(index) ? 'text-yellow-400' : ''}`}
-          >
-            {char}
-          </span>
-        );
-      })}
+      {type === "char" ? (
+        chars.slice(0, displayCount).map((char, index) => {
+          if (char === '\n') {
+            return <br key={index} />;
+          }
+          return (
+            <span
+              key={index}
+              className={`${highlightIndices.has(index) ? 'text-yellow-400' : ''}`}
+            >
+              {char}
+            </span>
+          );
+        })
+      ) : (
+        text.split(" ").slice(0, displayCount).map((word, index) => {
+          const isHighlighted = highlightWords.some(h => word.toLowerCase().includes(h.toLowerCase()));
+          return (
+            <span
+              key={index}
+              className={`${isHighlighted ? 'text-yellow-400 font-extrabold' : ''} inline-block mr-[0.25em]`}
+            >
+              {word}
+            </span>
+          );
+        })
+      )}
     </Tag>
   );
 }

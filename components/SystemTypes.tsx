@@ -64,17 +64,27 @@ export default function SystemTypes() {
           100% { transform: translateX(-150%) skewX(-20deg); }
         }
         @keyframes premium-vibration {
-          0% { transform: translateY(-4px) translateX(0); }
-          25% { transform: translateY(-4px) translateX(-1px); }
-          50% { transform: translateY(-4px) translateX(1px); }
-          75% { transform: translateY(-4px) translateX(-0.5px); }
-          100% { transform: translateY(-4px) translateX(0); }
+          0% { transform: translateY(-4px) rotate(0deg); }
+          25% { transform: translateY(-4px) rotate(0.8deg); }
+          50% { transform: translateY(-4px) rotate(-0.8deg); }
+          75% { transform: translateY(-4px) rotate(0.8deg); }
+          100% { transform: translateY(-4px) rotate(0deg); }
+        }
+        @keyframes subtle-nudge {
+          0%, 90%, 100% { transform: translate(0, 0) rotate(0deg); }
+          92% { transform: translate(1px, 0) rotate(0.5deg); }
+          94% { transform: translate(-1px, 0) rotate(-0.5deg); }
+          96% { transform: translate(1px, 0) rotate(0.5deg); }
+          98% { transform: translate(-1px, 0) rotate(-0.5deg); }
         }
         .animate-shimmer-sweep {
           animation: shimmer-sweep 5s infinite linear;
         }
+        .animate-subtle-nudge {
+          animation: subtle-nudge 6s infinite ease-in-out;
+        }
         .hover-vibrate:hover {
-          animation: premium-vibration 0.4s ease-in-out infinite;
+          animation: premium-vibration 0.3s ease-in-out infinite;
         }
       ` }} />
       {/* Animated subtle blue glow */}
@@ -142,7 +152,8 @@ export default function SystemTypes() {
               <Link
                 href={`/solutions/${sys.slug}`}
                 key={i}
-                className="glass-card rounded-2xl p-5 flex items-center gap-4 hover:border-white/20 transition-all duration-300 cursor-pointer group relative overflow-hidden hover-vibrate"
+                className="glass-card rounded-2xl p-5 flex items-center gap-4 hover:border-white/20 transition-all duration-300 cursor-pointer group relative overflow-hidden hover-vibrate animate-subtle-nudge"
+                style={{ animationDelay: `${i * 0.8}s` }}
               >
                 {/* Continuous Shimmer Sweep effect */}
                 <div className="absolute top-0 -left-[100%] w-[150%] h-[200%] bg-gradient-to-r from-transparent via-white/[0.12] to-transparent animate-shimmer-sweep pointer-events-none z-0" />

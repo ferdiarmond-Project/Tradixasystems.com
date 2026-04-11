@@ -82,9 +82,6 @@ export default async function SolutionDetail({ params }: { params: Promise<{ slu
               <div className="absolute -top-10 -left-10 w-40 h-40 bg-yellow-400/10 blur-3xl rounded-full" />
             </div>
             
-            <a href="https://wa.me/6281383882120" target="_blank" rel="noopener noreferrer" className="w-full bg-[#13315C] hover:bg-blue-600 border border-blue-500/30 text-white font-bold py-4 rounded-xl transition-colors text-center block shadow-[0_0_20px_rgba(37,99,235,0.15)] hover:shadow-[0_0_30px_rgba(37,99,235,0.3)]">
-              Konsultasikan Sistem Ini Gratis →
-            </a>
           </div>
 
           {/* FEATURES & BENEFITS LIST */}
@@ -127,6 +124,11 @@ export default async function SolutionDetail({ params }: { params: Promise<{ slu
                 ))}
               </ul>
             </div>
+
+            {/* Konsultasi - Moved to bottom for mobile flow */}
+            <a href="https://wa.me/6281383882120" target="_blank" rel="noopener noreferrer" className="w-full bg-[#13315C] hover:bg-blue-600 border border-blue-500/30 text-white font-bold py-4 rounded-xl transition-colors text-center block shadow-[0_0_20px_rgba(37,99,235,0.15)] hover:shadow-[0_0_30px_rgba(37,99,235,0.3)]">
+              Konsultasikan Sistem Ini Gratis →
+            </a>
 
           </div>
           
