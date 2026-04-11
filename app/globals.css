@@ -18,10 +18,9 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     letter-spacing: -0.01em;
-    /* Force GPU acceleration for smooth scrolling */
+    /* Optimized for smooth scrolling without breaking fixed elements */
     -webkit-overflow-scrolling: touch;
-    transform: translate3d(0, 0, 0);
-    will-change: transform;
+    overflow-x: hidden;
   }
 
   h1, h2, h3, h4 {
