@@ -5,6 +5,7 @@ import SectionLabel from "@/components/SectionLabel";
 import TypingHeading from "@/components/TypingHeading";
 import FadeInSection from "@/components/FadeInSection";
 import Image from "next/image";
+import Link from "next/link";
 import { TrendingUp, Package, Calculator, Truck } from "lucide-react";
 
 const umkmBenefits = [
@@ -115,9 +116,9 @@ export default function UMKMGrowthPage() {
                   Konsultasikan alur kerja bisnis retail atau distribusi Anda dengan tim ahli kami secara gratis. 
                   Dapatkan gambaran bagaimana sistem custom dapat memangkas kerugian operasional Anda.
                 </p>
-                <a href="/consultation" className="inline-block bg-white text-[#0B2A4A] px-10 py-4 rounded-xl font-bold text-lg hover:bg-yellow-400 transition-all hover:scale-105 shadow-2xl">
+                <Link href="/consultation" className="inline-block bg-white text-[#0B2A4A] px-10 py-4 rounded-xl font-bold text-lg hover:bg-yellow-400 transition-all hover:scale-105 shadow-2xl">
                   Hubungi Kami Sekarang
-                </a>
+                </Link>
               </div>
               <div className="hidden lg:block relative min-h-[400px]">
                 <Image 

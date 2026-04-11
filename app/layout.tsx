@@ -15,6 +15,7 @@ export const metadata: Metadata = {
 };
 
 import GlobalBackButton from "../components/GlobalBackButton";
+import StartupLoader from "../components/StartupLoader";
 
 export default function RootLayout({
   children,
@@ -24,6 +25,7 @@ export default function RootLayout({
   return (
     <html lang="id" className="overflow-x-hidden">
       <body className={`${inter.variable} font-sans bg-[#071A2E] text-white antialiased overflow-x-hidden relative w-full`}>
+        <StartupLoader />
         <GlobalBackButton />
         {children}
       </body>

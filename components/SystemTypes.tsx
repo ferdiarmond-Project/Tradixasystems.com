@@ -63,8 +63,18 @@ export default function SystemTypes() {
           0% { transform: translateX(250%) skewX(-20deg); }
           100% { transform: translateX(-150%) skewX(-20deg); }
         }
+        @keyframes premium-vibration {
+          0% { transform: translateY(-4px) translateX(0); }
+          25% { transform: translateY(-4px) translateX(-1px); }
+          50% { transform: translateY(-4px) translateX(1px); }
+          75% { transform: translateY(-4px) translateX(-0.5px); }
+          100% { transform: translateY(-4px) translateX(0); }
+        }
         .animate-shimmer-sweep {
           animation: shimmer-sweep 3.5s infinite linear;
+        }
+        .hover-vibrate:hover {
+          animation: premium-vibration 0.4s ease-in-out infinite;
         }
       ` }} />
       {/* Animated subtle blue glow */}
@@ -132,7 +142,7 @@ export default function SystemTypes() {
               <Link
                 href={`/solutions/${sys.slug}`}
                 key={i}
-                className="glass-card rounded-2xl p-5 flex items-center gap-4 hover:border-white/20 hover:-translate-y-1 transition-all duration-300 cursor-pointer group relative overflow-hidden"
+                className="glass-card rounded-2xl p-5 flex items-center gap-4 hover:border-white/20 transition-all duration-300 cursor-pointer group relative overflow-hidden hover-vibrate"
               >
                 {/* Continuous Shimmer Sweep effect */}
                 <div className="absolute top-0 -left-[100%] w-[150%] h-[200%] bg-gradient-to-r from-transparent via-white/[0.12] to-transparent animate-shimmer-sweep pointer-events-none z-0" />
@@ -151,9 +161,12 @@ export default function SystemTypes() {
             {/* CTA Card */}
             <div className="glass-card rounded-2xl p-5 bg-yellow-400/5 border-yellow-400/20 hover:bg-yellow-400/10 transition-all duration-300 flex flex-col justify-between gap-4">
               <p className="text-sm font-semibold text-white">Kebutuhan Lain?</p>
-              <a href="https://wa.me/6281383882120" target="_blank" rel="noopener noreferrer" className="w-full bg-yellow-400 hover:bg-yellow-300 text-black text-sm font-bold py-2.5 rounded-xl transition-colors text-center block">
+              <Link 
+                href="/consultation" 
+                className="w-full bg-yellow-400 hover:bg-yellow-300 text-black text-sm font-bold py-2.5 rounded-xl transition-colors text-center block"
+              >
                 Hubungi Kami
-              </a>
+              </Link>
             </div>
           </div>
 
