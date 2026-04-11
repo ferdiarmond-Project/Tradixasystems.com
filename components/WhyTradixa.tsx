@@ -1,4 +1,5 @@
 import { CheckCircle2, Zap, DollarSign, Target, Activity } from "lucide-react";
+import TypingHeading from "./TypingHeading";
 
 const reasons = [
   {
@@ -40,9 +41,11 @@ export default function WhyTradixa() {
           <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-50 text-blue-600 font-semibold text-sm mb-4 border border-blue-100">
             Nilai Tambah Kami
           </span>
-          <h2 className="text-3xl lg:text-4xl xl:text-5xl font-extrabold text-[#0B2545] mb-4 tracking-tight leading-tight">
-            Kenapa Memilih Tradixa?
-          </h2>
+          <TypingHeading
+            as="h2"
+            className="text-3xl lg:text-4xl xl:text-5xl font-extrabold text-[#0B2545] mb-4 tracking-tight leading-tight"
+            text="Kenapa Memilih Tradixa?"
+          />
           <p className="text-gray-500 text-lg leading-relaxed font-medium">
             Investasi teknologi terbaik untuk mempercepat hasil nyata bisnis Anda tanpa kerumitan yang tak perlu.
           </p>

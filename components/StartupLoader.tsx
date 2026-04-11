@@ -38,9 +38,7 @@ export default function StartupLoader() {
   if (show === null || show === false) return null;
 
   return (
-    <div 
-      className={`fixed inset-0 z-[9999] flex items-center justify-center bg-[#071A2E] transition-opacity duration-1000 ease-in-out ${isFading ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
-    >
+    <div className={`fixed inset-0 z-[999999] bg-[#071A2E] flex flex-col items-center justify-center transition-opacity duration-1000 ${isFading ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
       <div className="relative flex flex-col items-center">
         <Image
           src="/Logo Tradixa only.png"
