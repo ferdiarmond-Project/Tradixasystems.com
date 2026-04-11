@@ -16,7 +16,8 @@ export default function Footer() {
                 alt="Tradixa"
                 width={74}
                 height={74}
-                className="w-[74px] h-[74px] object-contain drop-shadow-lg"
+                className="w-[74px] h-[74px] object-contain"
+                loading="lazy"
               />
               <span className="text-white font-bold text-[24px] tracking-tight mt-1">Tradixa</span>
             </div>

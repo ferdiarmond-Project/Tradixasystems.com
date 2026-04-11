@@ -71,7 +71,7 @@ export default function SystemTypes() {
           100% { transform: translateY(-4px) translateX(0); }
         }
         .animate-shimmer-sweep {
-          animation: shimmer-sweep 3.5s infinite linear;
+          animation: shimmer-sweep 5s infinite linear;
         }
         .hover-vibrate:hover {
           animation: premium-vibration 0.4s ease-in-out infinite;
@@ -147,7 +147,7 @@ export default function SystemTypes() {
                 {/* Continuous Shimmer Sweep effect */}
                 <div className="absolute top-0 -left-[100%] w-[150%] h-[200%] bg-gradient-to-r from-transparent via-white/[0.12] to-transparent animate-shimmer-sweep pointer-events-none z-0" />
 
-                <div className="w-11 h-11 rounded-xl bg-[#0B2340] border border-white/10 flex items-center justify-center text-yellow-400 flex-shrink-0 group-hover:bg-yellow-400/10 group-hover:border-yellow-400/20 transition-colors relative z-10">
+                <div className="w-11 h-11 rounded-xl bg-[#0B2340] border border-white/10 flex items-center justify-center text-yellow-400 flex-shrink-0 group-hover:bg-yellow-400/10 group-hover:border-yellow-400/20 transition-colors relative z-10 will-change-transform">
                   {sys.icon}
                 </div>
                 <TypingHeading
