@@ -5,9 +5,10 @@ export default function About() {
   return (
     <section className="relative pt-32 pb-16 px-6 overflow-hidden bg-[#040E1A]">
       {/* Full animated colorful gradient background layer */}
-      <div className="absolute inset-0 z-0 bg-gradient-to-br from-[#0B2545] via-[#241b3e] to-[#040E1A] bg-[length:400%_400%] animate-[aurora-shift_12s_ease-in-out_infinite]" />
-      <div className="absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-yellow-500/10 via-transparent to-transparent opacity-80 mix-blend-screen" />
-      <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_bottom_left,_var(--tw-gradient-stops))] from-blue-500/20 via-transparent to-transparent opacity-80 mix-blend-screen" />
+      {/* Simplified background for mobile, animated for desktop */}
+      <div className="absolute inset-0 z-0 bg-[#0B2545] md:bg-gradient-to-br md:from-[#0B2545] md:via-[#241b3e] md:to-[#040E1A] md:bg-[length:400%_400%] md:animate-[aurora-shift_12s_ease-in-out_infinite]" />
+      <div className="hidden md:block absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-yellow-500/10 via-transparent to-transparent opacity-80 mix-blend-screen" />
+      <div className="hidden md:block absolute inset-0 z-0 bg-[radial-gradient(circle_at_bottom_left,_var(--tw-gradient-stops))] from-blue-500/20 via-transparent to-transparent opacity-80 mix-blend-screen" />
 
       <FadeInSection className="relative z-10 max-w-3xl mx-auto backdrop-blur-[2px] bg-black/10 p-8 rounded-3xl border border-white/5">
         <h1 className="text-5xl font-bold mb-8">About Us</h1>

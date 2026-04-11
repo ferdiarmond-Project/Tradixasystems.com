@@ -37,7 +37,7 @@ export default function TypingHeading({
             if (intervalRef.current) clearInterval(intervalRef.current);
             setIsTypingComplete(true);
           }
-        }, type === "char" ? 30 : 150);
+        }, 20);
         
         observer.disconnect();
       }
@@ -69,36 +69,32 @@ export default function TypingHeading({
   return (
     <Tag 
       ref={ref} 
-      className={`${className} whitespace-pre-line ${!isTypingComplete ? 'typing-cursor' : ''}`} 
+      className={`${className} whitespace-pre-line relative`} 
       style={style}
     >
-      {type === "char" ? (
-        chars.slice(0, displayCount).map((char, index) => {
+      {/* Ghost text for layout stability */}
+      <span className="invisible opacity-0 pointer-events-none" aria-hidden="true">
+        {text}
+      </span>
+      
+      {/* Animated text layer */}
+      <span className="absolute inset-0">
+        {chars.map((char, index) => {
+          const isVisible = index < displayCount;
           if (char === '\n') {
             return <br key={index} />;
           }
           return (
             <span
               key={index}
-              className={`${highlightIndices.has(index) ? 'text-yellow-400' : ''}`}
+              className={`transition-opacity duration-75 ${isVisible ? 'opacity-100' : 'opacity-0'} ${highlightIndices.has(index) ? 'text-yellow-400 font-extrabold' : ''}`}
             >
               {char}
             </span>
           );
-        })
-      ) : (
-        text.split(" ").slice(0, displayCount).map((word, index) => {
-          const isHighlighted = highlightWords.some(h => word.toLowerCase().includes(h.toLowerCase()));
-          return (
-            <span
-              key={index}
-              className={`${isHighlighted ? 'text-yellow-400 font-extrabold' : ''} inline-block mr-[0.25em]`}
-            >
-              {word}
-            </span>
-          );
-        })
-      )}
+        })}
+        {!isTypingComplete && <span className="text-yellow-400 animate-pulse ml-0.5">|</span>}
+      </span>
     </Tag>
   );
 }

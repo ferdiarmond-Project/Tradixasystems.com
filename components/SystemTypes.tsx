@@ -72,16 +72,14 @@ export default function SystemTypes() {
         }
         @keyframes subtle-nudge {
           0%, 90%, 100% { transform: translate(0, 0) rotate(0deg); }
-          92% { transform: translate(1px, 0) rotate(0.5deg); }
-          94% { transform: translate(-1px, 0) rotate(-0.5deg); }
-          96% { transform: translate(1px, 0) rotate(0.5deg); }
-          98% { transform: translate(-1px, 0) rotate(-0.5deg); }
+          94% { transform: translate(0.5px, 0) rotate(0.2deg); }
+          96% { transform: translate(-0.5px, 0) rotate(-0.2deg); }
         }
         .animate-shimmer-sweep {
-          animation: shimmer-sweep 5s infinite linear;
+          animation: shimmer-sweep 7s infinite linear;
         }
         .animate-subtle-nudge {
-          animation: subtle-nudge 6s infinite ease-in-out;
+          animation: subtle-nudge 10s infinite ease-in-out;
         }
         .hover-vibrate:hover {
           animation: premium-vibration 0.3s ease-in-out infinite;
