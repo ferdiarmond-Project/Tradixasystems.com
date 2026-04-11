@@ -43,7 +43,7 @@ import FadeInSection from "./FadeInSection";
 
 export default function Process() {
   return (
-    <section className="bg-[#091929] relative py-12 px-6 overflow-hidden">
+    <section className="bg-[#091929] relative py-12 px-6 content-auto overflow-hidden">
       <div className="absolute inset-0 -z-10">
         <BackgroundGradient />
       </div>

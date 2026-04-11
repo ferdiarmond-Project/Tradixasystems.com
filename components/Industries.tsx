@@ -43,7 +43,7 @@ import Link from "next/link";
 
 export default function Industries() {
   return (
-    <section className="relative py-12 px-6 overflow-hidden bg-[#0B2340]">
+    <section className="relative py-12 px-6 overflow-hidden bg-[#0B2340] content-auto">
       {/* Animated subtle blue glow */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         {/* Center blue glow - very subtle */}

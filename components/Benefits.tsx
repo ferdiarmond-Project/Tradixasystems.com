@@ -28,7 +28,7 @@ import FadeInSection from "./FadeInSection";
 
 export default function Benefits() {
   return (
-    <section className="bg-[#051525] relative py-12 px-6 overflow-hidden">
+    <section className="bg-[#051525] relative py-12 px-6 overflow-hidden content-auto">
       <div className="absolute inset-0 -z-10">
         <BackgroundGradient />
       </div>

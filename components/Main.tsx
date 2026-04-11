@@ -23,7 +23,7 @@ export default function Main() {
           </p>
 
           <div className="flex gap-4">
-            <Link href="/register" className="bg-yellow-400 text-black px-6 py-3 rounded-lg font-semibold">
+            <Link href="/consultation" className="bg-yellow-400 text-black px-6 py-3 rounded-lg font-semibold">
               Mulai Transformasi
             </Link>
             <button className="border border-white px-6 py-3 rounded-lg">

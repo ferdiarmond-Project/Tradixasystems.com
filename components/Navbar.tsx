@@ -79,7 +79,7 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-white/5 ${isMobileMenuOpen ? "bottom-0 bg-[#071A2E] overflow-y-auto" : scrolled
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-white/5 ${scrolled
           ? "h-24 bg-gradient-to-r from-[#071A2E] via-[#0a2a4a] to-[#123456] backdrop-blur-xl shadow-lg shadow-black/20"
           : "h-24 bg-gradient-to-r from-[#071A2E] via-[#0a2a4a] to-[#123456]"
         }`}
@@ -266,9 +266,9 @@ export default function Navbar() {
           {isMobileMenuOpen ? <X size={28} className="w-7 h-7" /> : <Menu size={28} className="w-7 h-7" />}
         </button>
       </div>
-      {/* Mobile Menu Content (Expands inside the Nav) */}
+      {/* Mobile Menu Content (Absolute Overlay) */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden flex flex-col px-6 pb-12 animate-fade-up">
+        <div className="lg:hidden fixed inset-0 top-[96px] bg-[#071A2E] z-50 overflow-y-auto flex flex-col px-6 pb-12 animate-fade-up">
           <div className="flex flex-col gap-6 pt-4">
             <Link href="/about" className="text-xl font-medium text-white hover:text-yellow-400 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
               About Us

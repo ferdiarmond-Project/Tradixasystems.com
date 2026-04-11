@@ -35,7 +35,7 @@ export default function Hero() {
             </p>
 
             <div className="flex flex-wrap gap-4 mt-10">
-              <Link href="/register" className="relative overflow-hidden inline-flex group items-center gap-2 bg-yellow-400 hover:bg-yellow-300 text-black font-bold px-7 py-3.5 rounded-xl transition-all duration-200 hover:shadow-xl hover:shadow-yellow-400/20 hover:-translate-y-0.5">
+              <Link href="/consultation" className="relative overflow-hidden inline-flex group items-center gap-2 bg-yellow-400 hover:bg-yellow-300 text-black font-bold px-7 py-3.5 rounded-xl transition-all duration-200 hover:shadow-xl hover:shadow-yellow-400/20 hover:-translate-y-0.5">
                 <span className="absolute inset-0 w-full h-full bg-white/30 -translate-x-full skew-x-[-20deg] group-hover:animate-[shimmer-sweep_1.5s_infinite]" />
                 <span className="relative flex items-center gap-2">
                   Mulai Transformasi
