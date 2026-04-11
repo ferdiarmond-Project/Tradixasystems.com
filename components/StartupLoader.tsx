@@ -22,11 +22,11 @@ export default function StartupLoader() {
 
     const fadeTimer = setTimeout(() => {
       setIsFading(true);
-    }, 3000); // Start fading at 3s
+    }, 4500); // Start fading at 4.5s
     
     const removeTimer = setTimeout(() => {
       setShow(false);
-    }, 4000); // Fully removed at 4s
+    }, 5500); // Fully removed at 5.5s
     
     return () => {
       clearTimeout(fadeTimer);
@@ -52,7 +52,7 @@ export default function StartupLoader() {
         />
         <div className="mt-8 flex flex-col items-center">
           <div className="h-0.5 w-64 bg-white/10 rounded-full overflow-hidden">
-            <div className="h-full bg-yellow-400 animate-[loading-progress_3.5s_ease-out_forwards]" />
+            <div className="h-full bg-yellow-400 animate-[loading-progress_5s_ease-out_forwards]" />
           </div>
           <p className="mt-6 text-yellow-400 font-bold tracking-[0.3em] text-[10px] uppercase opacity-60">
             Arsitek Digital Anda
