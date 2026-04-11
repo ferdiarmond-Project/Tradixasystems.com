@@ -9,7 +9,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-16 mb-20">
 
           {/* Brand */}
-          <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
+          <div className="flex flex-col items-start text-left">
             <div className="flex items-center gap-4 mb-6">
               <Image
                 src="/Logo Tradixa only.png"
@@ -29,7 +29,7 @@ export default function Footer() {
           </div>
 
           {/* Support */}
-          <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
+          <div className="flex flex-col items-start text-left">
             <h4 className="text-white font-semibold mb-6 uppercase tracking-widest text-xs">Support</h4>
             <ul className="space-y-4 text-sm text-gray-500">
               {["Contact Support", "Privacy Policy", "Terms of Service"].map((s) => (
@@ -41,7 +41,7 @@ export default function Footer() {
           </div>
 
           {/* Newsletter */}
-          <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
+          <div className="flex flex-col items-start text-left">
             <h4 className="text-white font-semibold mb-6 uppercase tracking-widest text-xs">Newsletter</h4>
             <div className="flex w-full max-w-sm gap-2 mb-6">
               <input

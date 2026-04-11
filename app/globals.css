@@ -162,6 +162,15 @@
   box-shadow: 0 0 30px rgba(245, 197, 24, 0.2);
 }
 
+/* Optimized for smoother scroll and performance */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.will-change-transform {
+  will-change: transform;
+}
+
 .section-label {
   display: inline-flex;
   align-items: center;
@@ -253,6 +262,7 @@
 
 .scroll-smooth {
   scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
 }
 
 /* ===== TYPING CURSOR ===== */
