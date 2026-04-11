@@ -27,30 +27,19 @@ export default function CTA() {
 
   return (
     <section className="bg-[#031020] relative py-16 px-6 overflow-hidden">
-      {/* Background with 3D lighting effect */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#071A2E] via-[#0B2A4A] to-[#081F38]" />
-      
-      {/* Center glow - main light source */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-500/15 rounded-full blur-3xl" />
-      
-      {/* Bottom center warm glow */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-cyan-400/10 rounded-full blur-3xl translate-y-1/2" />
-      
-      {/* Top right accent */}
-      <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-yellow-400/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/4" />
-      
-      {/* Top left accent */}
-      <div className="absolute top-1/4 left-0 w-[300px] h-[300px] bg-purple-500/5 rounded-full blur-3xl -translate-x-1/2" />
+      {/* Simplified background for mobile efficiency */}
+      <div className="absolute inset-0 bg-[#071A2E]" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-500/10 rounded-full blur-[80px] opacity-50" />
+      <div className="hidden md:block absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-cyan-400/5 rounded-full blur-[100px] translate-y-1/2" />
+
 
       <FadeInSection className="relative max-w-4xl mx-auto z-10">
-        <div className="rounded-3xl overflow-hidden backdrop-blur-xl">
+        <div className="rounded-3xl overflow-hidden bg-[#0B2A4A]/60 border border-white/10 shadow-2xl">
           
-          {/* Enhanced background gradient */}
-          <div className="absolute inset-0 bg-gradient-to-br from-[#0B2A4A]/80 via-[#0E2D54]/70 to-[#081F38]/80" />
-          
-          {/* Premium glow elements inside card */}
-          <div className="absolute top-0 right-0 w-96 h-96 bg-yellow-400/10 rounded-full blur-3xl -translate-y-1/3 translate-x-1/3 opacity-60" />
-          <div className="absolute bottom-0 left-0 w-80 h-80 bg-blue-400/8 rounded-full blur-3xl translate-y-1/3 -translate-x-1/3 opacity-50" />
+          {/* Subtle glow elements */}
+          <div className="absolute top-0 right-0 w-64 h-64 bg-yellow-400/5 rounded-full blur-[60px] opacity-40" />
+          <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-400/5 rounded-full blur-[60px] opacity-30" />
+
           
           {/* Premium border */}
           <div className="absolute inset-0 rounded-3xl border border-white/15 shadow-2xl shadow-blue-500/10" />

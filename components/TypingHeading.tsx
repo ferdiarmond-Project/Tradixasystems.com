@@ -69,32 +69,28 @@ export default function TypingHeading({
   return (
     <Tag 
       ref={ref} 
-      className={`${className} whitespace-pre-line relative`} 
+      className={`${className} whitespace-pre-line`} 
       style={style}
     >
-      {/* Ghost text for layout stability */}
-      <span className="invisible opacity-0 pointer-events-none" aria-hidden="true">
-        {text}
-      </span>
-      
-      {/* Animated text layer */}
-      <span className="absolute inset-0">
-        {chars.map((char, index) => {
-          const isVisible = index < displayCount;
-          if (char === '\n') {
-            return <br key={index} />;
-          }
-          return (
-            <span
-              key={index}
-              className={`transition-opacity duration-75 ${isVisible ? 'opacity-100' : 'opacity-0'} ${highlightIndices.has(index) ? 'text-yellow-400 font-extrabold' : ''}`}
-            >
-              {char}
-            </span>
-          );
-        })}
-        {!isTypingComplete && <span className="text-yellow-400 animate-pulse ml-0.5">|</span>}
-      </span>
+      {chars.map((char, index) => {
+        const isVisible = index < displayCount;
+        if (char === '\n') {
+          return <br key={index} />;
+        }
+        return (
+          <span
+            key={index}
+            className={`transition-opacity duration-75 ${highlightIndices.has(index) ? 'text-yellow-400 font-extrabold' : ''}`}
+            style={{ 
+              opacity: isVisible ? 1 : 0,
+              visibility: isVisible ? 'visible' : 'hidden' 
+            }}
+          >
+            {char}
+          </span>
+        );
+      })}
+      {!isTypingComplete && <span className="text-yellow-400 animate-pulse ml-0.5">|</span>}
     </Tag>
   );
 }
