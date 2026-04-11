@@ -10,28 +10,42 @@ export default function TypingHeading({
 }: { 
   text: string; 
   className?: string; 
-  as?: any;
+  as?: React.ElementType;
   style?: React.CSSProperties;
   highlightWords?: string[];
 }) {
-  const [isVisible, setIsVisible] = useState(false);
+  const [displayCount, setDisplayCount] = useState(0);
+  const [isTypingComplete, setIsTypingComplete] = useState(false);
   const ref = useRef<HTMLElement>(null);
+  const hasStarted = useRef(false);
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
-        // Start animation slightly after visibility
-        setTimeout(() => setIsVisible(true), 150);
+      if (entry.isIntersecting && !hasStarted.current) {
+        hasStarted.current = true;
+        let count = 0;
+        
+        intervalRef.current = setInterval(() => {
+          count++;
+          setDisplayCount(count);
+          if (count >= text.length) {
+            if (intervalRef.current) clearInterval(intervalRef.current);
+            setIsTypingComplete(true);
+          }
+        }, 30);
+        
         observer.disconnect();
       }
-    }, { threshold: 0.1 }); // trigger when 10% visible
+    }, { threshold: 0.1 });
     
     if (ref.current) observer.observe(ref.current);
     
     return () => {
       observer.disconnect();
+      if (intervalRef.current) clearInterval(intervalRef.current);
     };
-  }, []);
+  }, [text]);
 
   const chars = text.split("");
   const highlightIndices = new Set<number>();
@@ -49,31 +63,24 @@ export default function TypingHeading({
   }
 
   return (
-    <Tag ref={ref} className={`${className} whitespace-pre-line`} style={style}>
-      {chars.map((char, index) => {
+    <Tag 
+      ref={ref} 
+      className={`${className} whitespace-pre-line ${!isTypingComplete ? 'typing-cursor' : ''}`} 
+      style={style}
+    >
+      {chars.slice(0, displayCount).map((char, index) => {
         if (char === '\n') {
           return <br key={index} />;
         }
         return (
           <span
             key={index}
-            className={`transition-opacity duration-[10ms] ${highlightIndices.has(index) ? 'text-yellow-400' : ''}`}
-            style={{
-              opacity: isVisible ? 1 : 0,
-              transitionDelay: `${index * 35}ms`
-            }}
+            className={`${highlightIndices.has(index) ? 'text-yellow-400' : ''}`}
           >
             {char}
           </span>
         );
       })}
-      <span 
-        className="inline-block w-[3px] h-[0.8em] bg-yellow-400 ml-1 translate-y-[0.1em]"
-        style={{
-          opacity: isVisible ? 0 : 1,
-          animation: 'pulse 1s infinite'
-        }}
-      />
     </Tag>
   );
 }

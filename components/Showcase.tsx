@@ -35,10 +35,12 @@ export default function Showcase() {
               <Image
                 src="/mockup_iphone_ipad_mac_PHAL.png"
                 alt="Tradixa Complete System Mockup"
-                width={1800}
-                height={1200}
+                width={1200}
+                height={800}
                 className="w-full h-auto object-contain drop-shadow-[0_25px_60px_rgba(0,0,0,0.7)]"
                 priority
+                quality={60}
+                sizes="(max-width: 768px) 100vw, 1200px"
               />
             </div>
           </div>

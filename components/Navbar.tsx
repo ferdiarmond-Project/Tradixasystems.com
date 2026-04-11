@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
-import { ChevronDown, Menu, X, User, LogOut } from "lucide-react";
+import { ChevronDown, Menu, X, User, LogOut, Layers, Database } from "lucide-react";
 import { supabase } from "@/lib/supabase";
 import { User as SupabaseUser } from "@supabase/supabase-js";
 
@@ -24,6 +24,8 @@ export default function Navbar() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [profileDropdownOpen, setProfileDropdownOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const [mobileSolutionsOpen, setMobileSolutionsOpen] = useState(false);
   const [user, setUser] = useState<SupabaseUser | null>(null);
   const servicesDropdownRef = useRef<HTMLDivElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -271,19 +273,55 @@ export default function Navbar() {
             <Link href="/about" className="text-xl font-medium text-white hover:text-yellow-400 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
               About Us
             </Link>
+
+            {/* Mobile Services Accordion */}
+            <div className="flex flex-col gap-3">
+              <button 
+                onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                className="flex items-center justify-between text-xl font-medium text-white hover:text-yellow-400 transition-colors w-full text-left"
+              >
+                <div className="flex items-center gap-3">
+                  <Layers size={22} className="text-yellow-400" />
+                  <span>Services</span>
+                </div>
+                <ChevronDown size={20} className={`transition-transform duration-200 ${mobileServicesOpen ? "rotate-180" : ""}`} />
+              </button>
+              {mobileServicesOpen && (
+                <div className="pl-4 border-l-2 border-white/10 flex flex-col gap-4 py-1">
+                  {servicesItems.map((item) => (
+                    <Link key={item.label} href={item.href} className="text-lg text-white/70 hover:text-yellow-400 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
+                      {item.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
             <Link href="/solutions" className="text-xl font-medium text-white hover:text-yellow-400 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
               Solutions
             </Link>
 
+            {/* Mobile Ready Solutions Accordion */}
             <div className="flex flex-col gap-3">
-              <span className="text-xl font-medium text-white">Ready Solutions</span>
-              <div className="pl-4 border-l-2 border-white/10 flex flex-col gap-4">
-                {readySolutionsItems.map((item) => (
-                  <Link key={item.label} href={item.href} className="text-lg text-white/70 hover:text-yellow-400 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
-                    {item.label}
-                  </Link>
-                ))}
-              </div>
+              <button 
+                onClick={() => setMobileSolutionsOpen(!mobileSolutionsOpen)}
+                className="flex items-center justify-between text-xl font-medium text-white hover:text-yellow-400 transition-colors w-full text-left"
+              >
+                <div className="flex items-center gap-3">
+                  <Database size={22} className="text-yellow-400" />
+                  <span>Ready Solutions</span>
+                </div>
+                <ChevronDown size={20} className={`transition-transform duration-200 ${mobileSolutionsOpen ? "rotate-180" : ""}`} />
+              </button>
+              {mobileSolutionsOpen && (
+                <div className="pl-4 border-l-2 border-white/10 flex flex-col gap-4 py-1">
+                  {readySolutionsItems.map((item) => (
+                    <Link key={item.label} href={item.href} className="text-lg text-white/70 hover:text-yellow-400 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
+                      {item.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
             </div>
 
             <Link href="/case-studies" className="text-xl font-medium text-white hover:text-yellow-400 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>

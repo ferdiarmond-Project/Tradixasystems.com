@@ -4,6 +4,7 @@ import BackgroundGradient from "@/components/BackgroundGradient";
 import SectionLabel from "@/components/SectionLabel";
 import TypingHeading from "@/components/TypingHeading";
 import FadeInSection from "@/components/FadeInSection";
+import Image from "next/image";
 import { TrendingUp, Package, Calculator, Truck } from "lucide-react";
 
 const umkmBenefits = [
@@ -77,10 +78,14 @@ export default function UMKMGrowthPage() {
             </div>
             <div className="relative">
               <div className="absolute -inset-4 bg-yellow-400/10 blur-3xl rounded-full animate-float-slow" />
-              <img 
+              <Image 
                 src="/mockup-system.png" 
                 alt="UMKM Solution" 
-                className="relative w-full drop-shadow-2xl rounded-3xl"
+                width={800}
+                height={600}
+                className="relative w-full drop-shadow-2xl rounded-3xl object-contain"
+                quality={75}
+                sizes="(max-width: 768px) 100vw, 800px"
               />
             </div>
           </div>
@@ -115,10 +120,14 @@ export default function UMKMGrowthPage() {
                 </a>
               </div>
               <div className="hidden lg:block relative min-h-[400px]">
-                <img 
+                <Image 
                   src="/Free_MacBook_Pro_1_PHAL.png" 
                   alt="CTA Mockup" 
+                  width={1000}
+                  height={800}
                   className="absolute bottom-0 left-0 w-[120%] object-cover translate-y-20 translate-x-10"
+                  quality={75}
+                  sizes="50vw"
                 />
               </div>
             </div>

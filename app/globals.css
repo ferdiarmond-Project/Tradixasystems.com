@@ -43,12 +43,11 @@
 
 /* ===== ANIMATIONS ===== */
 .animate-fade-in {
-  animation: fade-in 0.8s var(--animation-delay, 0s) ease forwards;
+  opacity: 1;
 }
 
 .animate-fade-up {
-  animation: fade-up 0.8s var(--animation-delay, 0s) ease forwards;
-  opacity: 0;
+  opacity: 1;
 }
 
 .animate-float {
@@ -254,4 +253,18 @@
 
 .scroll-smooth {
   scroll-behavior: smooth;
+}
+
+/* ===== TYPING CURSOR ===== */
+.typing-cursor::after {
+  content: '|';
+  display: inline-block;
+  margin-left: 2px;
+  color: #F5C518;
+  animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }
