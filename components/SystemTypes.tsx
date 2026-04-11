@@ -55,7 +55,7 @@ import FadeInSection from "./FadeInSection";
 
 export default function SystemTypes() {
   return (
-    <section className="relative py-10 lg:py-12 px-6 overflow-hidden bg-[#0D2140] content-auto">
+    <section className="relative py-10 lg:py-12 px-6 overflow-hidden bg-[#0D2140]">
       {/* Inline style for the sweeping light effect */}
       <style dangerouslySetInnerHTML={{
         __html: `

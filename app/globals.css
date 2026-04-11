@@ -167,14 +167,6 @@
   -webkit-tap-highlight-color: transparent;
 }
 
-.will-change-transform {
-  will-change: transform;
-}
-
-.content-auto {
-  content-visibility: auto;
-  contain-intrinsic-size: 1px 1000px;
-}
 
 .section-label {
   display: inline-flex;
