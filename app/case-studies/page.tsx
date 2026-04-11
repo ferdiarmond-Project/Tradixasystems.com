@@ -104,7 +104,7 @@ export default function CaseStudiesPage() {
             <p className="text-gray-400 max-w-2xl mx-auto mb-10 text-lg">
               Setiap tantangan bisnis adalah peluang untuk inovasi. Mari diskusikan bagaimana sistem custom kami dapat membantu Anda mencapai hasil serupa.
             </p>
-            <a href="/consultation" className="bg-yellow-400 text-black px-12 py-5 rounded-xl font-bold text-lg hover:bg-yellow-300 transition-all shadow-xl shadow-yellow-400/20">
+            <a href="/consultation" className="inline-block bg-yellow-400 text-black px-8 md:px-12 py-5 rounded-xl font-bold text-lg hover:bg-yellow-300 transition-all shadow-xl shadow-yellow-400/20">
               Jadwalkan Konsultasi Gratis
             </a>
           </div>
