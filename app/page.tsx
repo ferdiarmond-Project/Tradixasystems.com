@@ -18,11 +18,11 @@ export default function Page() {
         <Problem />
         <SystemTypes />
         <Showcase />
-        <Investment />
         <Workflow />
         <Benefits />
         <Industries />
         <Process />
+        <Investment />
         <CTA />
       </div>
     </main>
