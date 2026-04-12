@@ -92,7 +92,7 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-[100] transition-colors duration-300 border-b border-white/5 ${isMobileMenuOpen ? "bottom-0 h-full bg-[#071A2E] overflow-y-auto" : scrolled
+      className={`fixed top-0 left-0 right-0 z-[9999] transition-all duration-300 border-b border-white/5 ${isMobileMenuOpen ? "bottom-0 h-full bg-[#071A2E] overflow-y-auto" : scrolled
           ? "h-24 bg-[#071A2E]/95 backdrop-blur-md shadow-lg shadow-black/20"
           : "h-24 bg-[#071A2E]"
         }`}
