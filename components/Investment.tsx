@@ -348,7 +348,8 @@ export default function Investment() {
 
         {/* FINAL CTA SECTION */}
         <FadeInSection className="text-center py-20 px-8 rounded-[3rem] bg-gradient-to-br from-yellow-400 to-yellow-500 text-black relative overflow-hidden group">
-          <div className="absolute inset-0 bg-white/20 -translate-x-full skew-x-[-45deg] group-hover:animate-[shimmer-sweep_2s_infinite]" />
+          {/* Constant Shimmer Effect - Loop without hover for mobile/old devices support */}
+          <div className="absolute inset-0 bg-white/25 -translate-x-full skew-x-[-45deg] animate-[shimmer-sweep_4s_infinite] pointer-events-none" />
           <h2 className="text-3xl lg:text-5xl font-extrabold mb-6 relative z-10">Siap Melangkah ke Level Selanjutnya?</h2>
           <p className="text-black/80 text-lg mb-10 font-medium relative z-10 max-w-2xl mx-auto">
             Mulai dengan analisa yang tepat. Konsultasikan tantangan bisnis Anda hari ini secara gratis. Mari kita bangun masa depan digital Anda bersama.
