@@ -199,10 +199,19 @@ export default function Investment() {
         <div 
           ref={planScrollRef}
           onScroll={handlePlanScroll}
-          className="flex lg:grid lg:grid-cols-3 gap-6 lg:gap-8 items-stretch mb-8 lg:mb-24 overflow-x-auto lg:overflow-x-visible pt-14 pb-8 lg:pb-0 snap-x snap-mandatory scrollbar-hide pricing-scroll-container no-scrollbar"
+          className="flex lg:grid lg:grid-cols-3 gap-6 lg:gap-8 items-stretch mb-8 lg:mb-24 overflow-x-auto lg:overflow-x-visible pt-16 pb-12 lg:pb-0 snap-x snap-mandatory scrollbar-hide pricing-scroll-container no-scrollbar"
         >
           {solutionPlans.map((plan, i) => (
-            <FadeInSection key={i} className="h-full flex-shrink-0 w-[85vw] sm:w-[400px] lg:w-auto snap-center">
+            <FadeInSection key={i} className="h-full flex-shrink-0 w-[85vw] sm:w-[400px] lg:w-auto snap-center relative pt-4 overflow-visible">
+              
+              {/* Floating Label - Moved OUTSIDE the overflow-hidden inner container */}
+              {plan.label && (
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 bg-yellow-400 text-black text-[10px] sm:text-[11px] font-bold uppercase tracking-wider px-5 py-2 rounded-full shadow-[0_4px_15px_rgba(245,197,24,0.4)] whitespace-nowrap z-50 animate-bounce-subtle">
+                  {plan.label}
+                </div>
+              )}
+
+              {/* Inner Card Container - Handles Rounded Corners and Shimmer Clipping */}
               <div className={`relative h-full flex flex-col rounded-3xl p-8 transition-all duration-700 border animate-vibrate-premium overflow-hidden group ${
                 plan.highlight 
                 ? "bg-white/10 border-yellow-400/50 shadow-[0_0_40px_rgba(245,197,24,0.15)] ring-1 ring-yellow-400/30 lg:scale-105 z-10" 
@@ -210,12 +219,6 @@ export default function Investment() {
               }`}>
                 {/* Continuous Shimmer Light Effect */}
                 <div className="absolute inset-0 bg-white/10 -translate-x-full skew-x-[-45deg] animate-[shimmer-sweep_5s_infinite] pointer-events-none z-10" />
-
-                {plan.label && (
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-yellow-400 text-black text-[10px] font-bold uppercase tracking-wider px-4 py-1.5 rounded-full shadow-lg whitespace-nowrap z-20">
-                    {plan.label}
-                  </div>
-                )}
 
                 <div className="mb-8">
                   <div className="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center mb-6">
