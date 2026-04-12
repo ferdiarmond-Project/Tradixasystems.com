@@ -25,22 +25,33 @@ export default function TypingHeading({
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
+    // Detect mobile initially
+    const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+
     const observer = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting && !hasStarted.current) {
         hasStarted.current = true;
-        let count = 0;
         const items = type === "char" ? text.length : text.split(" ").length;
 
-        const timer = setTimeout(() => {
-          intervalRef.current = setInterval(() => {
-            count++;
-            setDisplayCount(count);
-            if (count >= items) {
-              if (intervalRef.current) clearInterval(intervalRef.current);
-              setIsTypingComplete(true);
-            }
-          }, 20);
-        }, delay);
+        if (isMobile) {
+          // Mobile: Instant appearance
+          setDisplayCount(items);
+          setIsTypingComplete(true);
+        } else {
+          // Desktop: Typing animation
+          let count = 0;
+          const timer = setTimeout(() => {
+            intervalRef.current = setInterval(() => {
+              count += 2;
+              if (count >= items) {
+                count = items;
+                if (intervalRef.current) clearInterval(intervalRef.current);
+                setIsTypingComplete(true);
+              }
+              setDisplayCount(count);
+            }, 40);
+          }, delay);
+        }
         
         observer.disconnect();
       }
@@ -52,7 +63,7 @@ export default function TypingHeading({
       observer.disconnect();
       if (intervalRef.current) clearInterval(intervalRef.current);
     };
-  }, [text]);
+  }, [text, type, delay]);
 
   const chars = text.split("");
   const highlightIndices = new Set<number>();
@@ -72,7 +83,7 @@ export default function TypingHeading({
   return (
     <Tag 
       ref={ref} 
-      className={`${className} whitespace-pre-line`} 
+      className={`${className} whitespace-pre-line transition-all duration-700 ease-out ${isTypingComplete ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`} 
       style={style}
     >
       {chars.map((char, index) => {
@@ -83,7 +94,7 @@ export default function TypingHeading({
         return (
           <span
             key={index}
-            className={`transition-opacity duration-75 ${highlightIndices.has(index) ? 'text-yellow-400 font-extrabold' : ''}`}
+            className={`${highlightIndices.has(index) ? 'text-yellow-400 font-extrabold' : ''}`}
             style={{ 
               opacity: isVisible ? 1 : 0,
               visibility: isVisible ? 'visible' : 'hidden' 
@@ -93,7 +104,9 @@ export default function TypingHeading({
           </span>
         );
       })}
-      {!isTypingComplete && <span className="text-yellow-400 animate-pulse ml-0.5">|</span>}
+      {!isTypingComplete && (typeof window !== 'undefined' && window.innerWidth >= 768) && (
+        <span className="text-yellow-400 animate-pulse ml-0.5">|</span>
+      )}
     </Tag>
   );
 }
