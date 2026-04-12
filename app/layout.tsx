@@ -13,10 +13,12 @@ export const metadata: Metadata = {
   description:
     "Tradixa membangun sistem custom sesuai workflow bisnis Anda. Partner teknologi terpercaya untuk UMKM yang ingin scale dengan sistem digital yang efisien.",
   icons: {
-    icon: "/Logo Tradixa only.png",
-    apple: "/Logo Tradixa only.png",
+    icon: "/favicon-tradixa.png",
+    apple: "/favicon-tradixa.png",
   },
   openGraph: {
+    title: "Tradixa – Digital Transformation Partner",
+    description: "Tradixa membangun sistem custom sesuai workflow bisnis Anda. Partner teknologi terpercaya untuk UMKM yang ingin scale dengan sistem digital yang efisien.",
     images: [
       {
         url: "/Logo Tradixa only.png",
