@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -14,9 +15,9 @@ export default function Footer() {
               <Image
                 src="/Logo Tradixa only.png"
                 alt="Tradixa"
-                width={74}
-                height={74}
-                className="w-[74px] h-[74px] object-contain"
+                width={56}
+                height={56}
+                className="w-14 h-14 object-contain"
                 loading="lazy"
               />
               <span className="text-white font-bold text-[24px] tracking-tight mt-1">Tradixa</span>
@@ -29,15 +30,18 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Support */}
           <div className="flex flex-col items-start text-left">
             <h4 className="text-white font-semibold mb-6 uppercase tracking-widest text-xs">Support</h4>
             <ul className="space-y-4 text-sm text-gray-500">
-              {["Contact Support", "Privacy Policy", "Terms of Service"].map((s) => (
-                <li key={s}>
-                  <a href="#" className="hover:text-yellow-400 transition-colors">{s}</a>
-                </li>
-              ))}
+              <li>
+                <a href="mailto:support@tradixasystems.com" className="hover:text-yellow-400 transition-colors">Contact Support</a>
+              </li>
+              <li>
+                <Link href="/privacy-policy" className="hover:text-yellow-400 transition-colors">Privacy Policy</Link>
+              </li>
+              <li>
+                <Link href="/terms-of-service" className="hover:text-yellow-400 transition-colors">Terms of Service</Link>
+              </li>
             </ul>
           </div>
 
