@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import Link from "next/link";
 import FadeInSection from "./FadeInSection";
 import SectionLabel from "./SectionLabel";
@@ -39,25 +39,25 @@ const IconArrowRight = () => (
 );
 
 const IconZap = () => (
-  <svg className="w-6 h-6 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+  <svg className="w-8 h-8 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
   </svg>
 );
 
 const IconShield = () => (
-  <svg className="w-6 h-6 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+  <svg className="w-8 h-8 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
   </svg>
 );
 
 const IconChart = () => (
-  <svg className="w-6 h-6 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+  <svg className="w-8 h-8 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
   </svg>
 );
 
 const IconTrending = () => (
-  <svg className="w-6 h-6 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+  <svg className="w-8 h-8 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
   </svg>
 );
@@ -131,7 +131,7 @@ const valuePoints = [
   {
     icon: <IconShield />,
     title: "Minim Kesalahan",
-    desc: "Otomasi proses yang mengurangi ketergantungan pada input manual and human error."
+    desc: "Otomasi proses yang mengurangi ketergantungan pada input manual dan human error."
   },
   {
     icon: <IconChart />,
@@ -146,16 +146,28 @@ const valuePoints = [
 ];
 
 export default function Investment() {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const scrollRef = useRef<HTMLDivElement>(null);
+  const [activePlanIndex, setActivePlanIndex] = useState(0);
+  const [activeValueIndex, setActiveValueIndex] = useState(0);
+  
+  const planScrollRef = useRef<HTMLDivElement>(null);
+  const valueScrollRef = useRef<HTMLDivElement>(null);
 
-  const handleScroll = () => {
-    if (scrollRef.current) {
-      const { scrollLeft, offsetWidth } = scrollRef.current;
-      // Calculate active index based on scroll position - using a threshold of 100px for stability
+  const handlePlanScroll = () => {
+    if (planScrollRef.current) {
+      const { scrollLeft, offsetWidth } = planScrollRef.current;
       const index = Math.round(scrollLeft / offsetWidth);
-      if (index !== activeIndex && index >= 0 && index < solutionPlans.length) {
-        setActiveIndex(index);
+      if (index !== activePlanIndex && index >= 0 && index < solutionPlans.length) {
+        setActivePlanIndex(index);
+      }
+    }
+  };
+
+  const handleValueScroll = () => {
+    if (valueScrollRef.current) {
+      const { scrollLeft, offsetWidth } = valueScrollRef.current;
+      const index = Math.round(scrollLeft / offsetWidth);
+      if (index !== activeValueIndex && index >= 0 && index < valuePoints.length) {
+        setActiveValueIndex(index);
       }
     }
   };
@@ -183,10 +195,10 @@ export default function Investment() {
           </p>
         </FadeInSection>
 
-        {/* PRICING TABLE — Updated with horizontal scroll for mobile */}
+        {/* PRICING TABLE */}
         <div 
-          ref={scrollRef}
-          onScroll={handleScroll}
+          ref={planScrollRef}
+          onScroll={handlePlanScroll}
           className="flex lg:grid lg:grid-cols-3 gap-6 lg:gap-8 items-stretch mb-8 lg:mb-24 overflow-x-auto lg:overflow-x-visible pt-10 pb-8 lg:pb-0 snap-x snap-mandatory scrollbar-hide pricing-scroll-container no-scrollbar"
         >
           {solutionPlans.map((plan, i) => (
@@ -244,15 +256,13 @@ export default function Investment() {
           ))}
         </div>
 
-        {/* Mobile Scroll Indicator (Three Dots) - Dynamic React Implementation */}
+        {/* Plan Scroll Indicator */}
         <div className="flex lg:hidden justify-center gap-2 mb-16">
           {solutionPlans.map((_, i) => (
             <div 
               key={i}
               className={`h-2 rounded-full transition-all duration-300 ${
-                i === activeIndex 
-                ? "bg-yellow-400 w-6" 
-                : "bg-white/20 w-2"
+                i === activePlanIndex ? "bg-yellow-400 w-6" : "bg-white/20 w-2"
               }`}
             />
           ))}
@@ -265,46 +275,78 @@ export default function Investment() {
           </p>
         </FadeInSection>
 
-        {/* VALUE SECTION */}
-        <div className="grid lg:grid-cols-2 gap-16 items-center mb-32">
-          <FadeInSection>
-            <SectionLabel text="Keunggulan" className="justify-start" />
-            <h2 className="text-3xl lg:text-5xl font-bold text-white mt-6 mb-8 leading-tight">
-              Lebih dari Sekadar Sistem
-            </h2>
-            <div className="grid sm:grid-cols-2 gap-8">
-              {valuePoints.map((point, i) => (
-                <div key={i} className="flex flex-col gap-3">
-                  <div className="w-10 h-10 rounded-lg bg-yellow-400/10 flex items-center justify-center">
-                    {point.icon}
-                  </div>
-                  <h4 className="text-lg font-bold text-white">{point.title}</h4>
-                  <p className="text-gray-400 text-sm leading-relaxed">{point.desc}</p>
+        {/* VALUE SECTION - Centered Header */}
+        <FadeInSection className="text-center max-w-4xl mx-auto mb-20">
+          <SectionLabel text="Keunggulan" />
+          <h2 className="text-3xl lg:text-5xl font-bold text-white mt-6 mb-8 leading-tight">
+            Lebih dari Sekadar Sistem
+          </h2>
+        </FadeInSection>
+
+        {/* VALUE CARDS - Repurposed as cards/tables */}
+        <div 
+          ref={valueScrollRef}
+          onScroll={handleValueScroll}
+          className="flex lg:grid lg:grid-cols-4 gap-6 items-stretch mb-8 lg:mb-24 overflow-x-auto lg:overflow-x-visible pb-8 lg:pb-0 snap-x snap-mandatory scrollbar-hide no-scrollbar"
+        >
+          {valuePoints.map((point, i) => (
+            <FadeInSection key={i} className="h-full flex-shrink-0 w-[80vw] sm:w-[320px] lg:w-auto snap-center">
+              <div className="relative h-full flex flex-col items-center text-center rounded-[2rem] p-8 transition-all duration-700 border border-white/10 bg-white/5 hover:border-yellow-400/30 group animate-vibrate-premium">
+                <div className="w-16 h-16 rounded-2xl bg-yellow-400/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
+                  {point.icon}
                 </div>
-              ))}
-            </div>
-          </FadeInSection>
-          <FadeInSection className="relative">
-            <div className="glass-card rounded-[2rem] p-10 border-white/10 overflow-hidden relative">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-yellow-400/10 blur-3xl -mr-16 -mt-16" />
-              <h3 className="text-2xl font-bold text-white mb-6">Telah Diimplementasikan dalam Operasional Nyata</h3>
-              <p className="text-gray-300 leading-relaxed mb-8">
-                Sistem kami telah sukses diimplementasikan dan digunakan secara harian dalam operasional perusahaan pertambangan dan perkebunan berskala besar (PT Permata Hijau Agro Lestari).
-              </p>
-              <div className="flex items-center gap-4 p-4 rounded-2xl bg-white/5 border border-white/10">
+                <h4 className="text-xl font-bold text-white mb-4">{point.title}</h4>
+                <p className="text-gray-400 text-sm leading-relaxed">{point.desc}</p>
+                
+                {/* Decorative glow behind icon */}
+                <div className="absolute top-10 left-1/2 -translate-x-1/2 w-20 h-20 bg-yellow-400/5 blur-2xl -z-10 group-hover:bg-yellow-400/10 transition-colors" />
+              </div>
+            </FadeInSection>
+          ))}
+        </div>
+
+        {/* Value Scroll Indicator */}
+        <div className="flex lg:hidden justify-center gap-2 mb-20">
+          {valuePoints.map((_, i) => (
+            <div 
+              key={i}
+              className={`h-1.5 rounded-full transition-all duration-300 ${
+                i === activeValueIndex ? "bg-yellow-400 w-5" : "bg-white/10 w-1.5"
+              }`}
+            />
+          ))}
+        </div>
+
+        {/* TRUST SECTION - Repositioned Below the Cards */}
+        <FadeInSection className="relative mb-32 max-w-5xl mx-auto">
+          <div className="glass-card rounded-[3rem] p-10 lg:p-16 border-white/10 overflow-hidden relative text-center">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-yellow-400/10 blur-[100px] -mr-32 -mt-32" />
+            <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-400/5 blur-[100px] -ml-32 -mb-32" />
+            
+            <h3 className="text-2xl lg:text-4xl font-bold text-white mb-8">Telah Diimplementasikan dalam Operasional Nyata</h3>
+            <p className="text-gray-300 text-lg leading-relaxed mb-12 max-w-3xl mx-auto">
+              Sistem kami telah sukses diimplementasikan dan digunakan secara harian dalam operasional perusahaan pertambangan dan perkebunan berskala besar melalui <strong>PT Permata Hijau Agro Lestari</strong>.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+              <div className="flex items-center gap-4 p-5 px-8 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
                 <div className="w-12 h-12 rounded-full bg-yellow-400/20 flex items-center justify-center text-yellow-400">
                   <IconShield />
                 </div>
-                <div>
+                <div className="text-left">
                   <div className="text-white font-bold">Teruji & Terpercaya</div>
-                  <div className="text-xs text-gray-400">Enterprise Ready Solution</div>
+                  <div className="text-xs text-gray-400 italic">Enterprise Ready Solution</div>
                 </div>
               </div>
+              
+              <div className="text-gray-500 text-sm italic">
+                “Meningkatkan kontrol penuh atas <br className="hidden sm:block" /> aset dan produksi secara real-time.”
+              </div>
             </div>
-          </FadeInSection>
-        </div>
+          </div>
+        </FadeInSection>
 
-        {/* FINAL CTA SECTION (MERGED) */}
+        {/* FINAL CTA SECTION */}
         <FadeInSection className="text-center py-20 px-8 rounded-[3rem] bg-gradient-to-br from-yellow-400 to-yellow-500 text-black relative overflow-hidden group">
           <div className="absolute inset-0 bg-white/20 -translate-x-full skew-x-[-45deg] group-hover:animate-[shimmer-sweep_2s_infinite]" />
           <h2 className="text-3xl lg:text-5xl font-extrabold mb-6 relative z-10">Siap Melangkah ke Level Selanjutnya?</h2>
