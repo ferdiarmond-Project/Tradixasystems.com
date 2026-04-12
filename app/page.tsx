@@ -8,7 +8,6 @@ import Benefits from "@/components/Benefits";
 import Industries from "@/components/Industries";
 import Process from "@/components/Process";
 import Investment from "@/components/Investment";
-import CTA from "@/components/CTA";
 
 export default function Page() {
   return (
@@ -23,7 +22,6 @@ export default function Page() {
         <Industries />
         <Process />
         <Investment />
-        <CTA />
       </div>
     </main>
   );

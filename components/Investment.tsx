@@ -227,18 +227,33 @@ export default function Investment() {
           </FadeInSection>
         </div>
 
-        {/* FINAL CTA SECTION */}
+        {/* FINAL CTA SECTION (MERGED) */}
         <FadeInSection className="text-center py-20 px-8 rounded-[3rem] bg-gradient-to-br from-yellow-400 to-yellow-500 text-black relative overflow-hidden group">
           <div className="absolute inset-0 bg-white/20 -translate-x-full skew-x-[-45deg] group-hover:animate-[shimmer-sweep_2s_infinite]" />
-          <h2 className="text-3xl lg:text-5xl font-extrabold mb-6 relative z-10">Mulai dengan Analisa yang Tepat</h2>
-          <p className="text-black/80 text-lg mb-10 font-medium relative z-10">Gratis konsultasi awal tanpa komitmen</p>
-          <Link 
-            href="/consultation"
-            className="inline-flex items-center gap-3 bg-black text-white px-10 py-5 rounded-2xl font-bold text-lg hover:scale-105 transition-transform shadow-2xl relative z-10"
-          >
-            Lihat Rencana Sistem Anda
-            <ArrowRight size={22} />
-          </Link>
+          <h2 className="text-3xl lg:text-5xl font-extrabold mb-6 relative z-10">Siap Melangkah ke Level Selanjutnya?</h2>
+          <p className="text-black/80 text-lg mb-10 font-medium relative z-10 max-w-2xl mx-auto">
+            Mulai dengan analisa yang tepat. Konsultasikan tantangan bisnis Anda hari ini secara gratis. Mari kita bangun masa depan digital Anda bersama.
+          </p>
+          
+          <div className="flex flex-wrap justify-center gap-4 relative z-10">
+            <Link 
+              href="/consultation"
+              className="inline-flex items-center gap-3 bg-black text-white px-10 py-5 rounded-2xl font-bold text-lg hover:scale-105 transition-transform shadow-2xl"
+            >
+              Lihat Rencana Sistem Anda
+              <ArrowRight size={22} />
+            </Link>
+            
+            <button 
+              onClick={() => {
+                const message = `Halo Tradixa, saya ingin konsultasi mengenai kebutuhan sistem bisnis saya.`;
+                window.open(`https://wa.me/6281383882120?text=${encodeURIComponent(message)}`, "_blank");
+              }}
+              className="inline-flex items-center gap-3 bg-white/20 backdrop-blur-md border border-black/10 text-black px-10 py-5 rounded-2xl font-bold text-lg hover:bg-white/30 transition-all"
+            >
+              Hubungi via WhatsApp
+            </button>
+          </div>
         </FadeInSection>
 
       </div>
