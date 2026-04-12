@@ -143,9 +143,17 @@
 
 .animate-vibrate-premium {
   animation: vibrate-premium 4s ease-in-out infinite;
+  will-change: transform;
 }
 
 /* ===== UTILITY CLASSES ===== */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
 .text-shimmer-gold {
   background: linear-gradient(
     to right,
