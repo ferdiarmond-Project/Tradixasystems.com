@@ -7,6 +7,7 @@ import Workflow from "@/components/Workflow";
 import Benefits from "@/components/Benefits";
 import Industries from "@/components/Industries";
 import Process from "@/components/Process";
+import Investment from "@/components/Investment";
 import CTA from "@/components/CTA";
 
 export default function Page() {
@@ -17,6 +18,7 @@ export default function Page() {
         <Problem />
         <SystemTypes />
         <Showcase />
+        <Investment />
         <Workflow />
         <Benefits />
         <Industries />
