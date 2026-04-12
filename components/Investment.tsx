@@ -1,20 +1,66 @@
 "use client";
 import React from "react";
 import Link from "next/link";
-import { 
-  CheckCircle2, 
-  Store, 
-  Code2, 
-  ArrowRight,
-  ShieldCheck,
-  Zap,
-  BarChart3,
-  TrendingUp
-} from "lucide-react";
 import FadeInSection from "./FadeInSection";
 import SectionLabel from "./SectionLabel";
 import TypingHeading from "./TypingHeading";
 import BackgroundGradient from "./BackgroundGradient";
+
+// --- SVG Icons (Safe alternatives to lucide-react) ---
+const IconCheck = () => (
+  <svg className="w-5 h-5 text-yellow-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+  </svg>
+);
+
+const IconStore = () => (
+  <svg className="w-7 h-7 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h18v2H3V3zm1 4v12a2 2 0 002 2h12a2 2 0 002-2V7H4zm2 2h12v10H6V9zm4 3v4h4v-4h-4z" />
+  </svg>
+);
+
+const IconCode = () => (
+  <svg className="w-7 h-7 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+  </svg>
+);
+
+const IconMining = () => (
+  <svg className="w-7 h-7 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.5 2L3.5 13L2.5 16L5.5 19L8.5 18L19.5 7L14.5 2Z" />
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18 6L11 6L6 11M6 18L6 11M6 11L13 18" />
+  </svg>
+);
+
+const IconArrowRight = () => (
+  <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+  </svg>
+);
+
+const IconZap = () => (
+  <svg className="w-6 h-6 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+  </svg>
+);
+
+const IconShield = () => (
+  <svg className="w-6 h-6 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+  </svg>
+);
+
+const IconChart = () => (
+  <svg className="w-6 h-6 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+  </svg>
+);
+
+const IconTrending = () => (
+  <svg className="w-6 h-6 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+  </svg>
+);
 
 const solutionPlans = [
   {
@@ -24,7 +70,7 @@ const solutionPlans = [
     priceSub: "/ bulan",
     setup: "Setup Rp 1.000.000",
     setupSub: "Optional lifetime (beli putus)",
-    icon: <Store size={28} className="text-yellow-400" />,
+    icon: <IconStore />,
     features: [
       "Manajemen stok",
       "Transaksi penjualan",
@@ -42,7 +88,7 @@ const solutionPlans = [
     priceSub: "Sesuai Kompleksitas",
     setup: "Rp 10.000.000 - Rp 100.000.000+",
     setupSub: "Investment-based model",
-    icon: <Code2 size={28} className="text-yellow-400" />,
+    icon: <IconCode />,
     features: [
       "Analisa & perancangan sistem",
       "Workflow & SOP digital",
@@ -62,12 +108,7 @@ const solutionPlans = [
     priceSub: "Skala Tambang",
     setup: "Rp 50.000.000 - Rp 150.000.000+",
     setupSub: "Maintenance bulanan",
-    icon: (
-      <svg className="w-7 h-7 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.5 2L3.5 13L2.5 16L5.5 19L8.5 18L19.5 7L14.5 2Z" />
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18 6L11 6L6 11M6 18L6 11M6 11L13 18" />
-      </svg>
-    ),
+    icon: <IconMining />,
     features: [
       "Monitoring unit & aktivitas",
       "Tracking produksi",
@@ -83,22 +124,22 @@ const solutionPlans = [
 
 const valuePoints = [
   {
-    icon: <Zap className="text-yellow-400" size={24} />,
+    icon: <IconZap />,
     title: "Sesuai Alur Kerja",
     desc: "Dirancang spesifik mengikuti pola bisnis Anda, bukan Anda yang mengikuti sistem."
   },
   {
-    icon: <ShieldCheck className="text-yellow-400" size={24} />,
+    icon: <IconShield />,
     title: "Minim Kesalahan",
     desc: "Otomasi proses yang mengurangi ketergantungan pada input manual dan human error."
   },
   {
-    icon: <BarChart3 className="text-yellow-400" size={24} />,
+    icon: <IconChart />,
     title: "Data-Driven",
     desc: "Mempermudah pengambilan keputusan strategis berdasarkan angka rill di lapangan."
   },
   {
-    icon: <TrendingUp className="text-yellow-400" size={24} />,
+    icon: <IconTrending />,
     title: "Skalabilitas",
     desc: "Sistem yang fleksibel dan siap berkembang seiring bertambahnya skala bisnis Anda."
   }
@@ -131,7 +172,7 @@ export default function Investment() {
         {/* PRICING TABLE */}
         <div className="grid lg:grid-cols-3 gap-8 items-stretch mb-24">
           {solutionPlans.map((plan, i) => (
-            <FadeInSection key={i} delay={i * 0.1} className="h-full">
+            <FadeInSection key={i} className="h-full">
               <div className={`relative h-full flex flex-col rounded-3xl p-8 transition-all duration-300 border ${
                 plan.highlight 
                 ? "bg-white/10 border-yellow-400/50 shadow-[0_0_40px_rgba(245,197,24,0.15)] ring-1 ring-yellow-400/30 lg:scale-105 z-10" 
@@ -163,7 +204,7 @@ export default function Investment() {
                 <ul className="space-y-4 mb-10 flex-1">
                   {plan.features.map((feature, fIdx) => (
                     <li key={fIdx} className="flex items-start gap-3 text-sm text-gray-300">
-                      <CheckCircle2 size={18} className="text-yellow-400 flex-shrink-0 mt-0.5" />
+                      <IconCheck />
                       <span>{feature}</span>
                     </li>
                   ))}
@@ -178,7 +219,7 @@ export default function Investment() {
                   }`}
                 >
                   {plan.cta}
-                  <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                  <IconArrowRight />
                 </Link>
               </div>
             </FadeInSection>
@@ -220,7 +261,7 @@ export default function Investment() {
               </p>
               <div className="flex items-center gap-4 p-4 rounded-2xl bg-white/5 border border-white/10">
                 <div className="w-12 h-12 rounded-full bg-yellow-400/20 flex items-center justify-center text-yellow-400">
-                  <ShieldCheck size={24} />
+                  <IconShield />
                 </div>
                 <div>
                   <div className="text-white font-bold">Teruji & Terpercaya</div>
@@ -245,13 +286,15 @@ export default function Investment() {
               className="inline-flex items-center gap-3 bg-black text-white px-10 py-5 rounded-2xl font-bold text-lg hover:scale-105 transition-transform shadow-2xl"
             >
               Lihat Rencana Sistem Anda
-              <ArrowRight size={22} />
+              <IconArrowRight />
             </Link>
             
             <button 
               onClick={() => {
                 const message = `Halo Tradixa, saya ingin konsultasi mengenai kebutuhan sistem bisnis saya.`;
-                window.open(`https://wa.me/6281383882120?text=${encodeURIComponent(message)}`, "_blank");
+                if (typeof window !== 'undefined') {
+                  window.open(`https://wa.me/6281383882120?text=${encodeURIComponent(message)}`, "_blank");
+                }
               }}
               className="inline-flex items-center gap-3 bg-white/20 backdrop-blur-md border border-black/10 text-black px-10 py-5 rounded-2xl font-bold text-lg hover:bg-white/30 transition-all"
             >
