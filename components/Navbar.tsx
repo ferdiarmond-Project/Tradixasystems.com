@@ -112,9 +112,9 @@ export default function Navbar() {
           <Image
             src="/Logo Tradixa only.png"
             alt="Tradixa"
-            width={180}
-            height={56}
-            className="h-14 w-auto object-contain"
+            width={150}
+            height={46}
+            className="h-12 w-auto object-contain"
             priority
           />
           <span className="text-white font-bold text-xl tracking-tight">Tradixa</span>

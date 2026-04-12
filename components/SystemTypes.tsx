@@ -95,12 +95,32 @@ export default function SystemTypes() {
           animation: premium-vibration 0.3s ease-in-out infinite;
         }
       ` }} />
-      {/* Animated subtle blue glow */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        {/* Center blue glow - very subtle */}
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-blue-500 rounded-full blur-3xl opacity-15 animate-float-slow" />
-        {/* Secondary glow - bottom left */}
-        <div className="absolute bottom-1/4 -left-32 w-[500px] h-[500px] bg-blue-400 rounded-full blur-3xl opacity-10 animate-float-medium" />
+      {/* Animated subtle blue glow - replaced blur-3xl with radial gradients for compatibility - Hidden on mobile */}
+      <div className="absolute inset-0 z-0 pointer-events-none hidden lg:block">
+        {/* Center blue glow */}
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full opacity-20 animate-float-slow">
+          <svg viewBox="0 0 100 100" className="w-full h-full">
+            <defs>
+              <radialGradient id="system-glow-1" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.8" />
+                <stop offset="100%" stopColor="#3b82f6" stopOpacity="0" />
+              </radialGradient>
+            </defs>
+            <circle cx="50%" cy="50%" r="50%" fill="url(#system-glow-1)" />
+          </svg>
+        </div>
+        {/* Secondary glow */}
+        <div className="absolute bottom-1/4 -left-32 w-[500px] h-[500px] rounded-full opacity-15 animate-float-medium">
+          <svg viewBox="0 0 100 100" className="w-full h-full">
+            <defs>
+              <radialGradient id="system-glow-2" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stopColor="#0ea5e9" stopOpacity="0.6" />
+                <stop offset="100%" stopColor="#0ea5e9" stopOpacity="0" />
+              </radialGradient>
+            </defs>
+            <circle cx="50%" cy="50%" r="50%" fill="url(#system-glow-2)" />
+          </svg>
+        </div>
         {/* Vignette overlay - dark edges */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#0D2140] via-transparent to-[#0D2140] opacity-60" />
         <div className="absolute inset-0 bg-gradient-to-b from-[#0D2140] via-transparent to-[#0D2140] opacity-60" />

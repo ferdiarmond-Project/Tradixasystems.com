@@ -8,10 +8,32 @@ export default function Showcase() {
   return (
     <section className="relative py-12 px-6 overflow-hidden bg-[#040E1A] border-t border-white/5">
       {/* Background glows */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-blue-600 rounded-full blur-3xl opacity-[0.10] animate-float-slow" />
-        <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-indigo-500 rounded-full blur-3xl opacity-[0.08] animate-float-medium" />
-        <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-blue-400 rounded-full blur-3xl opacity-[0.07]" />
+      {/* Background glows - Optimized with SVG for older Macs - Hidden on mobile */}
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden hidden lg:block">
+        {/* Main bottom glow */}
+        <div className="absolute bottom-[-15%] left-1/2 -translate-x-1/2 w-[1000px] h-[1000px] opacity-[0.12] animate-float-slow">
+          <svg viewBox="0 0 100 100" className="w-full h-full">
+            <defs>
+              <radialGradient id="showcase-glow-1" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stopColor="#2563eb" stopOpacity="0.8" />
+                <stop offset="100%" stopColor="#2563eb" stopOpacity="0" />
+              </radialGradient>
+            </defs>
+            <circle cx="50%" cy="50%" r="50%" fill="url(#showcase-glow-1)" />
+          </svg>
+        </div>
+        {/* Top left glow */}
+        <div className="absolute top-[-10%] left-[-10%] w-[600px] h-[600px] opacity-[0.08] animate-float-medium">
+          <svg viewBox="0 0 100 100" className="w-full h-full">
+            <defs>
+              <radialGradient id="showcase-glow-2" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stopColor="#6366f1" stopOpacity="0.7" />
+                <stop offset="100%" stopColor="#6366f1" stopOpacity="0" />
+              </radialGradient>
+            </defs>
+            <circle cx="50%" cy="50%" r="50%" fill="url(#showcase-glow-2)" />
+          </svg>
+        </div>
       </div>
 
       <FadeInSection className="relative z-10 max-w-7xl mx-auto">

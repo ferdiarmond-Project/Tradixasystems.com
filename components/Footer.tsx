@@ -34,7 +34,7 @@ export default function Footer() {
             <h4 className="text-white font-semibold mb-6 uppercase tracking-widest text-xs">Support</h4>
             <ul className="space-y-4 text-sm text-gray-500">
               <li>
-                <a href="mailto:support@tradixasystems.com" className="hover:text-yellow-400 transition-colors">Contact Support</a>
+                <a href="tel:081383882120" className="hover:text-yellow-400 transition-colors italic font-medium">Contact Support: 081383882120</a>
               </li>
               <li>
                 <Link href="/privacy-policy" className="hover:text-yellow-400 transition-colors">Privacy Policy</Link>

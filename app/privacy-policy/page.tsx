@@ -15,7 +15,7 @@ export default function PrivacyPolicy() {
       <div className="relative z-10 max-w-4xl mx-auto px-6 pt-40 pb-20">
         <header className="mb-16 border-b border-white/10 pb-10">
           <h1 className="text-4xl lg:text-6xl font-extrabold tracking-tighter mb-4">PRIVACY POLICY</h1>
-          <p className="text-yellow-400 font-medium tracking-wide">Effective Date: </p>
+          <p className="text-yellow-400 font-medium tracking-wide">Effective Date: Monday 13 April 2026</p>
         </header>
 
         <div className="space-y-12 text-gray-300 leading-relaxed">
@@ -25,7 +25,7 @@ export default function PrivacyPolicy() {
               <span className="text-yellow-400 text-sm font-mono border border-yellow-400/30 px-2 py-1 rounded">01</span>
               Pendekatan Kami Terhadap Privasi
             </h2>
-            <p>
+            <p className="text-justify">
               Di Tradixa Systems, kami percaya bahwa data Anda adalah aset paling berharga Anda. Kami berkomitmen untuk menjaga kepercayaan Anda dengan bersikap transparan tentang bagaimana kami mengelola dan melindungi informasi yang dipercayakan kepada platform SaaS kami. Kebijakan ini menjelaskan praktik kami dalam memproses data untuk solusi ERP, HRIS, dan sistem operasional lainnya.
             </p>
           </section>
@@ -63,7 +63,7 @@ export default function PrivacyPolicy() {
               <span className="text-yellow-400 text-sm font-mono border border-yellow-400/30 px-2 py-1 rounded">04</span>
               Keamanan dan Penyimpanan
             </h2>
-            <p>
+            <p className="text-justify">
               Kami mengimplementasikan standar keamanan kelas industri untuk melindungi data Anda. Seluruh data disimpan dalam infrastruktur cloud yang terenkripsi dan dipantau selama 24/7. Kami menggunakan protokol enkripsi saat data dikirimkan (in-transit) maupun saat data disimpan (at-rest) untuk meminimalisir risiko akses yang tidak sah.
             </p>
           </section>
@@ -73,8 +73,8 @@ export default function PrivacyPolicy() {
               <span className="text-yellow-400 text-sm font-mono border border-yellow-400/30 px-2 py-1 rounded">05</span>
               Prinsip Berbagi Data
             </h2>
-            <p>
-              Tradixa Systems **tidak pernah menjual data Anda kepada pihak ketiga**. Kami hanya berbagi informasi dengan penyedia layanan infrastruktur (seperti provider cloud) yang terikat kontrak ketat untuk melindungi data Anda, atau jika diwajibkan oleh hukum yang berlaku di Republik Indonesia.
+            <p className="text-justify">
+              Tradixa Systems <strong>tidak pernah menjual data Anda kepada pihak ketiga</strong>. Kami hanya berbagi informasi dengan penyedia layanan infrastruktur (seperti provider cloud) yang terikat kontrak ketat untuk melindungi data Anda, atau jika diwajibkan oleh hukum yang berlaku di Republik Indonesia.
             </p>
           </section>
 
@@ -83,7 +83,7 @@ export default function PrivacyPolicy() {
               <span className="text-yellow-400 text-sm font-mono border border-yellow-400/30 px-2 py-1 rounded">06</span>
               Hak Pengguna dan Retensi
             </h2>
-            <p>
+            <p className="text-justify">
               Sebagai pemilik data, Anda memiliki kontrol penuh. Anda berhak untuk mengakses, memperbaiki, serta meminta penghapusan data perusahaan Anda dari sistem kami. Kami menyimpan data selama akun Anda aktif atau sesuai dengan kewajiban retensi data legal yang berlaku bagi perusahaan B2B.
             </p>
           </section>
@@ -93,7 +93,7 @@ export default function PrivacyPolicy() {
               <span className="text-yellow-400 text-sm font-mono border border-yellow-400/30 px-2 py-1 rounded">07</span>
               Perubahan Kebijakan
             </h2>
-            <p>
+            <p className="text-justify">
               Kami dapat memperbarui kebijakan privasi ini secara berkala untuk mencerminkan perubahan pada layanan kami. Anda akan menerima notifikasi melalui aplikasi atau email jika terdapat perubahan yang signifikan dalam cara kami mengelola data Anda.
             </p>
           </section>
@@ -110,8 +110,6 @@ export default function PrivacyPolicy() {
 
         </div>
       </div>
-
-      <Footer />
     </main>
   );
 }

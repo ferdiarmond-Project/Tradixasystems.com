@@ -44,12 +44,32 @@ import Link from "next/link";
 export default function Industries() {
   return (
     <section className="relative py-12 px-6 overflow-hidden bg-[#0B2340]">
-      {/* Animated subtle blue glow */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        {/* Center blue glow - very subtle */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-blue-500 rounded-full blur-3xl opacity-15 animate-float-slow" />
+      {/* Animated subtle blue glow - Optimized with SVG for compatibility with older Macs/Safari - Hidden on mobile */}
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden hidden lg:block">
+        {/* Center blue glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] opacity-15 animate-float-slow">
+          <svg viewBox="0 0 100 100" className="w-full h-full">
+            <defs>
+              <radialGradient id="industries-glow-1" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.8" />
+                <stop offset="100%" stopColor="#3b82f6" stopOpacity="0" />
+              </radialGradient>
+            </defs>
+            <circle cx="50%" cy="50%" r="50%" fill="url(#industries-glow-1)" />
+          </svg>
+        </div>
         {/* Bottom left secondary glow */}
-        <div className="absolute bottom-0 -left-32 w-[600px] h-[600px] bg-blue-400 rounded-full blur-3xl opacity-10 animate-float-medium" />
+        <div className="absolute bottom-[-10%] left-[-10%] w-[700px] h-[700px] opacity-10 animate-float-medium">
+          <svg viewBox="0 0 100 100" className="w-full h-full">
+            <defs>
+              <radialGradient id="industries-glow-2" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stopColor="#0ea5e9" stopOpacity="0.6" />
+                <stop offset="100%" stopColor="#0ea5e9" stopOpacity="0" />
+              </radialGradient>
+            </defs>
+            <circle cx="50%" cy="50%" r="50%" fill="url(#industries-glow-2)" />
+          </svg>
+        </div>
         {/* Vignette overlay - dark edges */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#0B2340] via-transparent to-[#0B2340] opacity-60" />
         <div className="absolute inset-0 bg-gradient-to-b from-[#0B2340] via-transparent to-[#0B2340] opacity-60" />

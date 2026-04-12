@@ -56,7 +56,18 @@ export default function Hero() {
           {/* RIGHT — Macbook Mockup */}
           <div className="relative flex justify-center items-center animate-fade-up w-full mt-4 lg:mt-0 lg:-ml-4 xl:ml-0" style={{ '--animation-delay': '0.2s' } as { [key: string]: string }}>
             <div className="relative w-full max-w-[1200px] flex justify-center lg:justify-end px-2 sm:px-0">
-              <div className="absolute inset-0 bg-blue-500/10 rounded-3xl blur-2xl transform scale-95" />
+              {/* Optimized SVG Glow for older Safari compatibility - Hidden on mobile */}
+              <div className="absolute inset-0 rounded-3xl opacity-30 transform scale-95 hidden lg:block">
+                <svg viewBox="0 0 100 100" className="w-full h-full">
+                  <defs>
+                    <radialGradient id="hero-glow" cx="50%" cy="50%" r="50%">
+                      <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.8" />
+                      <stop offset="100%" stopColor="#3b82f6" stopOpacity="0" />
+                    </radialGradient>
+                  </defs>
+                  <circle cx="50%" cy="50%" r="50%" fill="url(#hero-glow)" />
+                </svg>
+              </div>
               <Image
                 src="/Free_MacBook_Pro_1_PHAL.png"
                 alt="Tradixa Dashboard Preview"

@@ -1,5 +1,5 @@
-import Benefits from "@/components/Benefits";
 import BackgroundGradient from "@/components/BackgroundGradient";
+import CTA from "@/components/CTA";
 import { 
   Pickaxe, 
   Map, 
@@ -94,7 +94,7 @@ const miningModules = [
 
 export default function ERPMining() {
   return (
-    <>
+    <main>
       
       {/* HEADER SECTION (DARK) */}
       <section className="relative pt-40 pb-20 bg-[#071A2E] overflow-hidden text-center px-6">
@@ -200,7 +200,6 @@ export default function ERPMining() {
         </div>
       </section>
 
-      <Benefits />
-    </>
-  );
+      <CTA />
+    </main>);
 }
