@@ -103,7 +103,7 @@ export default function TypingHeading({
               transform: isVisible ? 'none' : 'translateY(1px)',
             }}
           >
-            {char === ' ' ? '\u00A0' : char}
+            {char}
           </span>
         );
       })}
