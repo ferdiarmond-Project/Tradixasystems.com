@@ -26,6 +26,7 @@ export default function Hero() {
               className="heading-aurora text-4xl lg:text-5xl xl:text-6xl font-extrabold leading-tight mt-0 text-white"
               text={"Kami membuat sistem custom\nsesuai workflow\nbisnis Anda."}
               highlightWords={["custom"]}
+              delay={5500}
             />
 
             <p className="text-gray-400 mt-6 text-lg leading-relaxed max-w-lg">
@@ -61,7 +62,7 @@ export default function Hero() {
                 alt="Tradixa Dashboard Preview"
                 width={1100}
                 height={700}
-                className="relative w-full drop-shadow-2xl scale-[1.0] sm:scale-[1.10] lg:scale-[1.25] xl:scale-[1.35] origin-center lg:origin-right lg:translate-x-12 xl:translate-x-20"
+                className="relative w-full drop-shadow-2xl scale-[0.9] sm:scale-[1.10] lg:scale-[1.25] xl:scale-[1.35] origin-center lg:origin-right lg:translate-x-12 xl:translate-x-20 transition-transform"
                 priority
               />
             </div>

@@ -7,7 +7,8 @@ export default function TypingHeading({
   as: Tag = "h2",
   style,
   highlightWords = [],
-  type = "char"
+  type = "char",
+  delay = 0
 }: { 
   text: string; 
   className?: string; 
@@ -15,6 +16,7 @@ export default function TypingHeading({
   style?: React.CSSProperties;
   highlightWords?: string[];
   type?: "char" | "word";
+  delay?: number;
 }) {
   const [displayCount, setDisplayCount] = useState(0);
   const [isTypingComplete, setIsTypingComplete] = useState(false);
@@ -27,17 +29,18 @@ export default function TypingHeading({
       if (entry.isIntersecting && !hasStarted.current) {
         hasStarted.current = true;
         let count = 0;
-        
         const items = type === "char" ? text.length : text.split(" ").length;
 
-        intervalRef.current = setInterval(() => {
-          count++;
-          setDisplayCount(count);
-          if (count >= items) {
-            if (intervalRef.current) clearInterval(intervalRef.current);
-            setIsTypingComplete(true);
-          }
-        }, 20);
+        const timer = setTimeout(() => {
+          intervalRef.current = setInterval(() => {
+            count++;
+            setDisplayCount(count);
+            if (count >= items) {
+              if (intervalRef.current) clearInterval(intervalRef.current);
+              setIsTypingComplete(true);
+            }
+          }, 20);
+        }, delay);
         
         observer.disconnect();
       }

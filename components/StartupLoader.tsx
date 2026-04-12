@@ -52,7 +52,10 @@ export default function StartupLoader() {
           <div className="h-0.5 w-64 bg-white/10 rounded-full overflow-hidden">
             <div className="h-full bg-yellow-400 animate-[loading-progress_5s_ease-out_forwards]" />
           </div>
-          <p className="mt-6 text-yellow-400 font-bold tracking-[0.3em] text-[10px] uppercase opacity-60">
+          <h1 className="mt-6 text-white text-4xl font-black tracking-tighter animate-pulse">
+            TRADIXA
+          </h1>
+          <p className="mt-4 text-yellow-400 font-bold tracking-[0.3em] text-[10px] uppercase opacity-60">
             Arsitek Digital Anda
           </p>
         </div>
