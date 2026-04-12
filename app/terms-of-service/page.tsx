@@ -15,7 +15,7 @@ export default function TermsOfService() {
       <div className="relative z-10 max-w-4xl mx-auto px-6 pt-40 pb-20 optimize-render">
         <header className="mb-16 border-b border-white/10 pb-10">
           <h1 className="text-4xl lg:text-6xl font-extrabold tracking-tighter mb-4">TERMS OF SERVICE</h1>
-          <p className="text-yellow-400 font-medium tracking-wide">Effective Date: Monday 13 April 2026</p>
+          <p className="text-yellow-400 font-medium tracking-wide">Effective Date: January 6, 2026</p>
         </header>
 
         <div className="space-y-12 text-gray-300 leading-relaxed">
