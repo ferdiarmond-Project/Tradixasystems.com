@@ -203,11 +203,14 @@ export default function Investment() {
         >
           {solutionPlans.map((plan, i) => (
             <FadeInSection key={i} className="h-full flex-shrink-0 w-[85vw] sm:w-[400px] lg:w-auto snap-center">
-              <div className={`relative h-full flex flex-col rounded-3xl p-8 transition-all duration-700 border animate-vibrate-premium ${
+              <div className={`relative h-full flex flex-col rounded-3xl p-8 transition-all duration-700 border animate-vibrate-premium overflow-hidden group ${
                 plan.highlight 
                 ? "bg-white/10 border-yellow-400/50 shadow-[0_0_40px_rgba(245,197,24,0.15)] ring-1 ring-yellow-400/30 lg:scale-105 z-10" 
                 : "bg-white/5 border-white/10 hover:border-white/20"
               }`}>
+                {/* Continuous Shimmer Light Effect */}
+                <div className="absolute inset-0 bg-white/10 -translate-x-full skew-x-[-45deg] animate-[shimmer-sweep_5s_infinite] pointer-events-none z-10" />
+
                 {plan.label && (
                   <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-yellow-400 text-black text-[10px] font-bold uppercase tracking-wider px-4 py-1.5 rounded-full shadow-lg whitespace-nowrap z-20">
                     {plan.label}
