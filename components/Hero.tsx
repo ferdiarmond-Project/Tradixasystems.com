@@ -26,7 +26,7 @@ export default function Hero() {
               className="heading-aurora text-4xl lg:text-5xl xl:text-6xl font-extrabold leading-tight mt-0 text-white"
               text={"Kami membuat sistem custom\nsesuai workflow\nbisnis Anda."}
               highlightWords={["custom"]}
-              delay={4000}
+              delay={400}
             />
 
             <p className="text-gray-400 mt-6 text-lg leading-relaxed max-w-lg">

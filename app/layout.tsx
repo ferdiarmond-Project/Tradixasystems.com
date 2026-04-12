@@ -15,7 +15,6 @@ export const metadata: Metadata = {
 };
 
 import GlobalBackButton from "../components/GlobalBackButton";
-import StartupLoader from "../components/StartupLoader";
 
 
 export default function RootLayout({
@@ -25,16 +24,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="id" className="overflow-x-hidden">
-      <body suppressHydrationWarning className={`${inter.variable} font-sans bg-[#071A2E] text-white antialiased overflow-x-hidden relative w-full`}>
-        {/* Anti-flash script */}
-        <script dangerouslySetInnerHTML={{ __html: `
-          if (typeof window !== 'undefined') {
-            document.body.style.opacity = '1';
-          }
-        `}} />
-        <StartupLoader />
+      <body suppressHydrationWarning className={`${inter.variable} font-sans bg-[#071A2E] text-white antialiased overflow-x-hidden relative w-full opacity-0 animate-[fade-in_1s_ease-out_forwards]`}>
         <GlobalBackButton />
-        <main className="transition-opacity duration-1000">
+        <main>
           {children}
         </main>
       </body>
