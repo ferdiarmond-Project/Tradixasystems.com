@@ -33,8 +33,14 @@ export default function Footer() {
           <div className="flex flex-col items-start text-left">
             <h4 className="text-white font-semibold mb-6 uppercase tracking-widest text-xs">Support</h4>
             <ul className="space-y-4 text-sm text-gray-500">
-              <li>
-                <a href="tel:081383882120" className="hover:text-yellow-400 transition-colors italic font-medium">Contact Support: 081383882120</a>
+              <li className="flex items-center gap-3">
+                <svg className="w-4 h-4 text-yellow-400 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+                <a href="tel:081383882120" className="group">
+                  <span className="text-gray-500 hover:text-yellow-400 transition-colors italic font-medium">Contact Support: </span>
+                  <span className="text-yellow-400 font-bold tracking-wider hover:text-yellow-300 transition-all drop-shadow-[0_0_8px_rgba(250,204,21,0.3)]">081383882120</span>
+                </a>
               </li>
               <li>
                 <Link href="/privacy-policy" className="hover:text-yellow-400 transition-colors">Privacy Policy</Link>

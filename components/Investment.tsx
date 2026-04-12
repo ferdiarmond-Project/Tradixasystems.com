@@ -169,10 +169,10 @@ export default function Investment() {
           </p>
         </FadeInSection>
 
-        {/* PRICING TABLE */}
-        <div className="grid lg:grid-cols-3 gap-8 items-stretch mb-24">
+        {/* PRICING TABLE — Updated with horizontal scroll for mobile */}
+        <div className="flex lg:grid lg:grid-cols-3 gap-6 lg:gap-8 items-stretch mb-8 lg:mb-24 overflow-x-auto lg:overflow-x-visible pb-8 lg:pb-0 snap-x snap-mandatory scrollbar-hide pricing-scroll-container">
           {solutionPlans.map((plan, i) => (
-            <FadeInSection key={i} className="h-full">
+            <FadeInSection key={i} className="h-full flex-shrink-0 w-[85vw] sm:w-[400px] lg:w-auto snap-center">
               <div className={`relative h-full flex flex-col rounded-3xl p-8 transition-all duration-300 border ${
                 plan.highlight 
                 ? "bg-white/10 border-yellow-400/50 shadow-[0_0_40px_rgba(245,197,24,0.15)] ring-1 ring-yellow-400/30 lg:scale-105 z-10" 
@@ -225,6 +225,31 @@ export default function Investment() {
             </FadeInSection>
           ))}
         </div>
+
+        {/* Mobile Scroll Indicator (Three Dots) - Dynamic */}
+        <div className="flex lg:hidden justify-center gap-2 mb-16" id="pricing-dots">
+          <div className="w-2 h-2 rounded-full transition-all duration-300 bg-yellow-400"></div>
+          <div className="w-2 h-2 rounded-full transition-all duration-300 bg-white/20"></div>
+          <div className="w-2 h-2 rounded-full transition-all duration-300 bg-white/20"></div>
+        </div>
+
+        <script dangerouslySetInnerHTML={{ __html: `
+          (function() {
+            const container = document.querySelector('.pricing-scroll-container');
+            const dots = document.querySelectorAll('#pricing-dots div');
+            if (container && dots.length) {
+              container.addEventListener('scroll', () => {
+                const scrollLeft = container.scrollLeft;
+                const width = container.offsetWidth;
+                const index = Math.round(scrollLeft / width);
+                dots.forEach((dot, i) => {
+                  dot.style.backgroundColor = i === index ? '#F5C518' : 'rgba(255, 255, 255, 0.2)';
+                  dot.style.width = i === index ? '12px' : '8px';
+                });
+              });
+            }
+          })();
+        `}} />
 
         {/* FOOTNOTE */}
         <FadeInSection className="text-center mb-32">
