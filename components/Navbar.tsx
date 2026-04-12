@@ -33,16 +33,7 @@ export default function Navbar() {
   const router = useRouter();
 
   useEffect(() => {
-    let ticking = false;
-    const handler = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          setScrolled(window.scrollY > 20);
-          ticking = false;
-        });
-        ticking = true;
-      }
-    };
+    const handler = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handler);
     return () => window.removeEventListener("scroll", handler);
   }, []);
