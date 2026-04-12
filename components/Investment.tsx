@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import FadeInSection from "./FadeInSection";
 import SectionLabel from "./SectionLabel";
@@ -131,7 +131,7 @@ const valuePoints = [
   {
     icon: <IconShield />,
     title: "Minim Kesalahan",
-    desc: "Otomasi proses yang mengurangi ketergantungan pada input manual dan human error."
+    desc: "Otomasi proses yang mengurangi ketergantungan pada input manual and human error."
   },
   {
     icon: <IconChart />,
@@ -146,6 +146,20 @@ const valuePoints = [
 ];
 
 export default function Investment() {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  const handleScroll = () => {
+    if (scrollRef.current) {
+      const { scrollLeft, offsetWidth } = scrollRef.current;
+      // Calculate active index based on scroll position - using a threshold of 100px for stability
+      const index = Math.round(scrollLeft / offsetWidth);
+      if (index !== activeIndex && index >= 0 && index < solutionPlans.length) {
+        setActiveIndex(index);
+      }
+    }
+  };
+
   return (
     <section className="relative py-24 px-6 overflow-hidden bg-[#071A2E]">
       <div className="absolute inset-0 -z-10 opacity-40">
@@ -170,16 +184,20 @@ export default function Investment() {
         </FadeInSection>
 
         {/* PRICING TABLE — Updated with horizontal scroll for mobile */}
-        <div className="flex lg:grid lg:grid-cols-3 gap-6 lg:gap-8 items-stretch mb-8 lg:mb-24 overflow-x-auto lg:overflow-x-visible pt-10 pb-8 lg:pb-0 snap-x snap-mandatory scrollbar-hide pricing-scroll-container">
+        <div 
+          ref={scrollRef}
+          onScroll={handleScroll}
+          className="flex lg:grid lg:grid-cols-3 gap-6 lg:gap-8 items-stretch mb-8 lg:mb-24 overflow-x-auto lg:overflow-x-visible pt-10 pb-8 lg:pb-0 snap-x snap-mandatory scrollbar-hide pricing-scroll-container no-scrollbar"
+        >
           {solutionPlans.map((plan, i) => (
             <FadeInSection key={i} className="h-full flex-shrink-0 w-[85vw] sm:w-[400px] lg:w-auto snap-center">
-              <div className={`relative h-full flex flex-col rounded-3xl p-8 transition-all duration-300 border ${
+              <div className={`relative h-full flex flex-col rounded-3xl p-8 transition-all duration-700 border animate-vibrate-premium ${
                 plan.highlight 
                 ? "bg-white/10 border-yellow-400/50 shadow-[0_0_40px_rgba(245,197,24,0.15)] ring-1 ring-yellow-400/30 lg:scale-105 z-10" 
                 : "bg-white/5 border-white/10 hover:border-white/20"
               }`}>
                 {plan.label && (
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-yellow-400 text-black text-[10px] font-bold uppercase tracking-wider px-4 py-1.5 rounded-full shadow-lg whitespace-nowrap">
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-yellow-400 text-black text-[10px] font-bold uppercase tracking-wider px-4 py-1.5 rounded-full shadow-lg whitespace-nowrap z-20">
                     {plan.label}
                   </div>
                 )}
@@ -226,30 +244,19 @@ export default function Investment() {
           ))}
         </div>
 
-        {/* Mobile Scroll Indicator (Three Dots) - Dynamic */}
-        <div className="flex lg:hidden justify-center gap-2 mb-16" id="pricing-dots">
-          <div className="w-2 h-2 rounded-full transition-all duration-300 bg-yellow-400"></div>
-          <div className="w-2 h-2 rounded-full transition-all duration-300 bg-white/20"></div>
-          <div className="w-2 h-2 rounded-full transition-all duration-300 bg-white/20"></div>
+        {/* Mobile Scroll Indicator (Three Dots) - Dynamic React Implementation */}
+        <div className="flex lg:hidden justify-center gap-2 mb-16">
+          {solutionPlans.map((_, i) => (
+            <div 
+              key={i}
+              className={`h-2 rounded-full transition-all duration-300 ${
+                i === activeIndex 
+                ? "bg-yellow-400 w-6" 
+                : "bg-white/20 w-2"
+              }`}
+            />
+          ))}
         </div>
-
-        <script dangerouslySetInnerHTML={{ __html: `
-          (function() {
-            const container = document.querySelector('.pricing-scroll-container');
-            const dots = document.querySelectorAll('#pricing-dots div');
-            if (container && dots.length) {
-              container.addEventListener('scroll', () => {
-                const scrollLeft = container.scrollLeft;
-                const width = container.offsetWidth;
-                const index = Math.round(scrollLeft / width);
-                dots.forEach((dot, i) => {
-                  dot.style.backgroundColor = i === index ? '#F5C518' : 'rgba(255, 255, 255, 0.2)';
-                  dot.style.width = i === index ? '12px' : '8px';
-                });
-              });
-            }
-          })();
-        `}} />
 
         {/* FOOTNOTE */}
         <FadeInSection className="text-center mb-32">

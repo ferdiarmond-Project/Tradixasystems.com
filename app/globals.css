@@ -136,6 +136,15 @@
   100% { width: 100%; opacity: 1; }
 }
 
+@keyframes vibrate-premium {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-4px) scale(1.01); }
+}
+
+.animate-vibrate-premium {
+  animation: vibrate-premium 4s ease-in-out infinite;
+}
+
 /* ===== UTILITY CLASSES ===== */
 .text-shimmer-gold {
   background: linear-gradient(
