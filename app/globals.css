@@ -155,17 +155,28 @@
 .glass-card {
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), background 0.3s, border-color 0.3s;
   will-change: transform;
+}
+
+@media (min-width: 1024px) {
+  .glass-card {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
 }
 
 .glass-card:hover {
   background: rgba(255, 255, 255, 0.12);
   border-color: rgba(255, 255, 255, 0.25);
   transform: translateY(-4px);
+}
+
+/* Optimize rendering for long sections on mobile */
+.optimize-render {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 500px;
 }
 
 .yellow-glow {
