@@ -58,8 +58,9 @@ export default function Problem() {
                 </div>
                 <TypingHeading
                   as="p"
-                  className="font-semibold text-xl leading-snug text-shimmer-gold"
+                  className="font-semibold text-xl leading-snug text-white"
                   text={item.label}
+                  highlightWords={[item.label.split(" ").pop() || ""]}
                 />
               </div>
             ))}
