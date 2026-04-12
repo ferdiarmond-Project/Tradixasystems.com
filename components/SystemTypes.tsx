@@ -119,7 +119,7 @@ export default function SystemTypes() {
           <div className="relative w-full h-[480px] lg:h-[600px] flex justify-center items-center overflow-visible scale-[1.1] lg:scale-100">
 
             {/* Phone 1 — back */}
-            <div className="absolute top-1/2 -translate-y-1/2 z-10 w-[70%] lg:w-[800px] h-[380px] lg:h-[650px] -translate-x-[15%] lg:translate-x-0 lg:left-[-180px]">
+            <div className="absolute top-1/2 -translate-y-1/2 z-10 w-[100%] lg:w-[800px] h-[450px] lg:h-[650px] -translate-x-[12%] lg:translate-x-0 lg:left-[-180px]">
               <Image
                 src="/mockup-system-18.png"
                 alt="Mobile App Preview"
@@ -131,7 +131,7 @@ export default function SystemTypes() {
             </div>
 
             {/* Phone 2 — front */}
-            <div className="absolute top-1/2 -translate-y-1/2 z-20 w-[70%] lg:w-[800px] h-[380px] lg:h-[650px] translate-x-[15%] lg:translate-x-0 lg:left-[-20px]">
+            <div className="absolute top-1/2 -translate-y-1/2 z-20 w-[100%] lg:w-[800px] h-[450px] lg:h-[650px] translate-x-[12%] lg:translate-x-0 lg:left-[-20px]">
               <Image
                 src="/mockup-system.png"
                 alt="Mobile App Preview 2"
