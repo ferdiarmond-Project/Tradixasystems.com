@@ -12,6 +12,20 @@ export const metadata: Metadata = {
   title: "Tradixa – Digital Transformation Partner",
   description:
     "Tradixa membangun sistem custom sesuai workflow bisnis Anda. Partner teknologi terpercaya untuk UMKM yang ingin scale dengan sistem digital yang efisien.",
+  icons: {
+    icon: "/Logo Tradixa only.png",
+    apple: "/Logo Tradixa only.png",
+  },
+  openGraph: {
+    images: [
+      {
+        url: "/Logo Tradixa only.png",
+        width: 1200,
+        height: 630,
+        alt: "Tradixa Logo",
+      },
+    ],
+  },
 };
 
 import GlobalBackButton from "../components/GlobalBackButton";
