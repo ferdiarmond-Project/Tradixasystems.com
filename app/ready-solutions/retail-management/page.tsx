@@ -88,7 +88,7 @@ const retailModules = [
 
 export default function RetailManagement() {
   return (
-    <main>
+    <main className="optimize-render">
       
       {/* HEADER SECTION (DARK) */}
       <section className="relative pt-40 pb-20 bg-[#071A2E] overflow-hidden text-center px-6">

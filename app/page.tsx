@@ -12,7 +12,7 @@ import CTA from "@/components/CTA";
 export default function Page() {
   return (
     <main className="relative w-full min-h-screen bg-[#0B2A4A] text-white overflow-hidden">
-      <div className="flex flex-col w-full overflow-x-hidden">
+      <div className="flex flex-col w-full overflow-x-hidden optimize-render">
         <Hero />
         <Problem />
         <SystemTypes />

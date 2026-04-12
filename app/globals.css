@@ -21,6 +21,10 @@
     /* Optimized for smooth scrolling without breaking fixed elements */
     -webkit-overflow-scrolling: touch;
     overflow-x: hidden;
+    scroll-behavior: smooth;
+    /* Force GPU acceleration on the main container for smoother scrolling */
+    transform: translateZ(0);
+    backface-visibility: hidden;
   }
 
   h1, h2, h3, h4 {
