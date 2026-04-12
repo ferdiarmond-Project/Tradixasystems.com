@@ -331,7 +331,7 @@ export default function Investment() {
             
             <h3 className="text-2xl lg:text-4xl font-bold text-white mb-8">Telah Diimplementasikan dalam Operasional Nyata</h3>
             <p className="text-gray-300 text-lg leading-relaxed mb-12 max-w-3xl mx-auto">
-              Sistem kami telah sukses diimplementasikan dan digunakan secara harian dalam operasional perusahaan pertambangan dan perkebunan berskala besar melalui <strong>PT Permata Hijau Agro Lestari</strong>.
+              Sistem kami telah sukses diimplementasikan dan digunakan secara harian dalam operasional perusahaan pertambangan dan perkebunan berskala besar melalui <strong>PT. Permata Hijau Agro Lestari</strong>.
             </p>
             
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
