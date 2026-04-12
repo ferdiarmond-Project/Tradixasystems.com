@@ -80,10 +80,16 @@ export default function TypingHeading({
     });
   }
 
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+
   return (
     <Tag 
       ref={ref} 
-      className={`${className} whitespace-pre-line transition-all duration-700 ease-out ${isTypingComplete ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`} 
+      className={`${className} whitespace-pre-line transition-all duration-700 ease-out 
+        ${isMobile 
+          ? (isTypingComplete ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2') 
+          : 'opacity-100 translate-y-0'
+        }`} 
       style={style}
     >
       {chars.map((char, index) => {
@@ -104,7 +110,7 @@ export default function TypingHeading({
           </span>
         );
       })}
-      {!isTypingComplete && (typeof window !== 'undefined' && window.innerWidth >= 768) && (
+      {!isTypingComplete && !isMobile && (
         <span className="text-yellow-400 animate-pulse ml-0.5">|</span>
       )}
     </Tag>
