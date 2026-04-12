@@ -33,7 +33,16 @@ export default function Navbar() {
   const router = useRouter();
 
   useEffect(() => {
-    const handler = () => setScrolled(window.scrollY > 20);
+    let ticking = false;
+    const handler = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setScrolled(window.scrollY > 20);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
     window.addEventListener("scroll", handler);
     return () => window.removeEventListener("scroll", handler);
   }, []);
@@ -103,9 +112,9 @@ export default function Navbar() {
           <Image
             src="/Logo Tradixa only.png"
             alt="Tradixa"
-            width={280}
-            height={88}
-            className="h-20 w-auto object-contain"
+            width={180}
+            height={56}
+            className="h-14 w-auto object-contain"
             priority
           />
           <span className="text-white font-bold text-xl tracking-tight">Tradixa</span>

@@ -32,14 +32,27 @@ export default function TypingHeading({
         const items = type === "char" ? text.length : text.split(" ").length;
 
         const timer = setTimeout(() => {
-          intervalRef.current = setInterval(() => {
-            count++;
-            setDisplayCount(count);
-            if (count >= items) {
-              if (intervalRef.current) clearInterval(intervalRef.current);
+          const startTime = performance.now();
+          const duration = items * 15; // 15ms per step average
+
+          const update = (now: number) => {
+            const elapsed = now - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const nextCount = Math.floor(progress * items);
+            
+            if (nextCount > count) {
+              count = nextCount;
+              setDisplayCount(count);
+            }
+
+            if (progress < 1) {
+              intervalRef.current = requestAnimationFrame(update) as any;
+            } else {
               setIsTypingComplete(true);
             }
-          }, 20);
+          };
+
+          intervalRef.current = requestAnimationFrame(update) as any;
         }, delay);
         
         observer.disconnect();
@@ -83,17 +96,18 @@ export default function TypingHeading({
         return (
           <span
             key={index}
-            className={`transition-opacity duration-75 ${highlightIndices.has(index) ? 'text-yellow-400 font-extrabold' : ''}`}
+            className={`will-change-[opacity,transform] ${highlightIndices.has(index) ? 'text-yellow-400 font-extrabold' : ''}`}
             style={{ 
               opacity: isVisible ? 1 : 0,
-              visibility: isVisible ? 'visible' : 'hidden' 
+              visibility: isVisible ? 'visible' : 'hidden',
+              transform: isVisible ? 'none' : 'translateY(1px)',
             }}
           >
-            {char}
+            {char === ' ' ? '\u00A0' : char}
           </span>
         );
       })}
-      {!isTypingComplete && <span className="text-yellow-400 animate-pulse ml-0.5">|</span>}
+      {!isTypingComplete && <span className="text-yellow-400 animate-pulse ml-0.5 inline-block">|</span>}
     </Tag>
   );
 }
