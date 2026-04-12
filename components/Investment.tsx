@@ -5,7 +5,6 @@ import {
   CheckCircle2, 
   Store, 
   Code2, 
-  Pickaxe, 
   ArrowRight,
   ShieldCheck,
   Zap,
@@ -41,7 +40,7 @@ const solutionPlans = [
     desc: "Sistem yang dirancang khusus mengikuti alur kerja bisnis Anda secara menyeluruh",
     price: "Custom Budget",
     priceSub: "Sesuai Kompleksitas",
-    setup: "Rp 10.000.000 – Rp 100.000.000+",
+    setup: "Rp 10.000.000 - Rp 100.000.000+",
     setupSub: "Investment-based model",
     icon: <Code2 size={28} className="text-yellow-400" />,
     features: [
@@ -61,9 +60,14 @@ const solutionPlans = [
     desc: "Sistem terintegrasi untuk monitoring dan kontrol operasional tambang secara real-time",
     price: "Enterprise Level",
     priceSub: "Skala Tambang",
-    setup: "Rp 50.000.000 – Rp 150.000.000+",
+    setup: "Rp 50.000.000 - Rp 150.000.000+",
     setupSub: "Maintenance bulanan",
-    icon: <Pickaxe size={28} className="text-yellow-400" />,
+    icon: (
+      <svg className="w-7 h-7 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.5 2L3.5 13L2.5 16L5.5 19L8.5 18L19.5 7L14.5 2Z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18 6L11 6L6 11M6 18L6 11M6 11L13 18" />
+      </svg>
+    ),
     features: [
       "Monitoring unit & aktivitas",
       "Tracking produksi",
