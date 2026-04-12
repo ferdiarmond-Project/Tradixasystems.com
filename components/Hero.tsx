@@ -60,9 +60,9 @@ export default function Hero() {
               <Image
                 src="/Free_MacBook_Pro_1_PHAL.png"
                 alt="Tradixa Dashboard Preview"
-                width={900}
-                height={570}
-                className="relative w-full drop-shadow-2xl scale-[0.8] sm:scale-[1.10] lg:scale-[1.25] xl:scale-[1.35] origin-center lg:origin-right lg:translate-x-12 xl:translate-x-20 transition-transform"
+                width={800}
+                height={500}
+                className="relative w-full drop-shadow-2xl scale-[0.75] sm:scale-[1.05] lg:scale-[1.2] xl:scale-[1.3] origin-center lg:origin-right lg:translate-x-12 xl:translate-x-20 transition-transform"
                 priority
               />
             </div>
