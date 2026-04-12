@@ -170,7 +170,7 @@ export default function Investment() {
         </FadeInSection>
 
         {/* PRICING TABLE — Updated with horizontal scroll for mobile */}
-        <div className="flex lg:grid lg:grid-cols-3 gap-6 lg:gap-8 items-stretch mb-8 lg:mb-24 overflow-x-auto lg:overflow-x-visible pb-8 lg:pb-0 snap-x snap-mandatory scrollbar-hide pricing-scroll-container">
+        <div className="flex lg:grid lg:grid-cols-3 gap-6 lg:gap-8 items-stretch mb-8 lg:mb-24 overflow-x-auto lg:overflow-x-visible pt-10 pb-8 lg:pb-0 snap-x snap-mandatory scrollbar-hide pricing-scroll-container">
           {solutionPlans.map((plan, i) => (
             <FadeInSection key={i} className="h-full flex-shrink-0 w-[85vw] sm:w-[400px] lg:w-auto snap-center">
               <div className={`relative h-full flex flex-col rounded-3xl p-8 transition-all duration-300 border ${

@@ -68,6 +68,12 @@ export default function Showcase() {
           </div>
         </div>
 
+        {/* Mobile Swipe Indicator (Premium White) */}
+        <div className="flex lg:hidden flex-col items-center gap-2 mt-4 animate-pulse">
+          <div className="w-12 h-1 rounded-full bg-white/40 shadow-[0_0_10px_rgba(255,255,255,0.3)]"></div>
+          <span className="text-[10px] text-white/30 uppercase tracking-[0.2em] font-medium">Geser</span>
+        </div>
+
         <div className="mt-16 text-center">
           <Link 
             href="/case-studies" 
