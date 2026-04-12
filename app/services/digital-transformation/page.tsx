@@ -71,12 +71,12 @@ export default function DigitalTransformationPage() {
           <div className="mt-24 text-center">
             <h2 className="text-3xl font-bold mb-12">Mengapa Bertransformasi Sekarang?</h2>
             <div className="max-w-4xl mx-auto text-gray-300 space-y-8 text-lg leading-relaxed text-left lg:text-center">
-              <p>
+              <p className="text-justify">
                 Di era digital, kecepatan adalah mata uang utama. Bisnis yang masih bergantung pada proses manual 
                 akan tertinggal oleh kompetitor yang mampu bergerak lebih efisien dengan bantuan teknologi.
               </p>
-              <p>
-                Tradixa fokus bukan sekadar pada digitalisasi (scan kertas jadi PDF), melainkan pada **transformasi** 
+              <p className="text-justify">
+                Tradixa fokus bukan sekadar pada digitalisasi (scan kertas jadi PDF), melainkan pada <strong>transformasi</strong> 
                 — yaitu mendesain ulang cara Anda bekerja agar lebih cepat, lebih murah, dan lebih akurat.
               </p>
             </div>
