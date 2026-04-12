@@ -112,8 +112,8 @@ export default function TermsOfService() {
             <p className="mb-4">
               Jika Anda memiliki pertanyaan mengenai syarat dan ketentuan penggunaan platform Tradixa Systems, silakan hubungi tim legal kami.
             </p>
-            <a href="mailto:support@tradixasystems.com" className="text-yellow-400 font-bold hover:underline">
-              support@tradixasystems.com
+            <a href="mailto:tradixasystems@gmail.com" className="text-yellow-400 font-bold hover:underline">
+              tradixasystems@gmail.com
             </a>
           </section>
 
