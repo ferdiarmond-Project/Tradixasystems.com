@@ -45,10 +45,6 @@ export default function Hero() {
                   </svg>
                 </span>
               </Link>
-
-              <button className="border border-white/20 hover:border-white/40 text-white px-7 py-3.5 rounded-xl hover:bg-white/5 transition-all duration-200 font-medium">
-                Lihat Portfolio
-              </button>
             </div>
 
           </div>
@@ -81,23 +77,7 @@ export default function Hero() {
 
         </div>
 
-        {/* Trust badges spanning full width below the grid */}
-        <div className="mt-8 lg:mt-24 pt-10 border-t border-white/10 flex flex-wrap justify-center lg:justify-center items-center gap-12 lg:gap-24 animate-fade-up w-full" style={{ '--animation-delay': '0.4s' } as React.CSSProperties}>
-          <div className="text-center group">
-            <div className="text-4xl lg:text-5xl font-extrabold tracking-tight inline-block animate-float-slow text-shimmer-gold">50+</div>
-            <div className="text-sm lg:text-base font-medium text-gray-400 mt-2 transition-colors group-hover:text-yellow-400">Klien Aktif</div>
-          </div>
-          <div className="hidden sm:block w-px h-16 bg-gradient-to-b from-transparent via-white/20 to-transparent" />
-          <div className="text-center group">
-            <div className="text-4xl lg:text-5xl font-extrabold tracking-tight inline-block animate-float-medium text-shimmer-gold">100+</div>
-            <div className="text-sm lg:text-base font-medium text-gray-400 mt-2 transition-colors group-hover:text-yellow-400">Proyek Selesai</div>
-          </div>
-          <div className="hidden sm:block w-px h-16 bg-gradient-to-b from-transparent via-white/20 to-transparent" />
-          <div className="text-center group">
-            <div className="text-4xl lg:text-5xl font-extrabold tracking-tight inline-block animate-float-slow text-shimmer-gold">5★</div>
-            <div className="text-sm lg:text-base font-medium text-gray-400 mt-2 transition-colors group-hover:text-yellow-400">Rating Klien</div>
-          </div>
-        </div>
+
 
       </div>
     </section>

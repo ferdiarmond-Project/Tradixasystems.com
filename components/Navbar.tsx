@@ -102,8 +102,8 @@ export default function Navbar() {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-[9999] transition-all duration-300 border-b border-white/5 ${isMobileMenuOpen ? "bottom-0 h-full bg-gradient-to-b from-[#071A2E] to-[#051424] overflow-y-auto" : scrolled
-          ? "h-24 bg-[#071A2E]/90 backdrop-blur-md shadow-lg shadow-black/40 bg-gradient-to-b from-[#071A2E] to-[#051424]/95"
-          : "h-24 bg-gradient-to-b from-[#071A2E] to-[#051424]"
+          ? "h-24 bg-[#071A2E]/90 backdrop-blur-md shadow-lg shadow-black/40 bg-gradient-to-r from-[#071A2E] via-[#0B2A4A]/90 to-[#071A2E]"
+          : "h-24 bg-gradient-to-r from-[#071A2E] via-[#0B2A4A] to-[#071A2E]"
         }`}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between h-24">
