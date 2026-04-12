@@ -1,5 +1,4 @@
 import BackgroundGradient from "@/components/BackgroundGradient";
-import CTA from "@/components/CTA";
 import { 
   Pickaxe, 
   Map, 
@@ -200,6 +199,5 @@ export default function ERPMining() {
         </div>
       </section>
 
-      <CTA />
     </main>);
 }

@@ -1,5 +1,4 @@
 import BackgroundGradient from "@/components/BackgroundGradient";
-import CTA from "@/components/CTA";
 import { 
   PackageSearch, 
   ShoppingCart, 
@@ -194,7 +193,6 @@ export default function RetailManagement() {
         </div>
       </section>
 
-      <CTA />
     </main>
   );
 }
