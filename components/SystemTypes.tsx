@@ -75,11 +75,21 @@ export default function SystemTypes() {
           94% { transform: translate(0.5px, 0) rotate(0.2deg); }
           96% { transform: translate(-0.5px, 0) rotate(-0.2deg); }
         }
+        @keyframes continuous-vibration {
+          0% { transform: translate(0, 0); }
+          25% { transform: translate(0.2px, 0.2px); }
+          50% { transform: translate(0, 0); }
+          75% { transform: translate(-0.2px, -0.2px); }
+          100% { transform: translate(0, 0); }
+        }
         .animate-shimmer-sweep {
           animation: shimmer-sweep 7s infinite linear;
         }
         .animate-subtle-nudge {
           animation: subtle-nudge 10s infinite ease-in-out;
+        }
+        .animate-continuous-vibration {
+          animation: continuous-vibration 0.5s infinite ease-in-out;
         }
         .hover-vibrate:hover {
           animation: premium-vibration 0.3s ease-in-out infinite;
@@ -150,8 +160,8 @@ export default function SystemTypes() {
               <Link
                 href={`/solutions/${sys.slug}`}
                 key={i}
-                className="glass-card rounded-2xl p-5 flex items-center gap-4 hover:border-white/20 transition-all duration-300 cursor-pointer group relative overflow-hidden hover-vibrate animate-subtle-nudge"
-                style={{ animationDelay: `${i * 0.8}s` }}
+                className="glass-card rounded-2xl p-5 flex items-center gap-4 hover:border-white/20 transition-all duration-300 cursor-pointer group relative overflow-hidden hover-vibrate animate-continuous-vibration"
+                style={{ animationDelay: `${i * 0.1}s` }}
               >
                 {/* Continuous Shimmer Sweep effect */}
                 <div className="absolute top-0 -left-[100%] w-[150%] h-[200%] bg-gradient-to-r from-transparent via-white/[0.12] to-transparent animate-shimmer-sweep pointer-events-none z-0" />
@@ -168,7 +178,7 @@ export default function SystemTypes() {
             ))}
 
             {/* CTA Card */}
-            <div className="glass-card rounded-2xl p-5 bg-yellow-400/5 border-yellow-400/20 hover:bg-yellow-400/10 transition-all duration-300 flex flex-col justify-between gap-4">
+            <div className="glass-card rounded-2xl p-5 bg-yellow-400/5 border-yellow-400/20 hover:bg-yellow-400/10 transition-all duration-300 flex flex-col justify-between gap-4 animate-continuous-vibration">
               <p className="text-sm font-semibold text-white">Kebutuhan Lain?</p>
               <Link 
                 href="/consultation" 
