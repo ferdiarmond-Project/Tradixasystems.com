@@ -5,8 +5,6 @@ import { supabase } from "@/lib/supabase";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import BackgroundGradient from "@/components/BackgroundGradient";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -47,7 +45,6 @@ export default function LoginPage() {
 
   return (
     <>
-      <Navbar />
       <main className="relative min-h-screen flex items-center justify-center pt-24 pb-12 px-6 overflow-hidden">
         <BackgroundGradient />
         
@@ -139,7 +136,6 @@ export default function LoginPage() {
           </p>
         </div>
       </main>
-      <Footer />
     </>
   );
 }

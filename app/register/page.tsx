@@ -5,8 +5,6 @@ import { supabase } from "@/lib/supabase";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import BackgroundGradient from "@/components/BackgroundGradient";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 
 export default function RegisterPage() {
   const [email, setEmail] = useState("");
@@ -41,7 +39,6 @@ export default function RegisterPage() {
 
   return (
     <>
-      <Navbar />
       <main className="relative min-h-screen flex items-center justify-center pt-24 pb-12 px-6 overflow-hidden">
         <BackgroundGradient />
         
@@ -105,7 +102,6 @@ export default function RegisterPage() {
           </p>
         </div>
       </main>
-      <Footer />
     </>
   );
 }

@@ -1,5 +1,3 @@
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import BackgroundGradient from "@/components/BackgroundGradient";
 import SectionLabel from "@/components/SectionLabel";
 import TypingHeading from "@/components/TypingHeading";
@@ -34,7 +32,6 @@ const umkmBenefits = [
 export default function UMKMGrowthPage() {
   return (
     <main className="bg-[#0B2A4A] text-white min-h-screen">
-      <Navbar />
       
       <section className="relative pt-40 pb-20 px-6 overflow-hidden">
         <div className="absolute inset-0 -z-10">
@@ -136,7 +133,6 @@ export default function UMKMGrowthPage() {
         </FadeInSection>
       </section>
 
-      <Footer />
     </main>
   );
 }

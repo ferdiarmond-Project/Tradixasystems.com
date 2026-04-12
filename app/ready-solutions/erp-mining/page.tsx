@@ -1,5 +1,3 @@
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import Benefits from "@/components/Benefits";
 import BackgroundGradient from "@/components/BackgroundGradient";
 import { 
@@ -97,7 +95,6 @@ const miningModules = [
 export default function ERPMining() {
   return (
     <>
-      <Navbar />
       
       {/* HEADER SECTION (DARK) */}
       <section className="relative pt-40 pb-20 bg-[#071A2E] overflow-hidden text-center px-6">
@@ -204,7 +201,6 @@ export default function ERPMining() {
       </section>
 
       <Benefits />
-      <Footer />
     </>
   );
 }
