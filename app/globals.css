@@ -22,9 +22,6 @@
     -webkit-overflow-scrolling: touch;
     overflow-x: hidden;
     scroll-behavior: smooth;
-    /* Force GPU acceleration on the main container for smoother scrolling */
-    transform: translateZ(0);
-    backface-visibility: hidden;
   }
 
   h1, h2, h3, h4 {
@@ -181,6 +178,8 @@
 .optimize-render {
   content-visibility: auto;
   contain-intrinsic-size: 0 500px;
+  /* Hardware acceleration for content only, won't break fixed navbar */
+  transform: translateZ(0);
 }
 
 .yellow-glow {
