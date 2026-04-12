@@ -54,7 +54,7 @@ export default function Hero() {
           </div>
 
           {/* RIGHT — Macbook Mockup */}
-          <div className="relative flex justify-center items-center animate-fade-up w-full mt-12 lg:mt-0 lg:-ml-4 xl:ml-0" style={{ '--animation-delay': '0.2s' } as { [key: string]: string }}>
+          <div className="relative flex justify-center items-center animate-fade-up w-full mt-4 lg:mt-0 lg:-ml-4 xl:ml-0" style={{ '--animation-delay': '0.2s' } as { [key: string]: string }}>
             <div className="relative w-full max-w-[1200px] flex justify-center lg:justify-end px-2 sm:px-0">
               <div className="absolute inset-0 bg-blue-500/10 rounded-3xl blur-2xl transform scale-95" />
               <Image
@@ -62,7 +62,7 @@ export default function Hero() {
                 alt="Tradixa Dashboard Preview"
                 width={800}
                 height={500}
-                className="relative w-full drop-shadow-2xl scale-[0.75] sm:scale-[1.05] lg:scale-[1.2] xl:scale-[1.3] origin-center lg:origin-right lg:translate-x-12 xl:translate-x-20 transition-transform"
+                className="relative w-full drop-shadow-2xl scale-[1.15] sm:scale-[1.05] lg:scale-[1.2] xl:scale-[1.3] origin-center lg:origin-right lg:translate-x-12 xl:translate-x-20 transition-transform"
                 priority
               />
             </div>
@@ -71,7 +71,7 @@ export default function Hero() {
         </div>
 
         {/* Trust badges spanning full width below the grid */}
-        <div className="mt-16 lg:mt-24 pt-10 border-t border-white/10 flex flex-wrap justify-center lg:justify-center items-center gap-12 lg:gap-24 animate-fade-up w-full" style={{ '--animation-delay': '0.4s' } as React.CSSProperties}>
+        <div className="mt-8 lg:mt-24 pt-10 border-t border-white/10 flex flex-wrap justify-center lg:justify-center items-center gap-12 lg:gap-24 animate-fade-up w-full" style={{ '--animation-delay': '0.4s' } as React.CSSProperties}>
           <div className="text-center group">
             <div className="text-4xl lg:text-5xl font-extrabold tracking-tight inline-block animate-float-slow text-shimmer-gold">50+</div>
             <div className="text-sm lg:text-base font-medium text-gray-400 mt-2 transition-colors group-hover:text-yellow-400">Klien Aktif</div>
