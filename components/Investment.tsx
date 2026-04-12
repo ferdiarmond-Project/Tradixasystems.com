@@ -199,7 +199,7 @@ export default function Investment() {
         <div 
           ref={planScrollRef}
           onScroll={handlePlanScroll}
-          className="flex lg:grid lg:grid-cols-3 gap-6 lg:gap-8 items-stretch mb-8 lg:mb-24 overflow-x-auto lg:overflow-x-visible pt-10 pb-8 lg:pb-0 snap-x snap-mandatory scrollbar-hide pricing-scroll-container no-scrollbar"
+          className="flex lg:grid lg:grid-cols-3 gap-6 lg:gap-8 items-stretch mb-8 lg:mb-24 overflow-x-auto lg:overflow-x-visible pt-14 pb-8 lg:pb-0 snap-x snap-mandatory scrollbar-hide pricing-scroll-container no-scrollbar"
         >
           {solutionPlans.map((plan, i) => (
             <FadeInSection key={i} className="h-full flex-shrink-0 w-[85vw] sm:w-[400px] lg:w-auto snap-center">
