@@ -20,20 +20,25 @@ export default function TypingHeading({
 }) {
   const [displayCount, setDisplayCount] = useState(0);
   const [isTypingComplete, setIsTypingComplete] = useState(false);
+  const [isMobileState, setIsMobileState] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
+  
   const ref = useRef<HTMLElement>(null);
   const hasStarted = useRef(false);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
-    // Detect mobile initially
-    const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+    setIsMounted(true);
+    // Detect mobile after mounting
+    const mobileValue = typeof window !== 'undefined' && window.innerWidth < 768;
+    setIsMobileState(mobileValue);
 
     const observer = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting && !hasStarted.current) {
         hasStarted.current = true;
         const items = type === "char" ? text.length : text.split(" ").length;
 
-        if (isMobile) {
+        if (mobileValue) {
           // Mobile: Instant appearance
           setDisplayCount(items);
           setIsTypingComplete(true);
@@ -80,7 +85,8 @@ export default function TypingHeading({
     });
   }
 
-  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+  // During hydration/first render, we must match server (isMobileState is false)
+  const isMobile = isMounted ? isMobileState : false;
 
   return (
     <Tag 
@@ -110,7 +116,7 @@ export default function TypingHeading({
           </span>
         );
       })}
-      {!isTypingComplete && !isMobile && (
+      {isMounted && !isTypingComplete && !isMobile && (
         <span className="text-yellow-400 animate-pulse ml-0.5">|</span>
       )}
     </Tag>

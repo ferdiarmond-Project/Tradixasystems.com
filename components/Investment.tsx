@@ -69,7 +69,7 @@ const solutionPlans = [
     price: "Rp 50.000",
     priceSub: "/ bulan",
     setup: "Setup Rp 1.000.000",
-    setupSub: "Optional lifetime (beli putus)",
+    setupSub: "",
     icon: <IconStore />,
     features: [
       "Manajemen stok",
@@ -107,7 +107,7 @@ const solutionPlans = [
     price: "Enterprise Level",
     priceSub: "Skala Tambang",
     setup: "Rp 50.000.000 - Rp 150.000.000+",
-    setupSub: "Maintenance bulanan",
+    setupSub: "",
     icon: <IconMining />,
     features: [
       "Monitoring unit & aktivitas",
@@ -173,7 +173,7 @@ export default function Investment() {
   };
 
   return (
-    <section className="relative py-24 px-6 overflow-hidden bg-[#071A2E]">
+    <section className="relative py-16 lg:py-24 px-6 overflow-hidden bg-[#071A2E]">
       <div className="absolute inset-0 -z-10 opacity-40">
         <BackgroundGradient />
       </div>
@@ -181,13 +181,13 @@ export default function Investment() {
       <div className="max-w-7xl mx-auto">
         
         {/* HERO SECTION */}
-        <FadeInSection className="text-center max-w-4xl mx-auto mb-20">
+        <FadeInSection className="text-center max-w-4xl mx-auto mb-10 lg:mb-16">
           <SectionLabel text="Solusi & Investasi" />
           <TypingHeading 
             className="heading-aurora text-4xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight mt-6"
             text={"Investasi Sistem untuk\nPertumbuhan Bisnis Anda"}
           />
-          <p className="text-gray-300 text-lg lg:text-xl leading-relaxed mt-8 font-medium">
+          <p className="text-gray-300 text-lg lg:text-xl leading-relaxed mt-4 lg:mt-6 font-medium">
             Setiap sistem yang kami bangun dirancang untuk meningkatkan efisiensi, kontrol, dan skalabilitas bisnis Anda.
           </p>
           <p className="text-gray-400 text-base mt-4 max-w-2xl mx-auto">
@@ -199,7 +199,7 @@ export default function Investment() {
         <div 
           ref={planScrollRef}
           onScroll={handlePlanScroll}
-          className="flex lg:grid lg:grid-cols-3 gap-6 lg:gap-8 items-stretch mb-8 lg:mb-24 overflow-x-auto lg:overflow-x-visible pt-16 pb-12 lg:pb-0 snap-x snap-mandatory scrollbar-hide pricing-scroll-container no-scrollbar"
+          className="flex lg:grid lg:grid-cols-3 gap-6 lg:gap-8 items-stretch mb-8 lg:mb-24 overflow-x-auto lg:overflow-x-visible pt-8 lg:pt-12 pb-8 lg:pb-0 snap-x snap-mandatory scrollbar-hide pricing-scroll-container no-scrollbar"
         >
           {solutionPlans.map((plan, i) => (
             <FadeInSection key={i} className="h-full flex-shrink-0 w-[85vw] sm:w-[400px] lg:w-auto snap-center relative pt-4 overflow-visible">
@@ -263,7 +263,7 @@ export default function Investment() {
         </div>
 
         {/* Plan Scroll Indicator */}
-        <div className="flex lg:hidden justify-center gap-2 mb-16">
+        <div className="flex lg:hidden justify-center gap-2 mb-10">
           {solutionPlans.map((_, i) => (
             <div 
               key={i}
@@ -275,14 +275,14 @@ export default function Investment() {
         </div>
 
         {/* FOOTNOTE */}
-        <FadeInSection className="text-center mb-32">
+        <FadeInSection className="text-center mb-16 lg:mb-24">
           <p className="text-gray-500 text-sm italic text-center">
             * Harga dapat menyesuaikan dengan kompleksitas sistem, skala operasional, dan kebutuhan integrasi bisnis.
           </p>
         </FadeInSection>
 
         {/* VALUE SECTION - Centered Header */}
-        <FadeInSection className="text-center max-w-4xl mx-auto mb-20">
+        <FadeInSection className="text-center max-w-4xl mx-auto mb-10 lg:mb-16">
           <SectionLabel text="Keunggulan" />
           <h2 className="text-3xl lg:text-5xl font-bold text-white mt-6 mb-8 leading-tight">
             Lebih dari Sekadar Sistem
@@ -312,7 +312,7 @@ export default function Investment() {
         </div>
 
         {/* Value Scroll Indicator */}
-        <div className="flex lg:hidden justify-center gap-2 mb-20">
+        <div className="flex lg:hidden justify-center gap-2 mb-12">
           {valuePoints.map((_, i) => (
             <div 
               key={i}
@@ -324,7 +324,7 @@ export default function Investment() {
         </div>
 
         {/* TRUST SECTION - Repositioned Below the Cards */}
-        <FadeInSection className="relative mb-32 max-w-5xl mx-auto">
+        <FadeInSection className="relative mb-20 lg:mb-32 max-w-5xl mx-auto">
           <div className="glass-card rounded-[3rem] p-10 lg:p-16 border-white/10 overflow-hidden relative text-center">
             <div className="absolute top-0 right-0 w-64 h-64 bg-yellow-400/10 blur-[100px] -mr-32 -mt-32" />
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-400/5 blur-[100px] -ml-32 -mb-32" />

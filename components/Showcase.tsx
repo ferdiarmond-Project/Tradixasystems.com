@@ -6,7 +6,7 @@ import FadeInSection from "@/components/FadeInSection";
 
 export default function Showcase() {
   return (
-    <section className="relative py-12 px-6 overflow-hidden bg-[#040E1A] border-t border-white/5">
+    <section className="relative py-8 lg:py-12 px-6 overflow-hidden bg-[#040E1A] border-t border-white/5">
       {/* Background glows */}
       {/* Background glows - Optimized with SVG for older Macs - Hidden on mobile */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden hidden lg:block">
@@ -39,8 +39,8 @@ export default function Showcase() {
       <FadeInSection className="relative z-10 max-w-7xl mx-auto">
 
         {/* Header */}
-        <div className="mb-8 lg:mb-10 text-center lg:flex lg:flex-col lg:items-center">
-          <div className="flex justify-center mb-4">
+        <div className="mb-0 lg:mb-10 text-center lg:flex lg:flex-col lg:items-center">
+          <div className="flex justify-center mb-2">
             <SectionLabel text="Tampilan Sistem" />
           </div>
           <TypingHeading
@@ -51,7 +51,7 @@ export default function Showcase() {
         </div>
 
         {/* ── Professional SaaS Device Mockup ── */}
-        <div className="relative w-full mt-4 lg:mt-8 overflow-x-auto overflow-y-hidden lg:overflow-visible scrollbar-hide py-4 px-4 -mx-4 lg:mx-0 lg:px-0">
+        <div className="relative w-full mt-0 lg:mt-8 overflow-x-auto overflow-y-hidden lg:overflow-visible scrollbar-hide py-0 lg:py-4 px-4 -mx-4 lg:mx-0 lg:px-0">
           <div className="flex justify-start lg:justify-center items-center h-full min-w-[760px] md:min-w-0">
             <div className="relative z-30 w-full max-w-[1200px] lg:scale-100 xl:scale-105 animate-float-slow lg:-translate-x-12 xl:-translate-x-16 mx-auto">
               <Image
@@ -59,7 +59,7 @@ export default function Showcase() {
                 alt="Tradixa Complete System Mockup"
                 width={900}
                 height={600}
-                className="w-full h-auto object-contain drop-shadow-[0_25px_60px_rgba(0,0,0,0.7)] scale-[0.9] lg:scale-100"
+                className="w-full h-auto object-contain drop-shadow-[0_25px_60px_rgba(0,0,0,0.7)] scale-100"
                 loading="lazy"
                 quality={50}
                 sizes="(max-width: 768px) 100vw, 900px"
@@ -69,12 +69,12 @@ export default function Showcase() {
         </div>
 
         {/* Mobile Swipe Indicator (Premium White) */}
-        <div className="flex lg:hidden flex-col items-center gap-2 mt-4 animate-pulse">
+        <div className="flex lg:hidden flex-col items-center gap-2 mt-0 animate-pulse">
           <div className="w-12 h-1 rounded-full bg-white/40 shadow-[0_0_10px_rgba(255,255,255,0.3)]"></div>
           <span className="text-[10px] text-white/30 uppercase tracking-[0.2em] font-medium">Geser</span>
         </div>
 
-        <div className="mt-16 text-center">
+        <div className="mt-2 lg:mt-16 text-center">
           <Link 
             href="/case-studies" 
             className="inline-flex items-center gap-2 bg-white/5 hover:bg-white/10 text-white px-8 py-4 rounded-xl border border-white/10 transition-all hover:scale-105"
