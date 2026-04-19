@@ -96,7 +96,7 @@ export default function ERPMining() {
     <main className="optimize-render">
       
       {/* HEADER SECTION (DARK) */}
-      <section className="relative pt-24 lg:pt-32 pb-12 lg:pb-16 bg-[#071A2E] overflow-hidden text-center px-6">
+      <section className="relative pt-36 lg:pt-44 pb-12 lg:pb-16 bg-[#071A2E] overflow-hidden text-center px-6">
         <BackgroundGradient />
         <div className="relative z-10 max-w-4xl mx-auto animate-fade-up flex flex-col items-center">
           <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-yellow-400/10 text-yellow-400 font-semibold text-sm mb-6 border border-yellow-400/20">

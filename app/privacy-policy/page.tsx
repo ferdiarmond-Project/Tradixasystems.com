@@ -12,7 +12,7 @@ export default function PrivacyPolicy() {
         <BackgroundVariation1 />
       </div>
 
-      <div className="relative z-10 max-w-4xl mx-auto px-6 pt-24 lg:pt-32 pb-12 lg:pb-20 optimize-render">
+      <div className="relative z-10 max-w-4xl mx-auto px-6 pt-36 lg:pt-44 pb-12 lg:pb-20 optimize-render">
         <header className="mb-16 border-b border-white/10 pb-10">
           <h1 className="text-4xl lg:text-6xl font-extrabold tracking-tighter mb-4">PRIVACY POLICY</h1>
           <p className="text-yellow-400 font-medium tracking-wide">Effective Date: January 6, 2026</p>

@@ -92,7 +92,7 @@ export default function StrategyPlanningPage() {
   return (
     <main className="bg-[#0B2A4A] text-white min-h-screen">
       
-      <section className="relative pt-24 lg:pt-32 pb-12 lg:pb-16 px-6 overflow-hidden">
+      <section className="relative pt-36 lg:pt-44 pb-12 lg:pb-16 px-6 overflow-hidden">
         <div className="absolute inset-0 -z-10">
           <BackgroundGradient />
         </div>
