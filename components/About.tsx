@@ -23,7 +23,7 @@ export default function About() {
           </p>
 
           <p className="text-lg leading-relaxed">
-            Nama Tradixa berasal dari filosofi transisi — sebuah perjalanan dari sistem bisnis yang masih tradisional, manual, atau bahkan belum terdigitalisasi, menuju ekosistem digital yang terintegrasi, modern, dan scalable. Kami hadir sebagai jembatan dalam proses perubahan tersebut, memastikan setiap langkah transformasi berjalan lebih terarah, terukur, dan memberikan dampak nyata bagi pertumbuhan bisnis.
+            Nama Tradixa berasal dari filosofi transisi - sebuah perjalanan dari sistem bisnis yang masih tradisional, manual, atau bahkan belum terdigitalisasi, menuju ekosistem digital yang terintegrasi, modern, dan scalable. Kami hadir sebagai jembatan dalam proses perubahan tersebut, memastikan setiap langkah transformasi berjalan lebih terarah, terukur, dan memberikan dampak nyata bagi pertumbuhan bisnis.
           </p>
 
           <p className="text-lg leading-relaxed">
