@@ -145,10 +145,10 @@ export default function SystemTypes() {
         {/* Content: phones left, cards right */}
         <div className="grid lg:grid-cols-2 gap-0 items-center">
 
-          {/* LEFT — Two phones, upright, centered and overlapping */}
+          {/* LEFT - Two phones, upright, centered and overlapping */}
           <div className="relative w-full h-[380px] lg:h-[600px] flex justify-center items-center overflow-visible scale-[1.05] lg:scale-100">
 
-            {/* Phone 1 — back */}
+            {/* Phone 1 - back */}
             <div className="absolute top-1/2 -translate-y-1/2 z-10 w-[100%] lg:w-[800px] h-[450px] lg:h-[650px] -translate-x-[12%] lg:translate-x-0 lg:left-[-180px]">
               <Image
                 src="/mockup-system-18.png"
@@ -160,7 +160,7 @@ export default function SystemTypes() {
               />
             </div>
 
-            {/* Phone 2 — front */}
+            {/* Phone 2 - front */}
             <div className="absolute top-1/2 -translate-y-1/2 z-20 w-[100%] lg:w-[800px] h-[450px] lg:h-[650px] translate-x-[12%] lg:translate-x-0 lg:left-[-20px]">
               <Image
                 src="/mockup-system.png"
@@ -174,7 +174,7 @@ export default function SystemTypes() {
 
           </div>
 
-          {/* RIGHT — System cards grid */}
+          {/* RIGHT - System cards grid */}
           <div className="grid grid-cols-2 gap-4">
             {systemsData.map((sys, i) => (
               <Link

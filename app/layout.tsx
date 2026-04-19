@@ -9,7 +9,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Tradixa – Digital Transformation Partner",
+  title: "Tradixa - Digital Transformation Partner",
   description:
     "Tradixa membangun sistem custom sesuai workflow bisnis Anda. Partner teknologi terpercaya untuk UMKM yang ingin scale dengan sistem digital yang efisien.",
   icons: {
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     apple: "/favicon-tradixa.png",
   },
   openGraph: {
-    title: "Tradixa – Digital Transformation Partner",
+    title: "Tradixa - Digital Transformation Partner",
     description: "Tradixa membangun sistem custom sesuai workflow bisnis Anda. Partner teknologi terpercaya untuk UMKM yang ingin scale dengan sistem digital yang efisien.",
     images: [
       {

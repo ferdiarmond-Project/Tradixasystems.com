@@ -123,12 +123,12 @@ export default function Navbar() {
         {/* Nav Links */}
         <div className="hidden lg:flex items-center gap-6 xl:gap-8">
 
-          {/* About Us — FIRST */}
+          {/* About Us - FIRST */}
           <Link href="/about" className="text-sm font-medium text-white hover:text-yellow-400 transition-colors duration-200">
             About Us
           </Link>
 
-          {/* Services — with dropdown (Image 2) */}
+          {/* Services - with dropdown (Image 2) */}
           <div
             className="relative h-full flex items-center"
             ref={servicesDropdownRef}
@@ -176,7 +176,7 @@ export default function Navbar() {
             Solutions
           </Link>
 
-          {/* Ready Solutions — with dropdown */}
+          {/* Ready Solutions - with dropdown */}
           <div
             className="relative h-full flex items-center"
             ref={dropdownRef}

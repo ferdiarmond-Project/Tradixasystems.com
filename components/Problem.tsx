@@ -59,7 +59,7 @@ export default function Problem() {
       <FadeInSection className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-16 items-center relative z-10">
 
-          {/* LEFT — Title & Description */}
+          {/* LEFT - Title & Description */}
           <div>
             <SectionLabel text="Masalah" className="justify-start lg:justify-start" />
             <TypingHeading 
@@ -74,7 +74,7 @@ export default function Problem() {
             </p>
           </div>
 
-          {/* RIGHT — Items list */}
+          {/* RIGHT - Items list */}
           <div className="space-y-6 ml-auto w-full max-w-md">
             {items.map((item, i) => (
               <div key={i} className="flex gap-5 items-center group">

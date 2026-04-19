@@ -49,7 +49,7 @@ export default function Hero() {
 
           </div>
 
-          {/* RIGHT — Macbook Mockup */}
+          {/* RIGHT - Macbook Mockup */}
           <div className="relative flex justify-center items-center animate-fade-up w-full mt-4 lg:mt-0 lg:-ml-4 xl:ml-0" style={{ '--animation-delay': '0.2s' } as { [key: string]: string }}>
             <div className="relative w-full max-w-[1200px] flex justify-center lg:justify-end px-2 sm:px-0">
               {/* Optimized SVG Glow for older Safari compatibility - Hidden on mobile */}

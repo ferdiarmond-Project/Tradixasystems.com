@@ -39,7 +39,7 @@ export default function Workflow() {
 
         <div className="grid lg:grid-cols-2 gap-16 items-center">
 
-          {/* LEFT — Feature list */}
+          {/* LEFT - Feature list */}
           <div className="space-y-6">
             {features.map((f, i) => (
               <div
@@ -61,7 +61,7 @@ export default function Workflow() {
             ))}
           </div>
 
-          {/* RIGHT — MacBook preview */}
+          {/* RIGHT - MacBook preview */}
           <div className="relative">
             <div className="absolute inset-0 bg-blue-500/5 rounded-3xl blur-2xl" />
             <Image

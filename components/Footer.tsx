@@ -6,7 +6,7 @@ export default function Footer() {
     <footer className="bg-[#050F1C] px-6 pt-16 pb-8 border-t border-white/5">
       <div className="max-w-7xl mx-auto">
         
-        {/* Top — 3 columns */}
+        {/* Top - 3 columns */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-16 mb-20">
 
           {/* Brand */}

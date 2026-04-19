@@ -77,7 +77,7 @@ export default function DigitalTransformationPage() {
               </p>
               <p className="text-justify">
                 Tradixa fokus bukan sekadar pada digitalisasi (scan kertas jadi PDF), melainkan pada <strong>transformasi</strong> 
-                — yaitu mendesain ulang cara Anda bekerja agar lebih cepat, lebih murah, dan lebih akurat.
+                - yaitu mendesain ulang cara Anda bekerja agar lebih cepat, lebih murah, dan lebih akurat.
               </p>
             </div>
           </div>

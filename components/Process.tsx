@@ -51,7 +51,7 @@ export default function Process() {
 
         <div className="grid lg:grid-cols-2 gap-16 items-start">
 
-          {/* LEFT — Big heading */}
+          {/* LEFT - Big heading */}
           <div className="pt-0 lg:pt-10">
             <SectionLabel text="Kerjasama" className="justify-start mb-6" />
             <TypingHeading
@@ -60,7 +60,7 @@ export default function Process() {
             />
           </div>
 
-          {/* RIGHT — Description + scheme items */}
+          {/* RIGHT - Description + scheme items */}
           <div className="pt-0 lg:pt-28">
             <p className="text-gray-300 text-lg leading-relaxed mb-10 max-w-xl">
               Pengembangan sistem yang efektif dimulai dari pemahaman kebutuhan dan
