@@ -91,11 +91,7 @@ export default function TypingHeading({
   return (
     <Tag 
       ref={ref} 
-      className={`${className} whitespace-pre-line transition-all duration-700 ease-out 
-        ${isMobile 
-          ? (isTypingComplete ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2') 
-          : 'opacity-100 translate-y-0'
-        }`} 
+      className={`${className} whitespace-pre-line transition-all duration-700 ease-out ${isMobile ? (isTypingComplete ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2') : 'opacity-100 translate-y-0'}`} 
       style={style}
     >
       {chars.map((char, index) => {
