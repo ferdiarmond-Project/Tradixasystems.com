@@ -35,32 +35,32 @@ export default function CaseStudiesPage() {
   return (
     <main className="bg-[#0B2A4A] text-white min-h-screen">
       
-      <section className="relative pt-40 pb-20 px-6 overflow-hidden">
+      <section className="relative pt-24 lg:pt-32 pb-12 lg:pb-16 px-6 overflow-hidden">
         <div className="absolute inset-0 -z-10">
           <BackgroundGradient />
         </div>
         
         <FadeInSection className="max-w-7xl mx-auto">
-          <div className="text-center mb-24">
+          <div className="text-center mb-12 lg:mb-16">
             <SectionLabel text="Success Stories" />
             <TypingHeading 
               className="heading-aurora text-4xl lg:text-7xl font-extrabold tracking-tight text-white leading-tight mt-6"
               text={"CASE STUDIES"}
             />
-            <p className="text-gray-300 text-lg lg:text-xl leading-relaxed max-w-3xl mx-auto mt-8">
+            <p className="text-gray-300 text-lg lg:text-xl leading-relaxed max-w-3xl mx-auto mt-4 lg:mt-6">
               Penerapan teknologi yang tepat memberikan dampak nyata bagi profitabilitas dan efisiensi operasional bisnis.
             </p>
           </div>
 
-          <div className="space-y-40">
+          <div className="space-y-24 lg:space-y-32">
             {cases.map((c, i) => (
               <div key={i} className="max-w-5xl mx-auto">
-                <div className="text-center mb-16">
+                <div className="text-center mb-10 lg:mb-14">
                   <div className="text-yellow-400 font-bold mb-4 flex items-center justify-center gap-2">
                     <div className="w-8 h-[2px] bg-yellow-400" />
                     {c.category}
                   </div>
-                  <h3 className="text-4xl lg:text-5xl font-extrabold mb-8 text-white">{c.title}</h3>
+                  <h3 className="text-3xl lg:text-5xl font-extrabold mb-6 lg:mb-8 text-white">{c.title}</h3>
                 </div>
                 
                 <div className="grid md:grid-cols-2 gap-8 mb-16">
@@ -97,7 +97,7 @@ export default function CaseStudiesPage() {
             ))}
           </div>
 
-          <div className="mt-40 text-center glass-card rounded-3xl p-16 border-white/5 bg-gradient-to-t from-[#13315C] to-transparent">
+          <div className="mt-24 lg:mt-32 text-center glass-card rounded-3xl p-10 lg:p-16 border-white/5 bg-gradient-to-t from-[#13315C] to-transparent">
             <h2 className="text-4xl font-bold mb-6">Siap Menjadi Success Story Berikutnya?</h2>
             <p className="text-gray-400 max-w-2xl mx-auto mb-10 text-lg">
               Setiap tantangan bisnis adalah peluang untuk inovasi. Mari diskusikan bagaimana sistem custom kami dapat membantu Anda mencapai hasil serupa.

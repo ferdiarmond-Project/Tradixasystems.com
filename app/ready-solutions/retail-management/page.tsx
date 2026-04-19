@@ -90,7 +90,7 @@ export default function RetailManagement() {
     <main className="optimize-render">
       
       {/* HEADER SECTION (DARK) */}
-      <section className="relative pt-40 pb-20 bg-[#071A2E] overflow-hidden text-center px-6">
+      <section className="relative pt-24 lg:pt-32 pb-12 lg:pb-16 bg-[#071A2E] overflow-hidden text-center px-6">
         <BackgroundGradient />
         <div className="relative z-10 max-w-4xl mx-auto animate-fade-up flex flex-col items-center">
           <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-yellow-400/10 text-yellow-400 font-semibold text-sm mb-6 border border-yellow-400/20">
@@ -106,10 +106,10 @@ export default function RetailManagement() {
       </section>
 
       {/* MODULES GRID SECTION (LIGHT) */}
-      <section className="py-24 bg-[#F8FAFC] px-6">
+      <section className="py-12 lg:py-20 bg-[#F8FAFC] px-6">
         <div className="max-w-7xl mx-auto">
           
-          <div className="text-center mb-16 max-w-2xl mx-auto animate-fade-up">
+          <div className="text-center mb-10 lg:mb-14 max-w-2xl mx-auto animate-fade-up">
             <h2 className="text-3xl lg:text-4xl font-bold text-[#0B2545] mb-4">
               Semua Fitur Untuk Skala Ritel Anda
             </h2>

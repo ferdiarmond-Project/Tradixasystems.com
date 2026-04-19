@@ -33,25 +33,25 @@ export default function UMKMGrowthPage() {
   return (
     <main className="bg-[#0B2A4A] text-white min-h-screen">
       
-      <section className="relative pt-40 pb-20 px-6 overflow-hidden">
+      <section className="relative pt-24 lg:pt-32 pb-12 lg:pb-16 px-6 overflow-hidden">
         <div className="absolute inset-0 -z-10">
           <BackgroundGradient />
         </div>
         
         <FadeInSection className="max-w-7xl mx-auto">
-          <div className="text-center mb-24">
+          <div className="text-center mb-12 lg:mb-16">
             <SectionLabel text="Transformasi UMKM" />
             <TypingHeading 
               className="heading-aurora text-4xl lg:text-7xl font-extrabold tracking-tight text-white leading-tight mt-6"
               text={"GROW YOUR BUSINESS\nTO THE NEXT LEVEL"}
             />
-            <p className="text-gray-300 text-lg lg:text-xl leading-relaxed max-w-4xl mx-auto mt-8">
+            <p className="text-gray-300 text-lg lg:text-xl leading-relaxed max-w-4xl mx-auto mt-4 lg:mt-6">
               Kami membangun sistem digital yang didesain khusus untuk membantu UMKM skala menengah mengatasi 
               stagnasi pertumbuhan melalui akurasi data dan otomasi operasional.
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-16 items-center mb-32">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center mb-16 lg:mb-24">
             <div className="space-y-8">
               <h2 className="text-3xl font-bold">Teknologi yang Memberikan Dampak Nyata pada Profit</h2>
               <p className="text-gray-400 leading-relaxed text-lg text-justify">
@@ -88,7 +88,7 @@ export default function UMKMGrowthPage() {
             </div>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 mb-24">
+          <div className="grid md:grid-cols-2 gap-6 lg:gap-8 mb-16 lg:mb-20">
             {umkmBenefits.map((b, i) => (
               <div key={i} className="glass-card rounded-3xl p-10 border-white/5 hover:border-white/15 transition-all flex gap-8 items-start group">
                 <div className="p-4 bg-white/5 rounded-2xl group-hover:bg-yellow-400/10 transition-colors">

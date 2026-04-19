@@ -31,7 +31,7 @@ export default function TechIntegrationPage() {
   return (
     <main className="bg-[#0B2A4A] text-white min-h-screen">
       
-      <section className="relative pt-40 pb-20 px-6 overflow-hidden">
+      <section className="relative pt-24 lg:pt-32 pb-12 lg:pb-16 px-6 overflow-hidden">
         <div className="absolute inset-0 -z-10">
           <BackgroundGradient />
         </div>
@@ -70,7 +70,7 @@ export default function TechIntegrationPage() {
             </div>
           </div>
 
-          <div className="mt-24 glass-card rounded-3xl p-12 border-yellow-400/20 bg-yellow-400/5 text-center">
+          <div className="mt-16 lg:mt-24 glass-card rounded-3xl p-12 border-yellow-400/20 bg-yellow-400/5 text-center">
             <h2 className="text-3xl font-bold mb-6">Automate Your Data Flow</h2>
             <p className="text-gray-300 max-w-3xl mx-auto text-lg leading-relaxed mb-10">
               Hilangkan input data ganda dan ketidakkonsistenan informasi. Dengan integrasi yang tepat, 

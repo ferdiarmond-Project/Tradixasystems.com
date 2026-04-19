@@ -31,19 +31,19 @@ export default function DigitalTransformationPage() {
   return (
     <main className="bg-[#0B2A4A] text-white min-h-screen">
       
-      <section className="relative pt-40 pb-20 px-6 overflow-hidden">
+      <section className="relative pt-24 lg:pt-32 pb-12 lg:pb-16 px-6 overflow-hidden">
         <div className="absolute inset-0 -z-10">
           <BackgroundGradient />
         </div>
         
         <FadeInSection className="max-w-7xl mx-auto">
-          <div className="text-center max-w-4xl mx-auto mb-24">
+          <div className="text-center max-w-4xl mx-auto mb-12 lg:mb-16">
             <SectionLabel text="Service Module" />
             <TypingHeading 
               className="heading-aurora text-4xl lg:text-7xl font-extrabold tracking-tight text-white leading-tight mt-6"
               text={"DIGITAL\nTRANSFORMATION"}
             />
-            <p className="text-gray-300 text-lg lg:text-xl leading-relaxed mt-8">
+            <p className="text-gray-300 text-lg lg:text-xl leading-relaxed mt-4 lg:mt-6">
               Kami membantu bisnis melampaui batasan operasional konvensional dengan mengubah proses 
               manual yang terfragmentasi menjadi ekosistem digital yang terintegrasi.
             </p>
@@ -68,7 +68,7 @@ export default function DigitalTransformationPage() {
             ))}
           </div>
 
-          <div className="mt-24 text-center">
+          <div className="mt-16 lg:mt-20 text-center">
             <h2 className="text-3xl font-bold mb-12">Mengapa Bertransformasi Sekarang?</h2>
             <div className="max-w-4xl mx-auto text-gray-300 space-y-8 text-lg leading-relaxed text-left lg:text-center">
               <p className="text-justify">
