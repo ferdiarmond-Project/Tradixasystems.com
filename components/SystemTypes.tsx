@@ -190,8 +190,8 @@ export default function SystemTypes() {
             {/* CTA Card */}
             <div className="glass-card rounded-2xl p-5 bg-yellow-400/5 border-yellow-400/20 hover:bg-yellow-400/10 transition-all duration-300 flex flex-col justify-between gap-4 animate-continuous-vibration">
               <p className="text-sm font-semibold text-white">Kebutuhan Lain?</p>
-              <Link 
-                href="/consultation" 
+              <Link
+                href="/consultation"
                 className="w-full bg-yellow-400 hover:bg-yellow-300 text-black text-sm font-bold py-2.5 rounded-xl transition-colors text-center block"
               >
                 Hubungi Kami

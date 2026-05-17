@@ -75,8 +75,8 @@ export default function Showcase() {
         </div>
 
         <div className="mt-0 lg:mt-4 text-center pb-2">
-          <Link 
-            href="/case-studies" 
+          <Link
+            href="/case-studies"
             className="inline-flex items-center gap-2 bg-white/5 hover:bg-white/10 text-white px-8 py-4 rounded-xl border border-white/10 transition-all hover:scale-105"
           >
             Lihat Studi Kasus Selengkapnya →
