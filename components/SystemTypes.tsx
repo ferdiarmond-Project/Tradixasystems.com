@@ -95,7 +95,8 @@ export default function SystemTypes() {
                 alt="Mobile App Preview"
                 width={800}
                 height={1600}
-                className="h-full w-auto object-contain drop-shadow-2xl"
+                quality={50}
+                className="h-full w-auto object-contain drop-shadow-2xl animate-float-medium will-change-transform"
                 loading="eager"
               />
             </div>
@@ -114,7 +115,8 @@ export default function SystemTypes() {
                 alt="Mobile App Preview 2"
                 width={800}
                 height={1600}
-                className="h-full w-auto object-contain drop-shadow-2xl"
+                quality={50}
+                className="h-full w-auto object-contain drop-shadow-2xl animate-float-slow will-change-transform"
                 loading="eager"
               />
             </div>
