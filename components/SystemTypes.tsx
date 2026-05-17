@@ -53,7 +53,7 @@ export const systemsData = [
 
 export default function SystemTypes() {
   return (
-    <section className="relative py-16 px-6 overflow-hidden bg-[#0D2140]">
+    <section className="relative pt-10 pb-8 lg:pt-12 lg:pb-12 overflow-hidden bg-[#0D2140]">
       {/* Inline style for the sweeping light and vibration effect */}
       <style dangerouslySetInnerHTML={{
         __html: `
@@ -115,10 +115,10 @@ export default function SystemTypes() {
         <div className="absolute inset-0 bg-gradient-to-r from-[#0D2140] via-transparent to-[#0D2140] opacity-60" />
         <div className="absolute inset-0 bg-gradient-to-b from-[#0D2140] via-transparent to-[#0D2140] opacity-60" />
       </div>
-      <div className="relative z-10 max-w-7xl mx-auto">
+      <div className="relative z-10 max-w-7xl mx-auto px-6">
 
         {/* Header */}
-        <div className="text-center mb-10 lg:mb-16">
+        <div className="text-center mb-6 lg:mb-10">
           <div className="flex justify-center mb-4">
             <SectionLabel text="Solusi Kami" />
           </div>
@@ -133,10 +133,10 @@ export default function SystemTypes() {
         </div>
 
         {/* Content: phones left, cards right */}
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
 
           {/* LEFT - Two phones, upright, centered and overlapping */}
-          <div className="relative w-full h-[320px] lg:h-[600px] flex justify-center items-center overflow-visible scale-[1.2] lg:scale-[1.1]">
+          <div className="relative w-full h-[320px] lg:h-[550px] flex justify-center items-center overflow-visible scale-[1.2] lg:scale-[1.1]">
 
             {/* Phone 1 - back */}
             <div className="absolute top-1/2 -translate-y-1/2 z-10 w-[100%] lg:w-[800px] h-[450px] lg:h-[650px] -translate-x-[12%] lg:translate-x-0 lg:left-[-180px]">
