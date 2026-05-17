@@ -1,9 +1,6 @@
 import Image from "next/image";
-import Link from "next/link";
-import SectionLabel from "./SectionLabel";
-import TypingHeading from "./TypingHeading";
 
-export const systemsData = [
+const systems = [
   {
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -11,7 +8,6 @@ export const systemsData = [
       </svg>
     ),
     name: "ERP & Management",
-    slug: "erp-management",
   },
   {
     icon: (
@@ -20,7 +16,6 @@ export const systemsData = [
       </svg>
     ),
     name: "Accounting & Finance",
-    slug: "accounting-finance",
   },
   {
     icon: (
@@ -29,7 +24,6 @@ export const systemsData = [
       </svg>
     ),
     name: "Inventory & Warehouse",
-    slug: "inventory-warehouse",
   },
   {
     icon: (
@@ -38,7 +32,6 @@ export const systemsData = [
       </svg>
     ),
     name: "POS & Sales System",
-    slug: "pos-sales",
   },
   {
     icon: (
@@ -47,170 +40,109 @@ export const systemsData = [
       </svg>
     ),
     name: "CRM & Customer System",
-    slug: "crm-customer",
   },
 ];
 
-import FadeInSection from "./FadeInSection";
-
 export default function SystemTypes() {
   return (
-    <section className="relative py-10 lg:py-12 px-6 overflow-hidden bg-[#0D2140]">
-      {/* Inline style for the sweeping light effect */}
-      <style dangerouslySetInnerHTML={{
-        __html: `
-        @keyframes shimmer-sweep {
-          0% { transform: translateX(250%) skewX(-20deg); }
-          100% { transform: translateX(-150%) skewX(-20deg); }
-        }
-        @keyframes premium-vibration {
-          0% { transform: translateY(-4px) rotate(0deg); }
-          25% { transform: translateY(-4px) rotate(0.8deg); }
-          50% { transform: translateY(-4px) rotate(-0.8deg); }
-          75% { transform: translateY(-4px) rotate(0.8deg); }
-          100% { transform: translateY(-4px) rotate(0deg); }
-        }
-        @keyframes subtle-nudge {
-          0%, 90%, 100% { transform: translate(0, 0) rotate(0deg); }
-          94% { transform: translate(0.5px, 0) rotate(0.2deg); }
-          96% { transform: translate(-0.5px, 0) rotate(-0.2deg); }
-        }
-        @keyframes continuous-vibration {
-          0% { transform: translate(0, 0); }
-          25% { transform: translate(0.2px, 0.2px); }
-          50% { transform: translate(0, 0); }
-          75% { transform: translate(-0.2px, -0.2px); }
-          100% { transform: translate(0, 0); }
-        }
-        .animate-shimmer-sweep {
-          animation: shimmer-sweep 7s infinite linear;
-        }
-        .animate-subtle-nudge {
-          animation: subtle-nudge 10s infinite ease-in-out;
-        }
-        .animate-continuous-vibration {
-          animation: continuous-vibration 0.5s infinite ease-in-out;
-        }
-        .hover-vibrate:hover {
-          animation: premium-vibration 0.3s ease-in-out infinite;
-        }
-      ` }} />
-      {/* Animated subtle blue glow - replaced blur-3xl with radial gradients for compatibility - Hidden on mobile */}
-      <div className="absolute inset-0 z-0 pointer-events-none hidden lg:block">
-        {/* Center blue glow */}
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full opacity-20 animate-float-slow">
-          <svg viewBox="0 0 100 100" className="w-full h-full">
-            <defs>
-              <radialGradient id="system-glow-1" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.8" />
-                <stop offset="100%" stopColor="#3b82f6" stopOpacity="0" />
-              </radialGradient>
-            </defs>
-            <circle cx="50%" cy="50%" r="50%" fill="url(#system-glow-1)" />
-          </svg>
-        </div>
-        {/* Secondary glow */}
-        <div className="absolute bottom-1/4 -left-32 w-[500px] h-[500px] rounded-full opacity-15 animate-float-medium">
-          <svg viewBox="0 0 100 100" className="w-full h-full">
-            <defs>
-              <radialGradient id="system-glow-2" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stopColor="#0ea5e9" stopOpacity="0.6" />
-                <stop offset="100%" stopColor="#0ea5e9" stopOpacity="0" />
-              </radialGradient>
-            </defs>
-            <circle cx="50%" cy="50%" r="50%" fill="url(#system-glow-2)" />
-          </svg>
-        </div>
+    <section className="relative py-24 px-6 overflow-hidden bg-[#0D2140]">
+      {/* Animated subtle blue glow */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        {/* Center blue glow - very subtle */}
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-blue-500 rounded-full blur-3xl opacity-15 animate-float-slow" />
+        {/* Secondary glow - bottom left */}
+        <div className="absolute bottom-1/4 -left-32 w-[500px] h-[500px] bg-blue-400 rounded-full blur-3xl opacity-10 animate-float-medium" />
         {/* Vignette overlay - dark edges */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#0D2140] via-transparent to-[#0D2140] opacity-60" />
         <div className="absolute inset-0 bg-gradient-to-b from-[#0D2140] via-transparent to-[#0D2140] opacity-60" />
       </div>
-      <FadeInSection className="relative z-10 max-w-7xl mx-auto">
+      <div className="relative z-10 max-w-7xl mx-auto">
 
         {/* Header */}
-        <div className="text-center mb-0">
-          <div className="flex justify-center mb-4">
-            <SectionLabel text="Solusi Kami" />
-          </div>
-          <TypingHeading
-            className="heading-aurora text-4xl lg:text-5xl font-extrabold tracking-tight text-white max-w-3xl mx-auto leading-tight"
-            text="Jenis Sistem yang Dapat Dikembangkan"
-          />
-          <p className="text-gray-300 mt-2 lg:mt-4 max-w-2xl mx-auto text-lg leading-relaxed">
+        <div className="text-center mb-16">
+          <span className="section-label mb-4 inline-flex">Solusi Kami</span>
+          <h2 className="text-3xl lg:text-4xl font-bold text-white mt-4">
+            Jenis Sistem yang Dapat Dikembangkan
+          </h2>
+          <p className="text-gray-400 mt-3 max-w-lg mx-auto">
             Kami membangun berbagai solusi digital yang disesuaikan dengan
             infrastruktur bisnis Anda.
           </p>
         </div>
 
         {/* Content: phones left, cards right */}
-        <div className="grid lg:grid-cols-2 gap-0 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
 
-          {/* LEFT - Two phones, upright, centered and overlapping */}
-          <div className="relative w-full h-[380px] lg:h-[600px] flex justify-center items-center overflow-visible scale-[1.05] lg:scale-100">
+          {/* LEFT — Two phones, upright, left-anchored */}
+          <div className="relative w-full" style={{ height: '640px', overflow: 'visible' }}>
 
-            {/* Phone 1 - back */}
-            <div className="absolute top-1/2 -translate-y-1/2 z-10 w-[100%] lg:w-[800px] h-[450px] lg:h-[650px] -translate-x-[12%] lg:translate-x-0 lg:left-[-180px]">
+            {/* Phone 1 — back, anchored to far left edge */}
+            <div className="absolute" style={{
+              width: '800px',
+              height: '640px',
+              left: '-220px',
+              top: '50%',
+              transform: 'translateY(-50%)',
+              zIndex: 10,
+            }}>
               <Image
                 src="/mockup-system-18.png"
                 alt="Mobile App Preview"
                 width={800}
                 height={1600}
-                className="h-full w-auto object-contain drop-shadow-2xl animate-float-medium will-change-transform"
-                loading="lazy"
+                className="h-full w-auto object-contain drop-shadow-2xl"
+                loading="eager"
               />
             </div>
 
-            {/* Phone 2 - front */}
-            <div className="absolute top-1/2 -translate-y-1/2 z-20 w-[100%] lg:w-[800px] h-[450px] lg:h-[650px] translate-x-[12%] lg:translate-x-0 lg:left-[-20px]">
+            {/* Phone 2 — front, slightly overlaps Phone 1 */}
+            <div className="absolute" style={{
+              width: '800px',
+              height: '640px',
+              left: '-50px',
+              top: '50%',
+              transform: 'translateY(-50%)',
+              zIndex: 20,
+            }}>
               <Image
                 src="/mockup-system.png"
                 alt="Mobile App Preview 2"
                 width={800}
                 height={1600}
-                className="h-full w-auto object-contain drop-shadow-2xl animate-float-slow will-change-transform"
-                loading="lazy"
+                className="h-full w-auto object-contain drop-shadow-2xl"
+                loading="eager"
               />
             </div>
 
           </div>
 
-          {/* RIGHT - System cards grid */}
+          {/* RIGHT — System cards grid */}
           <div className="grid grid-cols-2 gap-4">
-            {systemsData.map((sys, i) => (
-              <Link
-                href={`/solutions/${sys.slug}`}
+            {systems.map((sys, i) => (
+              <div
                 key={i}
-                className="glass-card rounded-2xl p-5 flex items-center gap-4 hover:border-white/20 transition-all duration-300 cursor-pointer group relative overflow-hidden hover-vibrate animate-continuous-vibration"
-                style={{ animationDelay: `${i * 0.1}s` }}
+                className="glass-card rounded-2xl p-5 flex items-center gap-4 hover:border-white/20 hover:-translate-y-1 transition-all duration-300 cursor-pointer group"
               >
-                {/* Continuous Shimmer Sweep effect */}
-                <div className="absolute top-0 -left-[100%] w-[150%] h-[200%] bg-gradient-to-r from-transparent via-white/[0.12] to-transparent animate-shimmer-sweep pointer-events-none z-0" />
-
-                <div className="w-11 h-11 rounded-xl bg-[#0B2340] border border-white/10 flex items-center justify-center text-yellow-400 flex-shrink-0 group-hover:bg-yellow-400/10 group-hover:border-yellow-400/20 transition-colors relative z-10 will-change-transform">
+                <div className="w-11 h-11 rounded-xl bg-[#0B2340] border border-white/10 flex items-center justify-center text-yellow-400 flex-shrink-0 group-hover:bg-yellow-400/10 group-hover:border-yellow-400/20 transition-colors">
                   {sys.icon}
                 </div>
-                <TypingHeading
-                  as="span"
-                  className="text-sm font-semibold text-white leading-snug block relative z-10"
-                  text={sys.name}
-                />
-              </Link>
+                <span className="text-sm font-semibold text-white leading-snug">
+                  {sys.name}
+                </span>
+              </div>
             ))}
 
             {/* CTA Card */}
-            <div className="glass-card rounded-2xl p-5 bg-yellow-400/5 border-yellow-400/20 hover:bg-yellow-400/10 transition-all duration-300 flex flex-col justify-between gap-4 animate-continuous-vibration">
+            <div className="glass-card rounded-2xl p-5 bg-yellow-400/5 border-yellow-400/20 hover:bg-yellow-400/10 transition-all duration-300 cursor-pointer flex flex-col justify-between gap-4">
               <p className="text-sm font-semibold text-white">Kebutuhan Lain?</p>
-              <Link 
-                href="/consultation" 
-                className="w-full bg-yellow-400 hover:bg-yellow-300 text-black text-sm font-bold py-2.5 rounded-xl transition-colors text-center block"
-              >
+              <button className="w-full bg-yellow-400 hover:bg-yellow-300 text-black text-sm font-bold py-2.5 rounded-xl transition-colors">
                 Hubungi Kami
-              </Link>
+              </button>
             </div>
           </div>
 
         </div>
-      </FadeInSection>
+      </div>
     </section>
   );
 }

@@ -274,8 +274,9 @@ export default function Navbar() {
               )}
             </div>
           ) : (
-            <Link href="/consultation" className="bg-yellow-400 hover:bg-yellow-300 text-black text-sm font-bold px-6 py-2.5 rounded-lg transition-all duration-200 hover:shadow-lg hover:shadow-yellow-400/20 inline-block active:scale-95">
-              Free Consultation
+            <Link href="/consultation" className="relative overflow-hidden group bg-yellow-400 hover:bg-yellow-300 text-black text-sm font-bold px-6 py-2.5 rounded-lg transition-all duration-200 hover:shadow-lg hover:shadow-yellow-400/20 inline-block active:scale-95">
+              <span className="absolute inset-0 w-[150%] h-full bg-gradient-to-r from-transparent via-white/50 to-transparent -translate-x-[150%] skew-x-[-20deg] animate-[shimmer-sweep_2.5s_infinite]" />
+              <span className="relative z-10">Free Consultation</span>
             </Link>
           )}
         </div>
@@ -375,8 +376,9 @@ export default function Navbar() {
                 </button>
               </div>
             ) : (
-              <Link href="/consultation" className="w-full text-center bg-yellow-400 hover:bg-yellow-300 text-black text-lg font-bold px-5 py-4 rounded-xl transition-all duration-200 block shadow-xl shadow-yellow-400/20" onClick={() => setIsMobileMenuOpen(false)}>
-                Free Consultation
+              <Link href="/consultation" className="relative overflow-hidden group w-full text-center bg-yellow-400 hover:bg-yellow-300 text-black text-lg font-bold px-5 py-4 rounded-xl transition-all duration-200 block shadow-xl shadow-yellow-400/20" onClick={() => setIsMobileMenuOpen(false)}>
+                <span className="absolute inset-0 w-[150%] h-full bg-gradient-to-r from-transparent via-white/50 to-transparent -translate-x-[150%] skew-x-[-20deg] animate-[shimmer-sweep_2.5s_infinite]" />
+                <span className="relative z-10">Free Consultation</span>
               </Link>
             )}
           </div>
