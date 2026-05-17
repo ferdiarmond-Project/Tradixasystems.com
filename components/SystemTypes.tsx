@@ -48,28 +48,85 @@ export const systemsData = [
   },
 ];
 
+import SectionLabel from "./SectionLabel";
+import TypingHeading from "./TypingHeading";
+
 export default function SystemTypes() {
   return (
-    <section className="relative py-24 px-6 overflow-hidden bg-[#0D2140]">
+    <section className="relative py-16 px-6 overflow-hidden bg-[#0D2140]">
+      {/* Inline style for the sweeping light and vibration effect */}
+      <style dangerouslySetInnerHTML={{
+        __html: `
+        @keyframes shimmer-sweep {
+          0% { transform: translateX(250%) skewX(-20deg); }
+          100% { transform: translateX(-150%) skewX(-20deg); }
+        }
+        @keyframes premium-vibration {
+          0% { transform: translateY(-4px) rotate(0deg); }
+          25% { transform: translateY(-4px) rotate(0.8deg); }
+          50% { transform: translateY(-4px) rotate(-0.8deg); }
+          75% { transform: translateY(-4px) rotate(0.8deg); }
+          100% { transform: translateY(-4px) rotate(0deg); }
+        }
+        @keyframes continuous-vibration {
+          0% { transform: translate(0, 0); }
+          25% { transform: translate(0.2px, 0.2px); }
+          50% { transform: translate(0, 0); }
+          75% { transform: translate(-0.2px, -0.2px); }
+          100% { transform: translate(0, 0); }
+        }
+        .animate-shimmer-sweep {
+          animation: shimmer-sweep 7s infinite linear;
+        }
+        .animate-continuous-vibration {
+          animation: continuous-vibration 0.5s infinite ease-in-out;
+        }
+        .hover-vibrate:hover {
+          animation: premium-vibration 0.3s ease-in-out infinite;
+        }
+      ` }} />
       {/* Animated subtle blue glow */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        {/* Center blue glow - very subtle */}
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-blue-500 rounded-full blur-3xl opacity-15 animate-float-slow" />
-        {/* Secondary glow - bottom left */}
-        <div className="absolute bottom-1/4 -left-32 w-[500px] h-[500px] bg-blue-400 rounded-full blur-3xl opacity-10 animate-float-medium" />
-        {/* Vignette overlay - dark edges */}
+      <div className="absolute inset-0 z-0 pointer-events-none hidden lg:block">
+        {/* Center blue glow */}
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full opacity-20 animate-float-slow">
+          <svg viewBox="0 0 100 100" className="w-full h-full">
+            <defs>
+              <radialGradient id="system-glow-1" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.8" />
+                <stop offset="100%" stopColor="#3b82f6" stopOpacity="0" />
+              </radialGradient>
+            </defs>
+            <circle cx="50%" cy="50%" r="50%" fill="url(#system-glow-1)" />
+          </svg>
+        </div>
+        {/* Secondary glow */}
+        <div className="absolute bottom-1/4 -left-32 w-[500px] h-[500px] rounded-full opacity-15 animate-float-medium">
+          <svg viewBox="0 0 100 100" className="w-full h-full">
+            <defs>
+              <radialGradient id="system-glow-2" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stopColor="#0ea5e9" stopOpacity="0.6" />
+                <stop offset="100%" stopColor="#0ea5e9" stopOpacity="0" />
+              </radialGradient>
+            </defs>
+            <circle cx="50%" cy="50%" r="50%" fill="url(#system-glow-2)" />
+          </svg>
+        </div>
+        {/* Vignette overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#0D2140] via-transparent to-[#0D2140] opacity-60" />
         <div className="absolute inset-0 bg-gradient-to-b from-[#0D2140] via-transparent to-[#0D2140] opacity-60" />
       </div>
       <div className="relative z-10 max-w-7xl mx-auto">
 
         {/* Header */}
-        <div className="text-center mb-16">
-          <span className="section-label mb-4 inline-flex">Solusi Kami</span>
-          <h2 className="text-3xl lg:text-4xl font-bold text-white mt-4">
-            Jenis Sistem yang Dapat Dikembangkan
-          </h2>
-          <p className="text-gray-400 mt-3 max-w-lg mx-auto">
+        <div className="text-center mb-10 lg:mb-16">
+          <div className="flex justify-center mb-4">
+            <SectionLabel text="Solusi Kami" />
+          </div>
+          <TypingHeading
+            className="heading-aurora text-3xl lg:text-5xl font-extrabold tracking-tight text-white max-w-3xl mx-auto leading-tight"
+            text="Jenis Sistem yang Dapat Dikembangkan"
+          />
+          <p className="text-gray-400 mt-4 max-w-lg mx-auto">
             Kami membangun berbagai solusi digital yang disesuaikan dengan
             infrastruktur bisnis Anda.
           </p>
@@ -78,18 +135,11 @@ export default function SystemTypes() {
         {/* Content: phones left, cards right */}
         <div className="grid lg:grid-cols-2 gap-12 items-center">
 
-          {/* LEFT — Two phones, upright, left-anchored */}
-          <div className="relative w-full" style={{ height: '640px', overflow: 'visible' }}>
+          {/* LEFT - Two phones, upright, centered and overlapping */}
+          <div className="relative w-full h-[320px] lg:h-[600px] flex justify-center items-center overflow-visible scale-[1.2] lg:scale-[1.1]">
 
-            {/* Phone 1 — back, anchored to far left edge */}
-            <div className="absolute" style={{
-              width: '800px',
-              height: '640px',
-              left: '-220px',
-              top: '50%',
-              transform: 'translateY(-50%)',
-              zIndex: 10,
-            }}>
+            {/* Phone 1 - back */}
+            <div className="absolute top-1/2 -translate-y-1/2 z-10 w-[100%] lg:w-[800px] h-[450px] lg:h-[650px] -translate-x-[12%] lg:translate-x-0 lg:left-[-180px]">
               <Image
                 src="/mockup-system-18.png"
                 alt="Mobile App Preview"
@@ -101,15 +151,8 @@ export default function SystemTypes() {
               />
             </div>
 
-            {/* Phone 2 — front, slightly overlaps Phone 1 */}
-            <div className="absolute" style={{
-              width: '800px',
-              height: '640px',
-              left: '-50px',
-              top: '50%',
-              transform: 'translateY(-50%)',
-              zIndex: 20,
-            }}>
+            {/* Phone 2 - front */}
+            <div className="absolute top-1/2 -translate-y-1/2 z-20 w-[100%] lg:w-[800px] h-[450px] lg:h-[650px] translate-x-[12%] lg:translate-x-0 lg:left-[-20px]">
               <Image
                 src="/mockup-system.png"
                 alt="Mobile App Preview 2"
@@ -126,25 +169,33 @@ export default function SystemTypes() {
           {/* RIGHT — System cards grid */}
           <div className="grid grid-cols-2 gap-4">
             {systemsData.map((sys, i) => (
-              <div
+              <Link
+                href={`/solutions/${sys.slug}`}
                 key={i}
-                className="glass-card rounded-2xl p-5 flex items-center gap-4 hover:border-white/20 hover:-translate-y-1 transition-all duration-300 cursor-pointer group"
+                className="glass-card rounded-2xl p-5 flex items-center gap-4 hover:border-white/20 transition-all duration-300 cursor-pointer group relative overflow-hidden hover-vibrate animate-continuous-vibration"
+                style={{ animationDelay: `${i * 0.1}s` }}
               >
-                <div className="w-11 h-11 rounded-xl bg-[#0B2340] border border-white/10 flex items-center justify-center text-yellow-400 flex-shrink-0 group-hover:bg-yellow-400/10 group-hover:border-yellow-400/20 transition-colors">
+                {/* Continuous Shimmer Sweep effect */}
+                <div className="absolute top-0 -left-[100%] w-[150%] h-[200%] bg-gradient-to-r from-transparent via-white/[0.12] to-transparent animate-shimmer-sweep pointer-events-none z-0" />
+
+                <div className="w-11 h-11 rounded-xl bg-[#0B2340] border border-white/10 flex items-center justify-center text-yellow-400 flex-shrink-0 group-hover:bg-yellow-400/10 group-hover:border-yellow-400/20 transition-colors relative z-10 will-change-transform">
                   {sys.icon}
                 </div>
-                <span className="text-sm font-semibold text-white leading-snug">
+                <span className="text-sm font-semibold text-white leading-snug relative z-10">
                   {sys.name}
                 </span>
-              </div>
+              </Link>
             ))}
 
             {/* CTA Card */}
-            <div className="glass-card rounded-2xl p-5 bg-yellow-400/5 border-yellow-400/20 hover:bg-yellow-400/10 transition-all duration-300 cursor-pointer flex flex-col justify-between gap-4">
+            <div className="glass-card rounded-2xl p-5 bg-yellow-400/5 border-yellow-400/20 hover:bg-yellow-400/10 transition-all duration-300 flex flex-col justify-between gap-4 animate-continuous-vibration">
               <p className="text-sm font-semibold text-white">Kebutuhan Lain?</p>
-              <button className="w-full bg-yellow-400 hover:bg-yellow-300 text-black text-sm font-bold py-2.5 rounded-xl transition-colors">
+              <Link 
+                href="/consultation" 
+                className="w-full bg-yellow-400 hover:bg-yellow-300 text-black text-sm font-bold py-2.5 rounded-xl transition-colors text-center block"
+              >
                 Hubungi Kami
-              </button>
+              </Link>
             </div>
           </div>
 
