@@ -69,7 +69,7 @@ export default function Hero() {
                 alt="Tradixa Dashboard Preview"
                 width={800}
                 height={500}
-                quality={50}
+                quality={75}
                 className="relative w-full drop-shadow-2xl scale-[1.15] sm:scale-[1.05] lg:scale-[1.2] xl:scale-[1.3] origin-center lg:origin-right lg:translate-x-12 xl:translate-x-20 transition-transform hover:scale-[1.2] lg:hover:scale-[1.25] xl:hover:scale-[1.35] duration-500"
                 priority
               />
