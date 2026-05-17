@@ -57,20 +57,10 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Newsletter */}
+          {/* Office Address */}
           <div className="flex flex-col items-start text-left">
-            <h4 className="text-white font-semibold mb-6 uppercase tracking-widest text-xs">Newsletter</h4>
-            <div className="flex w-full max-w-sm gap-2 mb-6">
-              <input
-                type="email"
-                placeholder="Email Anda"
-                className="flex-1 bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-gray-600 focus:border-yellow-400/50 focus:outline-none transition-colors"
-              />
-              <button className="bg-yellow-400 hover:bg-yellow-300 text-black text-sm font-bold px-6 py-3 rounded-xl transition-all active:scale-95 flex-shrink-0">
-                Subscribe
-              </button>
-            </div>
-            <p className="text-xs text-gray-600 leading-relaxed italic">
+            <h4 className="text-white font-semibold mb-6 uppercase tracking-widest text-xs">Kantor Kami</h4>
+            <p className="text-sm text-gray-500 leading-relaxed max-w-sm">
               Gedung Thamrin City LT. 3A Blok B No. 62-63
               <br />
               Jakarta Pusat, DKI Jakarta 10230

@@ -66,7 +66,7 @@ const solutionPlans = [
   {
     name: "Retail Management System",
     desc: "Solusi praktis untuk membantu operasional UMKM lebih rapi dan terkontrol",
-    price: "Rp 50.000",
+    price: "Rp 149.000",
     priceSub: "/ bulan",
     setup: "Setup Rp 1.000.000",
     setupSub: "",

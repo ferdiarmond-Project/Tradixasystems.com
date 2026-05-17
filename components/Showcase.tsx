@@ -74,7 +74,7 @@ export default function Showcase() {
           <span className="text-[10px] text-white/30 uppercase tracking-[0.2em] font-medium">Geser</span>
         </div>
 
-        <div className="mt-0 lg:mt-4 text-center pb-2">
+        <div className="mt-0 lg:mt-4 text-center pb-2 relative z-40">
           <Link
             href="/case-studies"
             className="inline-flex items-center gap-2 bg-white/5 hover:bg-white/10 text-white px-8 py-4 rounded-xl border border-white/10 transition-all hover:scale-105"
