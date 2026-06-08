@@ -25,7 +25,7 @@ import FadeInSection from "./FadeInSection";
 
 export default function Workflow() {
   return (
-    <section className="bg-[#0a2235] py-12 px-6">
+    <section className="bg-transparent py-12 px-6">
       <FadeInSection className="max-w-7xl mx-auto">
         
         {/* Header */}
@@ -55,7 +55,7 @@ export default function Workflow() {
                     className="font-semibold text-white mb-1.5"
                     text={f.title}
                   />
-                  <p className="text-sm text-gray-400 leading-relaxed">{f.desc}</p>
+                  <p className="text-sm text-[#8B9BB4] leading-relaxed">{f.desc}</p>
                 </div>
               </div>
             ))}

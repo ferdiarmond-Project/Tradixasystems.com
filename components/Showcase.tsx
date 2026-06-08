@@ -6,7 +6,7 @@ import FadeInSection from "@/components/FadeInSection";
 
 export default function Showcase() {
   return (
-    <section className="relative pt-8 lg:pt-12 pb-2 lg:pb-4 px-6 overflow-hidden bg-[#040E1A] border-t border-white/5">
+    <section className="relative pt-8 lg:pt-12 pb-2 lg:pb-4 px-6 overflow-hidden bg-transparent border-t border-white/5">
       {/* Background glows */}
       {/* Background glows - Optimized with SVG for older Macs - Hidden on mobile */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden hidden lg:block">
@@ -22,6 +22,9 @@ export default function Showcase() {
             <circle cx="50%" cy="50%" r="50%" fill="url(#showcase-glow-1)" />
           </svg>
         </div>
+        {/* Vignette overlay using base dark navy to blend seamlessly */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#071A2E] via-transparent to-[#071A2E] opacity-60" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#071A2E] via-transparent to-[#071A2E] opacity-60" />
         {/* Top left glow */}
         <div className="absolute top-[-10%] left-[-10%] w-[600px] h-[600px] opacity-[0.08] animate-float-medium">
           <svg viewBox="0 0 100 100" className="w-full h-full">
@@ -44,7 +47,7 @@ export default function Showcase() {
             <SectionLabel text="Tampilan Sistem" />
           </div>
           <TypingHeading
-            className="heading-aurora text-4xl lg:text-5xl xl:text-6xl font-extrabold tracking-tight text-white max-w-4xl mx-auto leading-tight"
+            className="heading-aurora text-3xl lg:text-4xl font-extrabold tracking-tight text-white max-w-4xl mx-auto leading-tight"
             text="Tampilan dan modul disesuaikan dengan kebutuhan masing-masing bisnis"
             highlightWords={["kebutuhan", "bisnis"]}
           />
@@ -53,7 +56,7 @@ export default function Showcase() {
         {/* ── Professional SaaS Device Mockup ── */}
         <div className="relative w-full overflow-x-auto overflow-y-hidden lg:overflow-visible scrollbar-hide px-4 -mx-4 lg:mx-0 lg:px-0 -mt-10 lg:-mt-20 -mb-10 lg:-mb-24">
           <div className="flex justify-start lg:justify-center items-center h-full min-w-[760px] md:min-w-0">
-            <div className="relative z-30 w-full max-w-[1200px] lg:scale-100 xl:scale-105 animate-float-slow lg:-translate-x-12 xl:-translate-x-16 mx-auto">
+            <div className="relative z-30 w-full max-w-[1200px] lg:scale-100 xl:scale-105 lg:-translate-x-12 xl:-translate-x-16 mx-auto">
               <Image
                 src="/mockup_iphone_ipad_mac_PHAL.png"
                 alt="Tradixa Complete System Mockup"

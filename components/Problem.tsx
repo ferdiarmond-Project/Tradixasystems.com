@@ -51,7 +51,7 @@ export default function Problem() {
   ];
 
   return (
-    <section className="bg-[#060D18] relative px-6 py-12 overflow-hidden">
+    <section className="relative px-6 py-12 overflow-hidden">
       <div className="absolute inset-0 -z-10">
         <BackgroundGradient />
       </div>
@@ -66,7 +66,7 @@ export default function Problem() {
               className="heading-aurora text-3xl lg:text-4xl font-bold text-white mb-5 leading-tight"
               text="Tantangan Umum Dalam Operasional Bisnis"
             />
-            <p className="text-gray-300 leading-relaxed text-base">
+            <p className="text-[#8B9BB4] leading-relaxed text-base">
               Banyak bisnis masih menjalankan operasional dengan proses
               manual dan sistem yang terpisah-pisah. Kondisi ini menyebabkan
               data tidak akurat, laporan lambat, dan sulitnya pengambilan

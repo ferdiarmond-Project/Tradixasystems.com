@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import { ChevronDown, Menu, X, User, LogOut, Layers, Database } from "lucide-react";
 import { supabase } from "@/lib/supabase";
 import { User as SupabaseUser } from "@supabase/supabase-js";
@@ -19,6 +19,7 @@ const readySolutionsItems = [
 ];
 
 export default function Navbar() {
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -101,10 +102,17 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-[9999] transition-all duration-300 border-b border-white/5 ${isMobileMenuOpen ? "bottom-0 h-full bg-gradient-to-b from-[#071A2E] to-[#051424] overflow-y-auto" : scrolled
-          ? "h-24 bg-[#071A2E]/90 backdrop-blur-md shadow-lg shadow-black/40 bg-gradient-to-r from-[#071A2E] via-[#0B2A4A]/90 to-[#071A2E]"
-          : "h-24 bg-gradient-to-r from-[#071A2E] via-[#0B2A4A] to-[#071A2E]"
-        }`}
+      className={`fixed top-0 left-0 right-0 z-[9999] transition-all duration-300 ${
+        isMobileMenuOpen 
+          ? "bottom-0 h-full bg-gradient-to-b from-[#071A2E] to-[#051424] overflow-y-auto border-b border-white/5" 
+          : pathname === "/ready-solutions/erp-mining" || pathname === "/ready-solutions/retail-management"
+            ? scrolled
+              ? "h-24 bg-[#071A2E]/90 lg:backdrop-blur-md shadow-lg shadow-black/40 bg-gradient-to-r from-[#071A2E] via-[#0B2A4A]/90 to-[#071A2E] border-b border-white/5"
+              : "h-24 bg-transparent border-b border-transparent"
+            : scrolled
+              ? "h-24 bg-[#071A2E]/90 lg:backdrop-blur-md shadow-lg shadow-black/40 bg-gradient-to-r from-[#071A2E] via-[#0B2A4A]/90 to-[#071A2E] border-b border-white/5"
+              : "h-24 bg-gradient-to-r from-[#071A2E] via-[#0B2A4A] to-[#071A2E] border-b border-white/5"
+      }`}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between h-24">
         {/* Logo */}
@@ -124,7 +132,7 @@ export default function Navbar() {
         <div className="hidden lg:flex items-center gap-6 xl:gap-8">
 
           {/* About Us - FIRST */}
-          <Link href="/about" className="text-sm font-medium text-white hover:text-yellow-400 transition-colors duration-200">
+          <Link href="/about" className="text-sm font-medium text-white hover:text-yellow-400 transition-colors duration-200 nav-link-underline pb-1">
             About Us
           </Link>
 
@@ -137,7 +145,7 @@ export default function Navbar() {
           >
             <button
               onClick={() => setServicesDropdownOpen(!servicesDropdownOpen)}
-              className="flex items-center gap-1 text-sm font-medium text-white hover:text-yellow-400 transition-colors duration-200"
+              className="flex items-center gap-1 text-sm font-medium text-white hover:text-yellow-400 transition-colors duration-200 nav-link-underline pb-1"
             >
               Services
               <ChevronDown
@@ -171,8 +179,7 @@ export default function Navbar() {
             )}
           </div>
 
-          {/* Solutions Page (Grid of System Types) */}
-          <Link href="/solutions" className="text-sm font-medium text-white hover:text-yellow-400 transition-colors duration-200">
+          <Link href="/solutions" className="text-sm font-medium text-white hover:text-yellow-400 transition-colors duration-200 nav-link-underline pb-1">
             Solutions
           </Link>
 
@@ -185,7 +192,7 @@ export default function Navbar() {
           >
             <button
               onClick={() => setDropdownOpen(!dropdownOpen)}
-              className="flex items-center gap-1 text-sm font-medium text-white hover:text-yellow-400 transition-colors duration-200"
+              className="flex items-center gap-1 text-sm font-medium text-white hover:text-yellow-400 transition-colors duration-200 nav-link-underline pb-1"
             >
               Ready Solutions
               <ChevronDown
@@ -222,7 +229,7 @@ export default function Navbar() {
           </div>
 
           {/* Case Studies (Image 3) */}
-          <Link href="/case-studies" className="text-sm font-medium text-white hover:text-yellow-400 transition-colors duration-200">
+          <Link href="/case-studies" className="text-sm font-medium text-white hover:text-yellow-400 transition-colors duration-200 nav-link-underline pb-1">
             Case Studies
           </Link>
 

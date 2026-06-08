@@ -43,7 +43,7 @@ import FadeInSection from "./FadeInSection";
 
 export default function Process() {
   return (
-    <section className="bg-[#091929] relative py-12 px-6 overflow-hidden">
+    <section className="bg-transparent relative py-12 px-6 overflow-hidden">
       <div className="absolute inset-0 -z-10">
         <BackgroundGradient />
       </div>
@@ -55,14 +55,14 @@ export default function Process() {
           <div className="pt-0 lg:pt-10">
             <SectionLabel text="Kerjasama" className="justify-start mb-6" />
             <TypingHeading
-              className="heading-aurora text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-tight text-white leading-[1.1]"
-              text={"SKEMA\nKERJASAMA"}
+              className="heading-aurora text-3xl lg:text-4xl font-extrabold tracking-tight text-white leading-[1.1]"
+              text={"Skema\nKerjasama"}
             />
           </div>
 
           {/* RIGHT - Description + scheme items */}
           <div className="pt-0 lg:pt-28">
-            <p className="text-gray-300 text-lg leading-relaxed mb-10 max-w-xl">
+            <p className="text-[#8B9BB4] text-lg leading-relaxed mb-10 max-w-xl">
               Pengembangan sistem yang efektif dimulai dari pemahaman kebutuhan dan
               alur kerja bisnis klien. Tradixa berfokus pada perancangan sistem yang
               disesuaikan, mulai dari analisis kebutuhan, desain solusi, hingga

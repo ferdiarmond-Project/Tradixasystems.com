@@ -53,38 +53,7 @@ export const systemsData = [
 
 export default function SystemTypes() {
   return (
-    <section className="relative pt-10 pb-8 lg:pt-12 lg:pb-12 overflow-hidden bg-[#0D2140]">
-      {/* Inline style for the sweeping light and vibration effect */}
-      <style dangerouslySetInnerHTML={{
-        __html: `
-        @keyframes shimmer-sweep {
-          0% { transform: translateX(250%) skewX(-20deg); }
-          100% { transform: translateX(-150%) skewX(-20deg); }
-        }
-        @keyframes premium-vibration {
-          0% { transform: translateY(-4px) rotate(0deg); }
-          25% { transform: translateY(-4px) rotate(0.8deg); }
-          50% { transform: translateY(-4px) rotate(-0.8deg); }
-          75% { transform: translateY(-4px) rotate(0.8deg); }
-          100% { transform: translateY(-4px) rotate(0deg); }
-        }
-        @keyframes continuous-vibration {
-          0% { transform: translate(0, 0); }
-          25% { transform: translate(0.2px, 0.2px); }
-          50% { transform: translate(0, 0); }
-          75% { transform: translate(-0.2px, -0.2px); }
-          100% { transform: translate(0, 0); }
-        }
-        .animate-shimmer-sweep {
-          animation: shimmer-sweep 7s infinite linear;
-        }
-        .animate-continuous-vibration {
-          animation: continuous-vibration 0.5s infinite ease-in-out;
-        }
-        .hover-vibrate:hover {
-          animation: premium-vibration 0.3s ease-in-out infinite;
-        }
-      ` }} />
+    <section className="relative pt-10 pb-8 lg:pt-12 lg:pb-12 overflow-hidden bg-transparent">
       {/* Animated subtle blue glow */}
       <div className="absolute inset-0 z-0 pointer-events-none hidden lg:block">
         {/* Center blue glow */}
@@ -112,8 +81,8 @@ export default function SystemTypes() {
           </svg>
         </div>
         {/* Vignette overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0D2140] via-transparent to-[#0D2140] opacity-60" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0D2140] via-transparent to-[#0D2140] opacity-60" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#071A2E] via-transparent to-[#071A2E] opacity-60" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#071A2E] via-transparent to-[#071A2E] opacity-60" />
       </div>
       <div className="relative z-10 max-w-7xl mx-auto px-6">
 
@@ -123,10 +92,10 @@ export default function SystemTypes() {
             <SectionLabel text="Solusi Kami" />
           </div>
           <TypingHeading
-            className="heading-aurora text-3xl lg:text-5xl font-extrabold tracking-tight text-white max-w-3xl mx-auto leading-tight"
+            className="heading-aurora text-3xl lg:text-4xl font-extrabold tracking-tight text-white max-w-3xl mx-auto leading-tight"
             text="Jenis Sistem yang Dapat Dikembangkan"
           />
-          <p className="text-gray-400 mt-4 max-w-lg mx-auto">
+          <p className="text-[#8B9BB4] mt-4 max-w-lg mx-auto">
             Kami membangun berbagai solusi digital yang disesuaikan dengan
             infrastruktur bisnis Anda.
           </p>
@@ -146,8 +115,8 @@ export default function SystemTypes() {
                 width={800}
                 height={1600}
                 quality={75}
-                className="h-full w-auto object-contain drop-shadow-2xl animate-float-medium will-change-transform"
-                loading="eager"
+                className="h-full w-auto object-contain drop-shadow-2xl"
+                loading="lazy"
               />
             </div>
 
@@ -159,8 +128,8 @@ export default function SystemTypes() {
                 width={800}
                 height={1600}
                 quality={75}
-                className="h-full w-auto object-contain drop-shadow-2xl animate-float-slow will-change-transform"
-                loading="eager"
+                className="h-full w-auto object-contain drop-shadow-2xl"
+                loading="lazy"
               />
             </div>
 
@@ -172,11 +141,11 @@ export default function SystemTypes() {
               <Link
                 href={`/solutions/${sys.slug}`}
                 key={i}
-                className="glass-card rounded-2xl p-5 flex items-center gap-4 hover:border-white/20 transition-all duration-300 cursor-pointer group relative overflow-hidden hover-vibrate animate-continuous-vibration"
+                className="glass-card rounded-2xl p-5 flex items-center gap-4 hover:border-white/20 transition-all duration-300 cursor-pointer group relative overflow-hidden"
                 style={{ animationDelay: `${i * 0.1}s` }}
               >
                 {/* Continuous Shimmer Sweep effect */}
-                <div className="absolute top-0 -left-[100%] w-[150%] h-[200%] bg-gradient-to-r from-transparent via-white/[0.12] to-transparent animate-shimmer-sweep pointer-events-none z-0" />
+                <div className="absolute top-0 -left-[100%] w-[150%] h-[200%] bg-gradient-to-r from-transparent via-white/[0.08] to-transparent animate-[shimmer-sweep_3s_infinite_linear] pointer-events-none z-0" />
 
                 <div className="w-11 h-11 rounded-xl bg-[#0B2340] border border-white/10 flex items-center justify-center text-yellow-400 flex-shrink-0 group-hover:bg-yellow-400/10 group-hover:border-yellow-400/20 transition-colors relative z-10 will-change-transform">
                   {sys.icon}
@@ -188,7 +157,7 @@ export default function SystemTypes() {
             ))}
 
             {/* CTA Card */}
-            <div className="glass-card rounded-2xl p-5 bg-yellow-400/5 border-yellow-400/20 hover:bg-yellow-400/10 transition-all duration-300 flex flex-col justify-between gap-4 animate-continuous-vibration">
+            <div className="glass-card rounded-2xl p-5 bg-yellow-400/5 border-yellow-400/20 hover:bg-yellow-400/10 transition-all duration-300 flex flex-col justify-between gap-4">
               <p className="text-sm font-semibold text-white">Kebutuhan Lain?</p>
               <Link
                 href="/consultation"

@@ -43,7 +43,7 @@ import Link from "next/link";
 
 export default function Industries() {
   return (
-    <section className="relative py-12 px-6 overflow-hidden bg-[#0B2340]">
+    <section className="relative py-12 px-6 overflow-hidden bg-transparent">
       {/* Animated subtle blue glow - Optimized with SVG for compatibility with older Macs/Safari - Hidden on mobile */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden hidden lg:block">
         {/* Center blue glow */}
@@ -71,8 +71,8 @@ export default function Industries() {
           </svg>
         </div>
         {/* Vignette overlay - dark edges */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0B2340] via-transparent to-[#0B2340] opacity-60" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0B2340] via-transparent to-[#0B2340] opacity-60" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#071A2E] via-transparent to-[#071A2E] opacity-60" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#071A2E] via-transparent to-[#071A2E] opacity-60" />
       </div>
       <FadeInSection className="relative z-10 max-w-7xl mx-auto">
 
@@ -83,7 +83,7 @@ export default function Industries() {
             className="heading-aurora text-3xl lg:text-4xl font-bold text-white mt-4 max-w-xl"
             text="Cocok untuk Berbagai Jenis Bisnis"
           />
-          <p className="text-gray-400 mt-3 max-w-2xl leading-relaxed">
+          <p className="text-[#8B9BB4] mt-3 max-w-2xl leading-relaxed">
             Tradixa dirancang sebagai sistem digital yang fleksibel dan dapat disesuaikan dengan karakter serta alur kerja berbagai jenis bisnis. Setiap sistem dibangun berdasarkan kebutuhan operasional, skala usaha, dan proses kerja masing-masing.
           </p>
         </div>
@@ -104,7 +104,7 @@ export default function Industries() {
                   className="font-bold text-white text-lg mb-2"
                   text={ind.title}
                 />
-                <p className="text-sm text-gray-400 leading-relaxed">{ind.desc}</p>
+                <p className="text-sm text-[#8B9BB4] leading-relaxed">{ind.desc}</p>
               </div>
             </Link>
           ))}

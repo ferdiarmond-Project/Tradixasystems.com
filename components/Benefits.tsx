@@ -28,7 +28,7 @@ import FadeInSection from "./FadeInSection";
 
 export default function Benefits() {
   return (
-    <section className="bg-[#051525] relative py-12 px-6 overflow-hidden">
+    <section className="bg-transparent relative py-12 px-6 overflow-hidden">
       <div className="absolute inset-0 -z-10">
         <BackgroundGradient />
       </div>
@@ -58,7 +58,7 @@ export default function Benefits() {
               </div>
               <div>
                 <h3 className="font-bold text-white text-lg mb-2">{b.title}</h3>
-                <p className="text-sm text-gray-400 leading-relaxed">{b.desc}</p>
+                <p className="text-sm text-[#8B9BB4] leading-relaxed">{b.desc}</p>
               </div>
             </div>
           ))}

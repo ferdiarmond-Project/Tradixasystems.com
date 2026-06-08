@@ -1,3 +1,4 @@
+import Image from "next/image";
 import BackgroundGradient from "@/components/BackgroundGradient";
 import { 
   PackageSearch, 
@@ -89,17 +90,30 @@ export default function RetailManagement() {
   return (
     <main className="optimize-render">
       
-      {/* HEADER SECTION (DARK) */}
-      <section className="relative pt-36 lg:pt-44 pb-12 lg:pb-16 bg-[#071A2E] overflow-hidden text-center px-6">
-        <BackgroundGradient />
+      {/* HEADER SECTION (DARK) WITH OPTIMIZED BACKGROUND IMAGE */}
+      <section className="relative pt-44 lg:pt-52 pb-20 lg:pb-28 overflow-hidden text-center px-6 min-h-[380px] lg:min-h-[440px] flex items-center justify-center">
+        {/* Background Image Container */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/retail-bg.jpg"
+            alt="Retail Management Background"
+            fill
+            priority
+            quality={85}
+            className="object-cover object-center"
+          />
+          {/* Dark premium gradient overlay to ensure text contrast under navbar */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[#071A2E]/80 via-[#071A2E]/60 to-[#071A2E]" />
+        </div>
+
         <div className="relative z-10 max-w-4xl mx-auto animate-fade-up flex flex-col items-center">
-          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-yellow-400/10 text-yellow-400 font-semibold text-sm mb-6 border border-yellow-400/20">
+          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-yellow-400/10 text-yellow-400 font-semibold text-sm mb-6 border border-yellow-400/20 backdrop-blur-sm">
             Enterprise Ready
           </span>
           <h1 className="heading-aurora text-4xl lg:text-5xl xl:text-6xl font-extrabold leading-tight text-white mb-6">
             Retail Management System
           </h1>
-          <p className="text-gray-300 leading-relaxed text-lg lg:text-xl max-w-2xl mx-auto font-medium">
+          <p className="text-gray-200 leading-relaxed text-lg lg:text-xl max-w-2xl mx-auto font-medium drop-shadow-md">
             Sistem terpadu untuk bisnis ritel modern. Integrasikan penjualan kasir otomatis, pantau pergerakan gudang antar cabang, hingga laporan keuangan dalam satu platform cerdas.
           </p>
         </div>

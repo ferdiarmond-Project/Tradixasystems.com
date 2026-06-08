@@ -173,7 +173,7 @@ export default function Investment() {
   };
 
   return (
-    <section className="relative py-16 lg:py-24 px-6 overflow-hidden bg-[#071A2E]">
+    <section className="relative py-16 lg:py-24 px-6 overflow-hidden bg-transparent">
       <div className="absolute inset-0 -z-10 opacity-40">
         <BackgroundGradient />
       </div>
@@ -184,13 +184,13 @@ export default function Investment() {
         <FadeInSection className="text-center max-w-4xl mx-auto mb-10 lg:mb-16">
           <SectionLabel text="Solusi & Investasi" />
           <TypingHeading 
-            className="heading-aurora text-4xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight mt-6"
+            className="heading-aurora text-3xl lg:text-4xl font-extrabold tracking-tight text-white leading-tight mt-6"
             text={"Investasi Sistem untuk\nPertumbuhan Bisnis Anda"}
           />
-          <p className="text-gray-300 text-lg lg:text-xl leading-relaxed mt-4 lg:mt-6 font-medium">
+          <p className="text-[#8B9BB4] text-lg lg:text-xl leading-relaxed mt-4 lg:mt-6 font-medium">
             Setiap sistem yang kami bangun dirancang untuk meningkatkan efisiensi, kontrol, dan skalabilitas bisnis Anda.
           </p>
-          <p className="text-gray-400 text-base mt-4 max-w-2xl mx-auto">
+          <p className="text-[#8B9BB4] text-base mt-4 max-w-2xl mx-auto">
             Kami tidak menawarkan produk generik. Setiap solusi disesuaikan dengan kebutuhan dan kompleksitas operasional bisnis Anda.
           </p>
         </FadeInSection>
@@ -212,26 +212,26 @@ export default function Investment() {
               )}
 
               {/* Inner Card Container - Handles Rounded Corners and Shimmer Clipping */}
-              <div className={`relative h-full flex flex-col rounded-3xl p-8 transition-all duration-700 border animate-vibrate-premium overflow-hidden group ${
+              <div className={`relative h-full flex flex-col rounded-3xl p-8 transition-all duration-700 border overflow-hidden group ${
                 plan.highlight 
                 ? "bg-white/10 border-yellow-400/50 shadow-[0_0_40px_rgba(245,197,24,0.15)] ring-1 ring-yellow-400/30 lg:scale-105 z-10" 
                 : "bg-white/5 border-white/10 hover:border-white/20"
               }`}>
                 {/* Continuous Shimmer Light Effect */}
-                <div className="absolute inset-0 bg-white/10 -translate-x-full skew-x-[-45deg] animate-[shimmer-sweep_5s_infinite] pointer-events-none z-10" />
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/[0.08] to-transparent animate-[shimmer-sweep_3.5s_infinite_linear] pointer-events-none z-10" />
 
                 <div className="mb-8">
                   <div className="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center mb-6">
                     {plan.icon}
                   </div>
                   <h3 className="text-2xl font-bold text-white mb-3">{plan.name}</h3>
-                  <p className="text-gray-400 text-sm leading-relaxed">{plan.desc}</p>
+                  <p className="text-[#8B9BB4] text-sm leading-relaxed">{plan.desc}</p>
                 </div>
 
                 <div className="mb-8 pb-8 border-b border-white/10">
                   <div className="flex items-baseline gap-1">
                     <span className="text-3xl font-extrabold text-white">{plan.price}</span>
-                    <span className="text-gray-400 text-sm">{plan.priceSub}</span>
+                    <span className="text-[#8B9BB4] text-sm">{plan.priceSub}</span>
                   </div>
                   <div className="mt-2 text-yellow-400 font-bold text-sm tracking-tight">{plan.setup}</div>
                   <div className="text-gray-500 text-xs mt-1">{plan.setupSub}</div>
@@ -239,7 +239,7 @@ export default function Investment() {
 
                 <ul className="space-y-4 mb-10 flex-1">
                   {plan.features.map((feature, fIdx) => (
-                    <li key={fIdx} className="flex items-start gap-3 text-sm text-gray-300">
+                    <li key={fIdx} className="flex items-start gap-3 text-sm text-[#8B9BB4]">
                       <IconCheck />
                       <span>{feature}</span>
                     </li>
@@ -284,7 +284,7 @@ export default function Investment() {
         {/* VALUE SECTION - Centered Header */}
         <FadeInSection className="text-center max-w-4xl mx-auto mb-10 lg:mb-16">
           <SectionLabel text="Keunggulan" />
-          <h2 className="text-3xl lg:text-5xl font-bold text-white mt-6 mb-8 leading-tight">
+          <h2 className="text-3xl lg:text-4xl font-bold text-white mt-6 mb-8 leading-tight">
             Lebih dari Sekadar Sistem
           </h2>
         </FadeInSection>
@@ -297,12 +297,12 @@ export default function Investment() {
         >
           {valuePoints.map((point, i) => (
             <FadeInSection key={i} className="h-full flex-shrink-0 w-[80vw] sm:w-[320px] lg:w-auto snap-center">
-              <div className="relative h-full flex flex-col items-center text-center rounded-[2rem] p-8 transition-all duration-700 border border-white/10 bg-white/5 hover:border-yellow-400/30 group animate-vibrate-premium">
+              <div className="relative h-full flex flex-col items-center text-center rounded-[2rem] p-8 transition-all duration-700 border border-white/10 bg-white/5 hover:border-yellow-400/30 group">
                 <div className="w-16 h-16 rounded-2xl bg-yellow-400/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
                   {point.icon}
                 </div>
                 <h4 className="text-xl font-bold text-white mb-4">{point.title}</h4>
-                <p className="text-gray-400 text-sm leading-relaxed">{point.desc}</p>
+                <p className="text-[#8B9BB4] text-sm leading-relaxed">{point.desc}</p>
                 
                 {/* Decorative glow behind icon */}
                 <div className="absolute top-10 left-1/2 -translate-x-1/2 w-20 h-20 bg-yellow-400/5 blur-2xl -z-10 group-hover:bg-yellow-400/10 transition-colors" />
@@ -330,7 +330,7 @@ export default function Investment() {
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-400/5 blur-[100px] -ml-32 -mb-32" />
             
             <h3 className="text-2xl lg:text-4xl font-bold text-white mb-8">Telah Diimplementasikan dalam Operasional Nyata</h3>
-            <p className="text-gray-300 text-lg leading-relaxed mb-12 max-w-3xl mx-auto">
+            <p className="text-[#8B9BB4] text-lg leading-relaxed mb-12 max-w-3xl mx-auto">
               Sistem kami telah sukses diimplementasikan dan digunakan secara harian dalam operasional perusahaan pertambangan dan perkebunan berskala besar melalui <strong>PT. Permata Hijau Agro Lestari</strong>.
             </p>
             
@@ -341,7 +341,7 @@ export default function Investment() {
                 </div>
                 <div className="text-left">
                   <div className="text-white font-bold">Teruji & Terpercaya</div>
-                  <div className="text-xs text-gray-400 italic">Enterprise Ready Solution</div>
+                  <div className="text-xs text-[#8B9BB4] italic">Enterprise Ready Solution</div>
                 </div>
               </div>
               
@@ -355,7 +355,7 @@ export default function Investment() {
         {/* FINAL CTA SECTION */}
         <FadeInSection className="text-center py-20 px-8 rounded-[3rem] bg-gradient-to-br from-yellow-400 to-yellow-500 text-black relative overflow-hidden group">
           {/* Constant Shimmer Effect - Loop without hover for mobile/old devices support */}
-          <div className="absolute inset-0 bg-white/25 -translate-x-full skew-x-[-45deg] animate-[shimmer-sweep_4s_infinite] pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/[0.15] to-transparent animate-[shimmer-sweep_3s_infinite_linear] pointer-events-none" />
           <h2 className="text-3xl lg:text-5xl font-extrabold mb-6 relative z-10">Siap Melangkah ke Level Selanjutnya?</h2>
           <p className="text-black/80 text-lg mb-10 font-medium relative z-10 max-w-2xl mx-auto">
             Mulai dengan analisa yang tepat. Konsultasikan tantangan bisnis Anda hari ini secara gratis. Mari kita bangun masa depan digital Anda bersama.
@@ -364,7 +364,7 @@ export default function Investment() {
           <div className="flex flex-wrap justify-center gap-4 relative z-10">
             <Link 
               href="/consultation"
-              className="inline-flex items-center gap-3 bg-black text-white px-10 py-5 rounded-2xl font-bold text-lg hover:scale-105 transition-transform shadow-2xl"
+              className="inline-flex items-center gap-3 bg-black text-white px-10 py-5 rounded-2xl font-bold text-lg hover:scale-105 active:scale-95 transition-transform shadow-2xl"
             >
               Lihat Rencana Sistem Anda
               <IconArrowRight />
@@ -377,7 +377,7 @@ export default function Investment() {
                   window.open(`https://wa.me/6281383882120?text=${encodeURIComponent(message)}`, "_blank");
                 }
               }}
-              className="inline-flex items-center gap-3 bg-white/20 backdrop-blur-md border border-black/10 text-black px-10 py-5 rounded-2xl font-bold text-lg hover:bg-white/30 transition-all"
+              className="inline-flex items-center gap-3 bg-white/20 backdrop-blur-md border border-black/10 text-black px-10 py-5 rounded-2xl font-bold text-lg hover:bg-white/30 active:scale-95 transition-all"
             >
               Hubungi via WhatsApp
             </button>

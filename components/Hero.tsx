@@ -12,7 +12,7 @@ export default function Hero() {
       </div>
 
       <div className="relative max-w-7xl mx-auto px-6 lg:px-8 pt-20 pb-16 z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-[43%_57%] gap-12 lg:gap-8 items-center">
 
           {/* LEFT */}
           <div className="animate-fade-up">
@@ -29,14 +29,14 @@ export default function Hero() {
               delay={0}
             />
 
-            <p className="text-gray-400 mt-6 text-lg leading-relaxed max-w-lg">
+            <p className="text-[#8B9BB4] mt-6 text-lg leading-relaxed max-w-lg">
               Partner teknologi untuk UMKM yang ingin scale. Kami mengarsiteki
               efisiensi lewat empati dan kode berkualitas. Tampilan dan modul
               disesuaikan dengan kebutuhan masing-masing bisnis.
             </p>
 
             <div className="flex flex-wrap gap-4 mt-10">
-              <Link href="/consultation" className="relative overflow-hidden inline-flex group items-center gap-2 bg-yellow-400 hover:bg-yellow-300 text-black font-bold px-7 py-3.5 rounded-xl transition-all duration-200 hover:shadow-xl hover:shadow-yellow-400/20 hover:-translate-y-0.5">
+              <Link href="/consultation" className="relative overflow-hidden inline-flex group items-center gap-2 bg-yellow-400 hover:bg-yellow-300 text-black font-bold px-7 py-3.5 rounded-xl transition-all duration-200 hover:shadow-xl hover:shadow-yellow-400/20 hover:-translate-y-0.5 active:scale-95">
                 <span className="absolute inset-0 w-full h-full bg-white/30 -translate-x-full skew-x-[-20deg] group-hover:animate-[shimmer-sweep_1.5s_infinite]" />
                 <span className="relative flex items-center gap-2">
                   Mulai Transformasi
@@ -67,10 +67,11 @@ export default function Hero() {
               <Image
                 src="/Free_MacBook_Pro_1_PHAL.png"
                 alt="Tradixa Dashboard Preview"
-                width={800}
-                height={500}
-                quality={75}
-                className="relative w-full drop-shadow-2xl scale-[1.25] sm:scale-[1.15] lg:scale-[1.3] xl:scale-[1.4] origin-center lg:origin-right lg:translate-x-12 xl:translate-x-20 transition-transform hover:scale-[1.3] lg:hover:scale-[1.35] xl:hover:scale-[1.45] duration-500"
+                width={950}
+                height={594}
+                quality={85}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 60vw, 800px"
+                className="relative w-full drop-shadow-2xl scale-105 sm:scale-[1.1] lg:scale-[1.28] xl:scale-[1.38] origin-center lg:origin-right lg:translate-x-16 xl:translate-x-24 transition-transform duration-500"
                 priority
               />
             </div>
@@ -79,18 +80,18 @@ export default function Hero() {
         </div>        {/* Trust badges spanning full width below the grid */}
         <div className="mt-8 lg:mt-24 pt-10 border-t border-white/10 flex flex-wrap justify-center lg:justify-center items-center gap-12 lg:gap-24 animate-fade-up w-full" style={{ '--animation-delay': '0.4s' } as React.CSSProperties}>
           <div className="text-center group">
-            <div className="text-4xl lg:text-5xl font-extrabold tracking-tight inline-block animate-float-slow text-shimmer-gold">50+</div>
-            <div className="text-sm lg:text-base font-medium text-gray-400 mt-2 transition-colors group-hover:text-yellow-400">Klien Aktif</div>
+            <div className="text-4xl lg:text-5xl font-extrabold tracking-tight inline-block text-shimmer-gold">50+</div>
+            <div className="text-sm lg:text-base font-medium text-[#8B9BB4] mt-2 transition-colors group-hover:text-yellow-400">Klien Aktif</div>
           </div>
           <div className="hidden sm:block w-px h-16 bg-gradient-to-b from-transparent via-white/20 to-transparent" />
           <div className="text-center group">
-            <div className="text-4xl lg:text-5xl font-extrabold tracking-tight inline-block animate-float-medium text-shimmer-gold">100+</div>
-            <div className="text-sm lg:text-base font-medium text-gray-400 mt-2 transition-colors group-hover:text-yellow-400">Proyek Selesai</div>
+            <div className="text-4xl lg:text-5xl font-extrabold tracking-tight inline-block text-shimmer-gold">100+</div>
+            <div className="text-sm lg:text-base font-medium text-[#8B9BB4] mt-2 transition-colors group-hover:text-yellow-400">Proyek Selesai</div>
           </div>
           <div className="hidden sm:block w-px h-16 bg-gradient-to-b from-transparent via-white/20 to-transparent" />
           <div className="text-center group">
-            <div className="text-4xl lg:text-5xl font-extrabold tracking-tight inline-block animate-float-slow text-shimmer-gold">5★</div>
-            <div className="text-sm lg:text-base font-medium text-gray-400 mt-2 transition-colors group-hover:text-yellow-400">Rating Klien</div>
+            <div className="text-4xl lg:text-5xl font-extrabold tracking-tight inline-block text-shimmer-gold">5★</div>
+            <div className="text-sm lg:text-base font-medium text-[#8B9BB4] mt-2 transition-colors group-hover:text-yellow-400">Rating Klien</div>
           </div>
         </div>
       </div>
