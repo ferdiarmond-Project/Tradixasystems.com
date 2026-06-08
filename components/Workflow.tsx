@@ -65,11 +65,11 @@ export default function Workflow() {
           <div className="relative">
             <div className="absolute inset-0 bg-blue-500/5 rounded-3xl blur-2xl" />
             <Image
-              src="/Free_MacBook_Pro_PHAL_8.png"
+              src="/dashboard-retail.jpg"
               alt="System Workflow Preview"
               width={700}
-              height={440}
-              className="relative w-full drop-shadow-2xl"
+              height={700}
+              className="relative w-full drop-shadow-2xl object-contain"
             />
           </div>
 
