@@ -58,6 +58,17 @@ export default function Process() {
               className="heading-aurora text-3xl lg:text-4xl font-extrabold tracking-tight text-white leading-[1.1]"
               text={"Skema\nKerjasama"}
             />
+            <div className="mt-8 relative max-w-md w-full animate-fade-up">
+              <div className="absolute inset-0 bg-blue-500/5 rounded-3xl blur-2xl" />
+              <Image
+                src="/shake-hand.jpg"
+                alt="Skema Kerjasama"
+                width={500}
+                height={350}
+                className="relative rounded-2xl drop-shadow-2xl object-cover border border-white/10 w-full h-auto max-h-[280px]"
+                loading="lazy"
+              />
+            </div>
           </div>
 
           {/* RIGHT - Description + scheme items */}
