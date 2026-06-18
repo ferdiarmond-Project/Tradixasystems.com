@@ -310,10 +310,7 @@ export default function Navbar() {
                 onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
                 className="flex items-center justify-between text-xl font-medium text-white hover:text-yellow-400 transition-colors w-full text-left"
               >
-                <div className="flex items-center gap-3">
-                  <Layers size={22} className="text-yellow-400" />
-                  <span>Services</span>
-                </div>
+                <span>Services</span>
                 <ChevronDown size={20} className={`transition-transform duration-200 ${mobileServicesOpen ? "rotate-180" : ""}`} />
               </button>
               {mobileServicesOpen && (
@@ -337,10 +334,7 @@ export default function Navbar() {
                 onClick={() => setMobileSolutionsOpen(!mobileSolutionsOpen)}
                 className="flex items-center justify-between text-xl font-medium text-white hover:text-yellow-400 transition-colors w-full text-left"
               >
-                <div className="flex items-center gap-3">
-                  <Database size={22} className="text-yellow-400" />
-                  <span>Ready Solutions</span>
-                </div>
+                <span>Ready Solutions</span>
                 <ChevronDown size={20} className={`transition-transform duration-200 ${mobileSolutionsOpen ? "rotate-180" : ""}`} />
               </button>
               {mobileSolutionsOpen && (
