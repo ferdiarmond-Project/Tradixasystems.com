@@ -18,46 +18,45 @@ export default function TypingHeading({
   type?: "char" | "word";
   delay?: number;
 }) {
-  const [displayCount, setDisplayCount] = useState(0);
-  const [isTypingComplete, setIsTypingComplete] = useState(false);
-  const [isMobileState, setIsMobileState] = useState(false);
-  const [isMounted, setIsMounted] = useState(false);
+  const totalItems = type === "char" ? text.length : text.split(" ").length;
+  
+  // Start with ALL text visible (SSR-safe: no invisible flash)
+  const [displayCount, setDisplayCount] = useState(totalItems);
+  const [isTypingComplete, setIsTypingComplete] = useState(true);
+  const [isDesktop, setIsDesktop] = useState(false);
   
   const ref = useRef<HTMLElement>(null);
   const hasStarted = useRef(false);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
-    setIsMounted(true);
-    // Detect mobile after mounting
-    const mobileValue = typeof window !== 'undefined' && window.innerWidth < 768;
-    setIsMobileState(mobileValue);
+    const desktop = typeof window !== 'undefined' && window.innerWidth >= 768;
+    setIsDesktop(desktop);
+
+    // Only run typing animation on desktop
+    if (!desktop) return;
+
+    // Reset to 0 to start typing animation on desktop
+    setDisplayCount(0);
+    setIsTypingComplete(false);
 
     const observer = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting && !hasStarted.current) {
         hasStarted.current = true;
-        const items = type === "char" ? text.length : text.split(" ").length;
+        const items = totalItems;
 
-        if (mobileValue) {
-          // Mobile: Instant appearance
-          setDisplayCount(items);
-          setIsTypingComplete(true);
-        } else {
-          // Desktop: Typing animation
-          let count = 0;
-          const timer = setTimeout(() => {
-            intervalRef.current = setInterval(() => {
-              count += 2;
-              if (count >= items) {
-                count = items;
-                if (intervalRef.current) clearInterval(intervalRef.current);
-                setIsTypingComplete(true);
-              }
-              setDisplayCount(count);
-            }, 40);
-          }, delay);
-        }
-        
+        let count = 0;
+        const timer = setTimeout(() => {
+          intervalRef.current = setInterval(() => {
+            count += 2;
+            if (count >= items) {
+              count = items;
+              if (intervalRef.current) clearInterval(intervalRef.current);
+              setIsTypingComplete(true);
+            }
+            setDisplayCount(count);
+          }, 40);
+        }, delay);
         observer.disconnect();
       }
     }, { threshold: 0.1, rootMargin: '100px 0px' });
@@ -68,7 +67,7 @@ export default function TypingHeading({
       observer.disconnect();
       if (intervalRef.current) clearInterval(intervalRef.current);
     };
-  }, [text, type, delay]);
+  }, [text, type, delay, totalItems]);
 
   const chars = text.split("");
   const highlightIndices = new Set<number>();
@@ -85,13 +84,10 @@ export default function TypingHeading({
     });
   }
 
-  // During hydration/first render, we must match server (isMobileState is false)
-  const isMobile = isMounted ? isMobileState : false;
-
   return (
     <Tag 
       ref={ref} 
-      className={`${className} whitespace-pre-line transition-all duration-700 ease-out ${isMobile ? (isTypingComplete ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2') : 'opacity-100 translate-y-0'}`} 
+      className={`${className} whitespace-pre-line`} 
       style={style}
     >
       {chars.map((char, index) => {
@@ -103,16 +99,20 @@ export default function TypingHeading({
           <span
             key={index}
             className={`${highlightIndices.has(index) ? 'text-yellow-400 font-extrabold' : ''}`}
-            style={{ 
-              opacity: isVisible ? 1 : 0,
-              visibility: isVisible ? 'visible' : 'hidden' 
-            }}
+            style={
+              isDesktop
+                ? { 
+                    opacity: isVisible ? 1 : 0,
+                    visibility: isVisible ? 'visible' as const : 'hidden' as const
+                  }
+                : undefined  // No inline styles on mobile — always visible
+            }
           >
             {char}
           </span>
         );
       })}
-      {isMounted && !isTypingComplete && !isMobile && (
+      {isDesktop && !isTypingComplete && (
         <span className="text-yellow-400 animate-pulse ml-0.5">|</span>
       )}
     </Tag>

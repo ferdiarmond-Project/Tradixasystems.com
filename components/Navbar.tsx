@@ -107,10 +107,10 @@ export default function Navbar() {
           ? "bottom-0 h-full bg-gradient-to-b from-[#071A2E] to-[#051424] overflow-y-auto border-b border-white/5" 
           : pathname === "/ready-solutions/erp-mining" || pathname === "/ready-solutions/retail-management"
             ? scrolled
-              ? "h-24 bg-[#071A2E]/90 lg:backdrop-blur-md shadow-lg shadow-black/40 bg-gradient-to-r from-[#071A2E] via-[#0B2A4A]/90 to-[#071A2E] border-b border-white/5"
+              ? "h-24 bg-[#071A2E] lg:bg-[#071A2E]/90 lg:backdrop-blur-md shadow-lg shadow-black/40 bg-gradient-to-r lg:from-[#071A2E] lg:via-[#0B2A4A]/90 lg:to-[#071A2E] border-b border-white/5"
               : "h-24 bg-transparent border-b border-transparent"
             : scrolled
-              ? "h-24 bg-[#071A2E]/90 lg:backdrop-blur-md shadow-lg shadow-black/40 bg-gradient-to-r from-[#071A2E] via-[#0B2A4A]/90 to-[#071A2E] border-b border-white/5"
+              ? "h-24 bg-[#071A2E] lg:bg-[#071A2E]/90 lg:backdrop-blur-md shadow-lg shadow-black/40 bg-gradient-to-r lg:from-[#071A2E] lg:via-[#0B2A4A]/90 lg:to-[#071A2E] border-b border-white/5"
               : "h-24 bg-gradient-to-r from-[#071A2E] via-[#0B2A4A] to-[#071A2E] border-b border-white/5"
       }`}
     >
@@ -120,8 +120,8 @@ export default function Navbar() {
           <Image
             src="/Logo Tradixa only.png"
             alt="Tradixa"
-            width={150}
-            height={46}
+            width={120}
+            height={37}
             className="h-12 w-auto object-contain"
             priority
           />

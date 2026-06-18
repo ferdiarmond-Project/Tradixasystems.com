@@ -6,6 +6,7 @@ const inter = Inter({
   subsets: ["latin"],
   variable: '--font-inter',
   display: 'swap',
+  fallback: ['system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'sans-serif'],
 });
 
 export const metadata: Metadata = {
@@ -42,10 +43,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="id" className="overflow-x-hidden">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+      </head>
       <body suppressHydrationWarning className={`${inter.variable} font-sans bg-[#071A2E] text-white antialiased overflow-x-hidden relative w-full`}>
         <Navbar />
         <GlobalBackButton />
-        <main className="opacity-0 animate-[fade-in_1s_ease-out_forwards]">
+        <main>
           {children}
         </main>
         <Footer />

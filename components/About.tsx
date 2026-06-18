@@ -7,7 +7,7 @@ export default function About() {
       {/* Background Image Container with optimized static image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/image-flow.jpg"
+          src="/image-flow.webp"
           alt="About Us Background"
           fill
           priority

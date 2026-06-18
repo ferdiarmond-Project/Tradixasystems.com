@@ -95,7 +95,7 @@ export default function RetailManagement() {
         {/* Background Image Container */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/retail-bg.jpg"
+            src="/retail-bg.webp"
             alt="Retail Management Background"
             fill
             priority

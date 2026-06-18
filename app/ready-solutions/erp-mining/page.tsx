@@ -101,7 +101,7 @@ export default function ERPMining() {
         {/* Background Image Container */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/mining-bg.jpg"
+            src="/mining-bg.webp"
             alt="ERP Mining Operations Background"
             fill
             priority

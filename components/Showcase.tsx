@@ -58,7 +58,7 @@ export default function Showcase() {
           <div className="flex justify-start lg:justify-center items-center h-full min-w-[760px] md:min-w-0">
             <div className="relative z-30 w-full max-w-[1200px] lg:scale-100 xl:scale-105 lg:-translate-x-12 xl:-translate-x-16 mx-auto">
               <Image
-                src="/mockup_iphone_ipad_mac_PHAL.png"
+                src="/mockup_iphone_ipad_mac_PHAL.webp"
                 alt="Tradixa Complete System Mockup"
                 width={900}
                 height={600}

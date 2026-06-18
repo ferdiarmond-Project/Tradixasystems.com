@@ -214,10 +214,9 @@
 
 /* Optimize rendering for long sections on mobile */
 .optimize-render {
-  content-visibility: auto;
-  contain-intrinsic-size: 0 500px;
-  /* Hardware acceleration for content only, won't break fixed navbar */
+  /* Hardware acceleration without content-visibility delay */
   transform: translateZ(0);
+  will-change: auto;
 }
 
 .yellow-glow {
@@ -367,4 +366,45 @@
 .section-divider {
   height: 1px;
   background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08) 50%, transparent);
+}
+
+/* ===== MOBILE PERFORMANCE OVERRIDES ===== */
+@media (max-width: 1023px) {
+  /* Disable heavy floating/glow animations on mobile */
+  .animate-float-slow,
+  .animate-float-medium,
+  .animate-float-reverse,
+  .animate-pulse-glow {
+    animation: none !important;
+  }
+
+  /* Optimize shimmer-gold text: keep gold color, use lighter animation */
+  .text-shimmer-gold {
+    animation-duration: 3s !important;
+  }
+
+  /* Lighten heading aurora glow on mobile */
+  .heading-aurora::before {
+    animation: none !important;
+    opacity: 0.2;
+    filter: blur(25px);
+  }
+
+  /* Optimize shimmer-sweep: slower cycle, less GPU pressure */
+  [style*="shimmer-sweep"],
+  .animate-\[shimmer-sweep_3s_infinite_linear\],
+  .animate-\[shimmer-sweep_3\.5s_infinite_linear\],
+  .animate-\[shimmer-sweep_2\.5s_infinite\],
+  .animate-\[shimmer-sweep_1\.5s_infinite\] {
+    animation-duration: 5s !important;
+    will-change: transform;
+  }
+
+  /* Reduce glass-card hover transform overhead */
+  .glass-card {
+    transition: background 0.3s, border-color 0.3s;
+  }
+  .glass-card:hover {
+    transform: none;
+  }
 }

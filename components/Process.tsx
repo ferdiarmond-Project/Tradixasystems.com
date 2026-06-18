@@ -61,7 +61,7 @@ export default function Process() {
             <div className="mt-8 relative max-w-md w-full animate-fade-up">
               <div className="absolute inset-0 bg-blue-500/5 rounded-3xl blur-2xl" />
               <Image
-                src="/shake-hand.jpg"
+                src="/shake-hand.webp"
                 alt="Skema Kerjasama"
                 width={500}
                 height={350}

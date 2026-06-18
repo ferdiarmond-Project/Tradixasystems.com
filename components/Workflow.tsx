@@ -65,7 +65,7 @@ export default function Workflow() {
           <div className="relative">
             <div className="absolute inset-0 bg-blue-500/5 rounded-3xl blur-2xl" />
             <Image
-              src="/dashboard-retail.jpg"
+              src="/dashboard-retail.webp"
               alt="System Workflow Preview"
               width={700}
               height={700}

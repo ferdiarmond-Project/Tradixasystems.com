@@ -65,11 +65,11 @@ export default function Hero() {
                 </svg>
               </div>
               <Image
-                src="/Free_MacBook_Pro_1_PHAL.png"
+                src="/Free_MacBook_Pro_1_PHAL.webp"
                 alt="Tradixa Dashboard Preview"
                 width={950}
                 height={594}
-                quality={85}
+                quality={75}
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 60vw, 800px"
                 className="relative w-full drop-shadow-2xl scale-105 sm:scale-[1.1] lg:scale-[1.28] xl:scale-[1.38] origin-center lg:origin-right lg:translate-x-16 xl:translate-x-24 transition-transform duration-500"
                 priority
