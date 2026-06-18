@@ -298,57 +298,83 @@ export default function Navbar() {
       </div>
       {/* Mobile Menu Content (Expands inside the Nav) */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden flex flex-col px-6 pb-12 will-change-transform transition-opacity duration-300">
+        <div className="lg:hidden flex flex-col px-6 pb-12 will-change-transform transition-opacity duration-300 select-none touch-manipulation">
           <div className="flex flex-col gap-6 pt-4">
-            <Link href="/about" className="text-xl font-medium text-white hover:text-yellow-400 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
+            <Link 
+              href="/about" 
+              className="text-xl font-medium text-white hover:text-yellow-400 active:scale-[0.98] active:text-yellow-300 transition-all duration-150 select-none touch-manipulation" 
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
               About Us
             </Link>
 
             {/* Mobile Services Accordion */}
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col">
               <button 
                 onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-                className="flex items-center justify-between text-xl font-medium text-white hover:text-yellow-400 transition-colors w-full text-left"
+                className="flex items-center justify-between text-xl font-medium text-white hover:text-yellow-400 active:scale-[0.98] active:text-yellow-300 transition-all duration-150 w-full text-left select-none touch-manipulation py-1"
               >
                 <span>Services</span>
-                <ChevronDown size={20} className={`transition-transform duration-200 ${mobileServicesOpen ? "rotate-180" : ""}`} />
+                <ChevronDown size={20} className={`transition-transform duration-300 ${mobileServicesOpen ? "rotate-180" : ""}`} />
               </button>
-              {mobileServicesOpen && (
-                <div className="pl-4 border-l-2 border-white/10 flex flex-col gap-4 py-1">
-                  {servicesItems.map((item) => (
-                    <Link key={item.label} href={item.href} className="text-lg text-white/70 hover:text-yellow-400 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
-                      {item.label}
-                    </Link>
-                  ))}
-                </div>
-              )}
+              <div 
+                className={`pl-4 border-l-2 border-white/10 flex flex-col gap-4 overflow-hidden transition-all duration-300 ease-in-out ${
+                  mobileServicesOpen ? "max-h-96 opacity-100 mt-4 py-1" : "max-h-0 opacity-0 pointer-events-none"
+                }`}
+              >
+                {servicesItems.map((item) => (
+                  <Link 
+                    key={item.label} 
+                    href={item.href} 
+                    className="text-lg text-white/70 hover:text-yellow-400 active:text-yellow-300 transition-colors duration-150 select-none touch-manipulation" 
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
             </div>
 
-            <Link href="/solutions" className="text-xl font-medium text-white hover:text-yellow-400 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
+            <Link 
+              href="/solutions" 
+              className="text-xl font-medium text-white hover:text-yellow-400 active:scale-[0.98] active:text-yellow-300 transition-all duration-150 select-none touch-manipulation" 
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
               Solutions
             </Link>
 
             {/* Mobile Ready Solutions Accordion */}
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col">
               <button 
                 onClick={() => setMobileSolutionsOpen(!mobileSolutionsOpen)}
-                className="flex items-center justify-between text-xl font-medium text-white hover:text-yellow-400 transition-colors w-full text-left"
+                className="flex items-center justify-between text-xl font-medium text-white hover:text-yellow-400 active:scale-[0.98] active:text-yellow-300 transition-all duration-150 w-full text-left select-none touch-manipulation py-1"
               >
                 <span>Ready Solutions</span>
-                <ChevronDown size={20} className={`transition-transform duration-200 ${mobileSolutionsOpen ? "rotate-180" : ""}`} />
+                <ChevronDown size={20} className={`transition-transform duration-300 ${mobileSolutionsOpen ? "rotate-180" : ""}`} />
               </button>
-              {mobileSolutionsOpen && (
-                <div className="pl-4 border-l-2 border-white/10 flex flex-col gap-4 py-1">
-                  {readySolutionsItems.map((item) => (
-                    <Link key={item.label} href={item.href} className="text-lg text-white/70 hover:text-yellow-400 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
-                      {item.label}
-                    </Link>
-                  ))}
-                </div>
-              )}
+              <div 
+                className={`pl-4 border-l-2 border-white/10 flex flex-col gap-4 overflow-hidden transition-all duration-300 ease-in-out ${
+                  mobileSolutionsOpen ? "max-h-96 opacity-100 mt-4 py-1" : "max-h-0 opacity-0 pointer-events-none"
+                }`}
+              >
+                {readySolutionsItems.map((item) => (
+                  <Link 
+                    key={item.label} 
+                    href={item.href} 
+                    className="text-lg text-white/70 hover:text-yellow-400 active:text-yellow-300 transition-colors duration-150 select-none touch-manipulation" 
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
             </div>
 
-            <Link href="/case-studies" className="text-xl font-medium text-white hover:text-yellow-400 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
+            <Link 
+              href="/case-studies" 
+              className="text-xl font-medium text-white hover:text-yellow-400 active:scale-[0.98] active:text-yellow-300 transition-all duration-150 select-none touch-manipulation" 
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
               Case Studies
             </Link>
           </div>
@@ -369,15 +395,26 @@ export default function Navbar() {
                     <p className="text-xs text-gray-400">{user.email}</p>
                   </div>
                 </div>
-                <Link href="/profile" className="w-full text-center bg-white/5 text-white py-4 rounded-xl border border-white/10" onClick={() => setIsMobileMenuOpen(false)}>
+                <Link 
+                  href="/profile" 
+                  className="w-full text-center bg-white/5 hover:bg-white/10 active:scale-[0.97] text-white py-4 rounded-xl border border-white/10 transition-all duration-150 select-none touch-manipulation" 
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
                   Profil Saya
                 </Link>
-                <button onClick={handleLogout} className="w-full text-center bg-red-500/10 text-red-400 py-4 rounded-xl border border-red-500/20">
+                <button 
+                  onClick={handleLogout} 
+                  className="w-full text-center bg-red-500/10 hover:bg-red-500/20 active:scale-[0.97] text-red-400 py-4 rounded-xl border border-red-500/20 transition-all duration-150 select-none touch-manipulation"
+                >
                   Keluar
                 </button>
               </div>
             ) : (
-              <Link href="/consultation" className="relative overflow-hidden group w-full text-center bg-yellow-400 hover:bg-yellow-300 text-black text-lg font-bold px-5 py-4 rounded-xl transition-all duration-200 block shadow-xl shadow-yellow-400/20" onClick={() => setIsMobileMenuOpen(false)}>
+              <Link 
+                href="/consultation" 
+                className="relative overflow-hidden group w-full text-center bg-yellow-400 hover:bg-yellow-300 active:scale-[0.97] text-black text-lg font-bold px-5 py-4 rounded-xl transition-all duration-150 block shadow-xl shadow-yellow-400/20 select-none touch-manipulation" 
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
                 <span className="absolute inset-0 w-[150%] h-full bg-gradient-to-r from-transparent via-white/50 to-transparent -translate-x-[150%] skew-x-[-20deg] animate-[shimmer-sweep_2.5s_infinite]" />
                 <span className="relative z-10">Free Consultation</span>
               </Link>
